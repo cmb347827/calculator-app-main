@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel='stylesheet' href='calculator-app-main.css' type='text/css'>
+  <title>Frontend Mentor | Calculator app</title>
+
+  
+</head>
+<body>
+
+      <main class="calculator-container">
+          <form action="#" method="post">
+            <table class="gray-border display-grid place-self-center">
+                  <caption class="sr-only">
+                     Calculator App
+                  </caption>
+                  <thead class="justify-content-stretch">
+                      <tr class="display-flex justify-content-between">
+                          <th  scope="row">Calc</th>
+
+                          <td class='gray-border display-flex align-items-center ' >
+                              <p class="uppercase">theme</p>
+                              <div class="display-flex flex-column">
+                                <label for="theme-1">1</label>
+                                <input type="radio" id="theme-1" name="theme">
+                              </div>
+                              <div class="display-flex flex-column">
+                                <label for="theme-2">2</label>
+                                <input type="radio" id="theme-2" name="theme">
+                              </div>
+                              <div class="display-flex flex-column">
+                                <label for="theme-3">3</label>
+                                <input type="radio" id="theme-3" name="theme">
+                              </div>  
+                          </td>
+                      </tr>
+                  </thead>
+                  <tbody class="display-grid">
+                      <tr class="display-grid">
+                          <td class="justify-content-stretch gray-border"><output>0</output></td>
+                      </tr>
+                      <tr class="grid-template-rows-4 justify-items-center">
+                          <td class="display-flex">
+                              <span >7</span>
+                              <span >8</span>
+                              <span>9</span>
+                              <span class="uppercase">del</span>
+                          </td>
+                          <td class="display-flex">
+                              <span>4</span>
+                              <span>5</span>
+                              <span>6</span>
+                              <span>+</span>
+                          </td>
+                          <td class="display-flex">
+                              <span>1</span>
+                              <span>2</span>
+                              <span>3</span>
+                              <span>-</span>
+                          </td>
+                          <td class="display-flex">
+                              <span>.</span>
+                              <span>0</span>
+                              <span>/</span>
+                              <span>x</span>
+                          </td>
+                      </tr>
+                      
+                      <tr class="display-flex justify-content-center">
+                         <td class="uppercase">reset</td>
+                         <td>=</td>
+                      </tr>
+                  </tbody>
+                  <tfoot>
+                      <tr>
+                        
+                      </tr>
+                  </tfoot>
+                </table>
+                
+          </form>
+      </main>
+      <footer class="attribution display-grid place-self-center">
+        <span class='margin-right-2'>Challenge by</span><address><a class='me-2' href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a></address>
+        <span class='margin-right-2'>Coded by</span><address><a href="https://www.frontendmentor.io/profile/cmb347827">CMB</a></address>
+      </footer>
+  <script src='calculator-app-main.js'></script>
+</body>
+</html>
