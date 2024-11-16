@@ -25,6 +25,9 @@ html {
 .gray-border {
   border: 2px solid gray; }
 
+#foot {
+  width: 30em; }
+
 /*flexbox*/
 .display-flex {
   display: flex; }
@@ -49,7 +52,7 @@ html {
   display: grid; }
 
 .grid-template-rows-4 {
-  grid-template-rows: repeat(4, 2em); }
+  grid-template-rows: repeat(4, 3em); }
 
 .justify-items-center {
   justify-items: center; }
@@ -57,6 +60,11 @@ html {
 .place-self-center {
   place-self: center; }
 
+.justify-self-center {
+  justify-self: center; }
+
+.calculator-container form {
+  height: 100vh; }
 .calculator-container table {
   width: 30em; }
 .calculator-container .uppercase {
