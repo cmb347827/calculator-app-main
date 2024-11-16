@@ -60,6 +60,9 @@ html{
 .gray-border{ 
    border: 2px solid gray;
 }
+.padding2em{
+   @include padding(2em);
+}
 #foot{
    width: 30em;
 }
@@ -79,6 +82,9 @@ html{
 }
 .justify-content-center{
    justify-content: center;
+}
+.justify-content-space-around{
+   justify-content: space-around;
 }
 
 /*grid*/
@@ -108,8 +114,15 @@ html{
         table{
           width: 30em;
         }
-  
-        
+        span{
+           @extend .padding2em;
+           @extend .gray-border;
+           width: 6em;
+           text-align:center;
+        }
+        .double-width{
+            width: 12em;
+        }
         .uppercase{
            text-transform: uppercase;
         }

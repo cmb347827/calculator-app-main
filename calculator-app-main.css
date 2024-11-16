@@ -22,8 +22,11 @@ html {
   white-space: nowrap !important;
   /* 3 */ }
 
-.gray-border {
+.gray-border, .calculator-container span {
   border: 2px solid gray; }
+
+.padding2em, .calculator-container span {
+  padding: 2em; }
 
 #foot {
   width: 30em; }
@@ -43,6 +46,9 @@ html {
 
 .justify-content-center {
   justify-content: center; }
+
+.justify-content-space-around {
+  justify-content: space-around; }
 
 /*grid*/
 .justify-content-stretch {
@@ -67,6 +73,11 @@ html {
   height: 100vh; }
 .calculator-container table {
   width: 30em; }
+.calculator-container span {
+  width: 6em;
+  text-align: center; }
+.calculator-container .double-width {
+  width: 12em; }
 .calculator-container .uppercase {
   text-transform: uppercase; }
 
