@@ -1,28 +1,61 @@
 'use strict'; 
 
 let numOperandsArr=[];
+//from calculator.net , my observation.
+
+//IF FIRST AN OPERAND IS ENTERED:
+// only one minus is allowed, so only -8 , not --8
+//if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 + , 0 x, 0 / 
+//if a minus is first entered, apply after whichever number first is entered: -0 , -4 etc
+
+//WITH NUMBER FIRST, and multiple operands:
+//a number then + - and another number
+//a number then -- and then another number.
+
+
 
 
 const checkOperands=()=>{
-    console.log('1st ',numOperandsArr);
-    let firstOp = false;
-    const tempArr= numOperandsArr.slice(numOperandsArr.length-2);
+    //This function is to check if operands are correct as at most only -- , and +-  allowed, if multiple operands follow each other. 
+    //get the last value entered, check to see if it's an operand.
+    const lastChar= numOperandsArr.slice(numOperandsArr.length-1,1);
     //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the operands array)
     const allOperands=['2b','2212','2215','2716'];
-    tempArr.forEach((numOrOperand)=>{
+    if(allOperands.includes(lastChar)){
+        //lastChar is an operand
+        switch(lastChar){
+            case '2b':
+                //lastChar is +
+
+                break;
+            case '2212':
+                //lastChar is -
+
+                break;
+            case '2215':
+                //lastChar is divide
+                break;
+            case '2716':
+                //lastChar is multiply
+
+                break;
+        }
+    }
+
+    /*tempArr.forEach((numOrOperand)=>{
         //convert calculator operand to it's hexadecimal value (to ensure if it's different = + etc all are passable)
         const hex =numOrOperand.charCodeAt(0).toString(16);
-        if(firstOp){
-            //tempArr contains two operands one after the other.
-            //Remove the pre-last operand from numOperandsArr, so only the last operand added is applied.
-            numOperandsArr.splice(numOperandsArr.length-2,1);
-            console.log('2de', numOperandsArr);
-        }
+        //check to see if operands have been added
         if(allOperands.includes(hex)){
-            //one is an operand set firstOp to true
-             firstOp=true;
+            //an operand has been added , check to see if it's either
+            if(countOps >=2){
+                //tempArr contains three operands one after the other.
+                //Remove the last operand from numOperandsArr, so only the first two operands added are applied: example +- is -  etc
+                numOperandsArr.splice(numOperandsArr.length-1,1);
+                console.log('2de', numOperandsArr);
+            }
         }
-    });
+    });*/
 };
 
 const calcAnswer=()=>{
