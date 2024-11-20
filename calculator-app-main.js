@@ -1,31 +1,70 @@
 'use strict'; 
 
 let numOperandsArr=[];
+//use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
+const allOperands=['2b','2212','2215','2716'];
 
-//WITH NUMBER FIRST, and multiple operands:
-//a number then + - and another number
-//a number then -- and then another number.
 
-const firstOperand=(lastChar)=>{
+const testOperands=(operand)=>{
+    const hex =operand.charCodeAt(0).toString(16);
+    return allOperands.includes(hex);
+};
+const testPreviousChar=()=>{
+    //WITH NUMBER FIRST, and multiple operands:
+    //a number then + - and another number
+    //a number then -- and then another number.
+    //the number or operand entered is not the first , check the last two numOperandsArr values.
+    const charArr = numOperandsArr.slice(numOperandsArr.length-2);
+    const bothOperands= charArr.every(testOperands);
+    if(bothOperands){
+        const firstOperand = numOperandsArr.slice(numOperandsArr.length-2,1);
+        switch(firstOperand){
+            case '2b':
+                //first operand is +, for the second operand only a - is allowed
+                
+                break;
+            case '2212':
+                //first operand is - , for the second operand only a - is allowed
+    
+                break;
+            case '2215':
+                //first operand is divide
+            case '2716':
+                //first operand is multiply
+                //first operand is either a / or x , remove second operand.
+                break;
+        }
+    }
+    
+           
+           
+        
+    
+}
+//
+//if number first: 
+//if operand first: zie onder
+
+const firstIsOperand=(firstChar)=>{
     //from calculator.net , my observations.
    //IF FIRST AN OPERAND IS ENTERED:
    // only one minus is allowed, so only -8 , not --8
    //if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 + , 0 x, 0 / 
    //if a minus is first entered, apply after whichever number first is entered: -0 , -4 etc
-   switch(lastChar){
+   switch(firstChar){
         case '2b':
-            //lastChar is +
-
+            //firstChar is +
+            //disable x, +, and /
             break;
         case '2212':
-            //lastChar is -
+            //firstChar is -
 
             break;
         case '2215':
-            //lastChar is divide
+            //firstChar is divide
             break;
         case '2716':
-            //lastChar is multiply
+            //firstChar is multiply
 
             break;
     }
@@ -35,54 +74,18 @@ const firstOperand=(lastChar)=>{
 const checkEntered=()=>{
     //This function is to check if operands are correct as at most only -- , and +-  allowed, if multiple operands follow each other.
     // or it checks to see if first a number is entered. 
-    //get the last value entered, check to see if it's an operand.
-    const lastChar= numOperandsArr.slice(numOperandsArr.length-1,1);
-    //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
-    const allOperands=['2b','2212','2215','2716'];
+    
+    
 
-    //convert calculator operand to it's hexadecimal value (to ensure if it's different = + etc all are passable)
-    /*const hex =lastChar.charCodeAt(0).toString(16);
-    if(allOperands.includes(hex)){
-        //lastChar is an operand
-        //if numOperandsArr.length ===1 , then lastChar is the first operand entered.
-        if(numOperandsArr.lenght===1){
-            firstOperand(lastChar);
-        }else if(numOperandsArr.length>1){
-            //the operand entered is not the first , check to see if previous value in numOperandsArr is also an operand.
-            const charArr = numOperandsArr.slice(numOperandsArr.length-2);
-            charArr.forEach((numOrOperand)=>{
-                 //convert calculator operand to it's hexadecimal value (to ensure if it's different = + etc all are passable)
-                 const hex =numOrOperand.charCodeAt(0).toString(16);
-                 //check to see if operands have been added
-                if(allOperands.includes(hex)){
-                   //an operand has been added , check to see if it's either
-                   if(countOps >=2){
-                      //tempArr contains three operands one after the other.
-                      //Remove the last operand from numOperandsArr, so only the first two operands added are applied: example +- is -  etc
-                      numOperandsArr.splice(numOperandsArr.length-1,1);
-                      console.log('2de', numOperandsArr);
-                    }
-                }
-            });
-        }
-    }*/
-   if(numOperandsArr.length>1){
-        const containsOperand=false;
-        //the number or operand entered is not the first , check the last two numOperandsArr values.
-        const charArr = numOperandsArr.slice(numOperandsArr.length-2);
-        charArr.forEach((numOrOperand)=>{
-            //convert calculator operand to it's hexadecimal value (to ensure if it's different = + etc all are passable)
-            const hex =numOrOperand.charCodeAt(0).toString(16);
-            //check to see if operands have been added
-            if(allOperands.includes(hex)){
-              //an operand has been added , will need to check the next value in charArr
-               containsOperand=true;
-            }
-        });
-   }else if(numOperandsArr.length===1){
-
-   }
-
+    if(numOperandsArr.length>1){
+        testPreviousChar();
+    }else if(numOperandsArr.length===1){
+         //get the last value entered
+         const firstChar= numOperandsArr.slice(numOperandsArr.length-1,1);
+         firstIsOperand(firstChar);
+         
+    }
+ 
     
 };
 
