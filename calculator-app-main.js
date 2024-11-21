@@ -4,12 +4,17 @@ let numOperandsArr=[];
 //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2212','2215','2716'];
 let oneMinus= true;
+const output = document.querySelector('#output');
 
 
 const testOperands=(operand)=>{
-    const hex =operand.charCodeAt(0).toString(16);
+    const hex =convertHexOperand(operand);
     return allOperands.includes(hex);
 };
+const convertHexOperand=(operand)=>{
+   return operand.charCodeAt(0).toString(16);
+};
+
 const testPreviousChar=()=>{
     //WITH a NUMBER FIRST, and multiple operands:
     // +- or -- are allowed in multiple operands
@@ -34,33 +39,37 @@ const testPreviousChar=()=>{
                 numOperandsArr = numOperandsArr.splice(numOperandsArr.length-1,1);
                 break;
         }
+    }else{
+
     }
 }
 
 
-const firstIsOperand=(firstChar)=>{
+const firstIsOperand=()=>{
     //from calculator.net , my observations.
    //IF FIRST AN OPERAND IS ENTERED:
-   //if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 + , 0 x, 0 / 
-   //if a minus is first entered, apply after whichever number first is entered: -0 , -4 etc, can't be --4 
+   const firstCharArr= numOperandsArr.slice(numOperandsArr.length-1,1);
+   const firstChar = convertHexOperand(firstCharArr[0]);
+
    switch(firstChar){
         case '2b':
-            //firstChar is +
+            //firstChar is + ,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 +  
             //return 0+
-
+            console.log('in 2b');
+            output.textContent = '0 +';
             break;
         case '2212':
-            //firstChar is -
-           //do nothing , stays just - 
+            //firstChar is -,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 -
+            //do nothing , stays just - , apply after whichever number first is entered: -0 , -4 etc, can't be --4 
             oneMinus=false;
             break;
         case '2215':
-            //firstChar is divide
+            //firstChar is /,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 /
             //return 0/
 
             break;
         case '2716':
-            //firstChar is multiply
+            //firstChar is x,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 x 
             //return 0 x 
 
             break;
@@ -71,15 +80,11 @@ const firstIsOperand=(firstChar)=>{
 const checkEntered=()=>{
     //This function is to check if operands are correct as at most only -- , and +-  allowed, if multiple operands follow each other.
     // or it checks to see if first a number is entered. 
-    
-    
 
     if(numOperandsArr.length>1){
         testPreviousChar();
     }else if(numOperandsArr.length===1){
-         //get the last value entered
-         const firstChar= numOperandsArr.slice(numOperandsArr.length-1,1);
-         firstIsOperand(firstChar);
+         firstIsOperand();
          
     }
  
