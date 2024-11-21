@@ -3,6 +3,7 @@
 let numOperandsArr=[];
 //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2212','2215','2716'];
+let oneMinus= true;
 
 
 const testOperands=(operand)=>{
@@ -10,61 +11,57 @@ const testOperands=(operand)=>{
     return allOperands.includes(hex);
 };
 const testPreviousChar=()=>{
-    //WITH NUMBER FIRST, and multiple operands:
-    //a number then + - and another number
-    //a number then -- and then another number.
-    //the number or operand entered is not the first , check the last two numOperandsArr values.
+    //WITH a NUMBER FIRST, and multiple operands:
+    // +- or -- are allowed in multiple operands
+    // x- and /- are allowed as well.
+    
+    //the number/operand entered is not the first,minimum 2 operators/operands have been added, check the last two numOperandsArr values.
     const charArr = numOperandsArr.slice(numOperandsArr.length-2);
     const bothOperands= charArr.every(testOperands);
     if(bothOperands){
-        const firstOperand = numOperandsArr.slice(numOperandsArr.length-2,1);
-        switch(firstOperand){
-            case '2b':
-                //first operand is +, for the second operand only a - is allowed
-                
-                break;
+        const secondOperand = numOperandsArr.slice(numOperandsArr.length-1,1);
+        switch(secondOperand){
             case '2212':
-                //first operand is - , for the second operand only a - is allowed
-    
+                //second operand is -,the first operand can be anything. Do nothing, but only do nothing if oneMinus= true;
+                //if oneMinus=false, it means the user is trying to enter two minuses before the first operator: -- number.
+                //if oneMinus=== false, splice the second minus.
+
                 break;
+            case '2b':
             case '2215':
-                //first operand is divide
             case '2716':
-                //first operand is multiply
-                //first operand is either a / or x , remove second operand.
+                //second operand is non-minus , so ignore the second operand(delete it)
+                numOperandsArr = numOperandsArr.splice(numOperandsArr.length-1,1);
                 break;
         }
     }
-    
-           
-           
-        
-    
 }
-//
-//if number first: 
-//if operand first: zie onder
+
 
 const firstIsOperand=(firstChar)=>{
     //from calculator.net , my observations.
    //IF FIRST AN OPERAND IS ENTERED:
-   // only one minus is allowed, so only -8 , not --8
    //if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 + , 0 x, 0 / 
-   //if a minus is first entered, apply after whichever number first is entered: -0 , -4 etc
+   //if a minus is first entered, apply after whichever number first is entered: -0 , -4 etc, can't be --4 
    switch(firstChar){
         case '2b':
             //firstChar is +
-            //disable x, +, and /
+            //return 0+
+
             break;
         case '2212':
             //firstChar is -
-
+           //do nothing , stays just - 
+            oneMinus=false;
             break;
         case '2215':
             //firstChar is divide
+            //return 0/
+
             break;
         case '2716':
             //firstChar is multiply
+            //return 0 x 
 
             break;
     }
