@@ -54,16 +54,14 @@ const checkMinus=()=>{
               break;
        }
     } else if(numOperandsArr.length===2){
-            //either for instance :  number- , -number
-            
-            
+            //either for instance :  number- , -number, -+, +- etc
             const charArr = numOperandsArr.slice(numOperandsArr.length-2);
             const bothOperands= charArr.every(testOperands);
         
             const lastChar = convertHexOperand(numOperandsArr[numOperandsArr.length-1]);
-            if(bothOperands){
+            if(bothOperands){ //-+, +- etc
                 //due to !isMinus , first operand is not a minus.
-                //if bothOperands, test second operand. if minus, leave operands as is , return 0 with operands
+                //bothOperands true, test second operand. if minus, leave operands as is , return 0 with operands
                 if(lastChar==='2212' && !isMinus){
                     // +- are allowed in multiple operands (with a default zero or entered number)
                     // x- and /- are allowed as well
@@ -71,21 +69,30 @@ const checkMinus=()=>{
                     output.textContent=numOperandsArr.join('');
                 }else{
                      //++ , -+ , etc not allowed , and -- not allowed if no number entered yet.
-                     //splice the second operand, so ++ is just +
+                     //splice the second operand, so ++ is just +, and -- is just -
                     numOperandsArr=numOperandsArr.splice(numOperandsArr.length-1,1);
                 }
             }
-            else {
+            else { //number- , -number
                 output.textContent=numOperandsArr.join('');
             }
             
 
     } else if(numOperandsArr.length ===3){
         isMinus=false;
-        //could be -33 , 3-3, 3-- etc
+        //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
+        //of these -33, 3-3,3--, 3+-,3/-,3*- always good. ignore these case, will be default
+        if(numOperandsArr[numOperandsArr.length-2]==='2212'){
+            //check for 3-+,3-/,3-* , then remove second operand
+            numOperandsArr=numOperandsArr.splice(numOperandsArr.length-2,1);
+        }else{
+            //default
+            output.textContent=numOperandsArr.join('');
+        }
+        
 
     } else if(numOperandsArr.length>3){
-
+        output.textContent=numOperandsArr.join('');
     }
 };
 
