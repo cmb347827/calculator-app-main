@@ -1,95 +1,95 @@
 'use strict'; 
 
-let numOperandsArr=[];
+let numOperandsArr=[]; 
+let isMinus=false;
 //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2212','2215','2716'];
-let oneMinus= true;
+const calculations=(a,b,operand)=>{
+    switch(operand){
+        case '+': 
+           return a+b;
+           break;
+        case '-':
+            return a-b;
+            break;
+        case 'x':
+            return a*b;
+            break;
+        case '/':
+            return a/b;
+            break;
+    }
+};
 const output = document.querySelector('#output');
 
 
 const testOperands=(operand)=>{
     const hex =convertHexOperand(operand);
-    return allOperands.includes(hex);
+    return allOperands.includes(hex);      //
 };
 const convertHexOperand=(operand)=>{
    return operand.charCodeAt(0).toString(16);
 };
 
-const testPreviousChar=()=>{
-    //WITH a NUMBER FIRST, and multiple operands:
-    // +- or -- are allowed in multiple operands
-    // x- and /- are allowed as well.
-    
-    //the number/operand entered is not the first,minimum 2 operators/operands have been added, check the last two numOperandsArr values.
-    const charArr = numOperandsArr.slice(numOperandsArr.length-2);
-    const bothOperands= charArr.every(testOperands);
-    if(bothOperands){
-        const secondOperand = numOperandsArr.slice(numOperandsArr.length-1,1);
-        switch(secondOperand){
-            case '2212':
-                //second operand is -,the first operand can be anything. Do nothing, but only do nothing if oneMinus= true;
-                //if oneMinus=false, it means the user is trying to enter two minuses before the first operator: -- number.
-                //if oneMinus=== false, splice the second minus.
+const checkMinus=()=>{
+    const lastChar = convertHexOperand(numOperandsArr[numOperandsArr.length-1]);
 
-                break;
+    if(numOperandsArr.length===1){
+       switch(lastChar){
+           //case if operand entered first. check if operand is minus
+           case '2212':
+              //if it is minus, set isMinus=true (so can't be --number as only entry)
+              isMinus=true;
+              output.textContent =numOperandsArr.join('');
+              break;
             case '2b':
             case '2215':
             case '2716':
-                //second operand is non-minus , so ignore the second operand(delete it)
-                numOperandsArr = numOperandsArr.splice(numOperandsArr.length-1,1);
-                break;
-        }
-    }else{
+              //case all other operand entered first, return 0 with operand (unshift 0)
+              numOperandsArr.unshift('0');
+              output.textContent=numOperandsArr.join('');
+              break;
+            default:
+              output.textContent=numOperandsArr.join('');
+              break;
+       }
+    } else if(numOperandsArr.length===2){
+            //either for instance :  number-
+            // +- or -- are allowed in multiple operands (with a default zero or entered number)
+            // x- and /- are allowed as well
+            const charArr = numOperandsArr.slice(numOperandsArr.length-2);
+            const bothOperands= charArr.every(testOperands);
+            //if bothOperands, test second operand. if minus, leave operands as is , return 0 with operands
+            const lastChar = convertHexOperand(numOperandsArr[numOperandsArr.length-1]);
+            if(bothOperands && !isMinus){
+                if(lastChar==='2212'){
+                    numOperandsArr.unshift('0');
+                    output.textContent=numOperandsArr.join('');
+                }
+            }
+            else if(lastChar==='2212' && isMinus){
+                //if oneMinus=== true, it means the user is trying to enter two minuses before the first operator,just: -- number.
+                //splice the second minus, so --number is just -number.
+                numOperandsArr=numOperandsArr.splice(numOperandsArr.length-1,1);
+            }
+            //second operand is not minus , remove second operand , return 0 with first operand.
+            else if(lastChar!=='2212'){
+                numOperandsArr=numOperandsArr.splice(numOperandsArr.length-1,1);
+                numOperandsArr.unshift('0');
+                output.textContent=numOperandsArr.join('');
+            }
+            //if only one operand,  return numOperandsArr.
+            else if(!bothOperands){
+                return numOperandsArr.join('');
+            }else{
+                return numOperandsArr.join('');
+            }
 
-    }
-}
-
-
-const firstIsOperand=()=>{
-    //from calculator.net , my observations.
-   //IF FIRST AN OPERAND IS ENTERED:
-   const firstCharArr= numOperandsArr.slice(numOperandsArr.length-1,1);
-   const firstChar = convertHexOperand(firstCharArr[0]);
-
-   switch(firstChar){
-        case '2b':
-            //firstChar is + ,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 +  
-            //return 0+
-            console.log('in 2b');
-            output.textContent = '0 +';
-            break;
-        case '2212':
-            //firstChar is -,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 -
-            //do nothing , stays just - , apply after whichever number first is entered: -0 , -4 etc, can't be --4 
-            oneMinus=false;
-            break;
-        case '2215':
-            //firstChar is /,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 /
-            //return 0/
-
-            break;
-        case '2716':
-            //firstChar is x,if either a plus, multiply, or divide is entered first , automatically apply the zero after : 0 x 
-            //return 0 x 
-
-            break;
+    } else if(numOperandsArr.length > 2){
+        return numOperandsArr.join('');
     }
 };
 
-
-const checkEntered=()=>{
-    //This function is to check if operands are correct as at most only -- , and +-  allowed, if multiple operands follow each other.
-    // or it checks to see if first a number is entered. 
-
-    if(numOperandsArr.length>1){
-        testPreviousChar();
-    }else if(numOperandsArr.length===1){
-         firstIsOperand();
-         
-    }
- 
-    
-};
 
 const calcAnswer=()=>{
     console.log('in calc');
@@ -104,10 +104,11 @@ const reset=()=>{
 const buttonListeners=()=>{
     document.querySelectorAll('.calc-button').forEach((btn)=>{
        btn.addEventListener('click',()=>{
+           isMinus=false;
            //add pressed button value to numOperandsArr[]
            numOperandsArr.push(btn.textContent);
            //check to see if an operand was entered first or a number
-           checkEntered();
+           checkMinus();
 
            if(btn.textContent==='=' || btn.textContent==='reset' || btn.textContent==='del'){
                  const value= btn.textContent;
