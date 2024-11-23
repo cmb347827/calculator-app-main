@@ -70,27 +70,26 @@ const checkMinus=()=>{
                 }else{
                      //++ , -+ , etc not allowed , and -- not allowed if no number entered yet.
                      //splice the second operand, so ++ is just +, and -- is just -
-                    numOperandsArr=numOperandsArr.splice(numOperandsArr.length-1,1);
+                    numOperandsArr.splice(numOperandsArr.length-1,1);
                 }
             }
             else { //number- , -number
                 output.textContent=numOperandsArr.join('');
             }
-            
 
     } else if(numOperandsArr.length ===3){
+        const charArr = numOperandsArr.slice(numOperandsArr.length-2);
+        const bothOperands= charArr.every(testOperands);
         isMinus=false;
         //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
         //of these -33, 3-3,3--, 3+-,3/-,3*- always good. ignore these case, will be default
-        if(numOperandsArr[numOperandsArr.length-2]==='2212'){
-            //check for 3-+,3-/,3-* , then remove second operand
-            numOperandsArr=numOperandsArr.splice(numOperandsArr.length-2,1);
-        }else{
+        if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])!=='2212'){
+            //check for 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
+           numOperandsArr.splice(numOperandsArr.length-1,1);
+        }else if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])==='2212'){
             //default
             output.textContent=numOperandsArr.join('');
         }
-        
-
     } else if(numOperandsArr.length>3){
         output.textContent=numOperandsArr.join('');
     }
