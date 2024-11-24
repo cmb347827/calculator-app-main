@@ -38,7 +38,7 @@ const checkMinus=()=>{
        switch(lastChar){
            //case if operand entered first. check if operand is minus
            case '2212':
-              //if it is minus, set isMinus=true (so can't be --number as only entry)
+              //if it is minus, set isMinus=true so can't be --, or --number 
               isMinus=true;
               output.textContent =numOperandsArr.join('');
               break;
@@ -82,13 +82,14 @@ const checkMinus=()=>{
         const charArr = numOperandsArr.slice(numOperandsArr.length-3);
         const allOperands= charArr.every(testOperands);
         if(allOperands){
+            //is ex: -+/ ,+--, remove last operand
             numOperandsArr.splice(numOperandsArr.length-1,1);
         }
         //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
         isMinus=false;
         if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])!=='2212'){
             //last value is not a minus.
-            //check for 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
+            //check for 3-3,3+3, 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
             //first see if last two values are operands
             const charArr = numOperandsArr.slice(numOperandsArr.length-2);
             const bothOperands= charArr.every(testOperands);
@@ -96,7 +97,7 @@ const checkMinus=()=>{
                numOperandsArr.splice(numOperandsArr.length-1,1);
             }
         }else if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])==='2212'){
-            //of these -33, 3-3,3--, 3+-,3/-,3*- always good. ignore these case, will be default
+            //of these 33-,3--, 3+-,3/-,3*- always good. ignore these case, will be default
             output.textContent=numOperandsArr.join('');
         }
     } else {
