@@ -1,7 +1,7 @@
 'use strict'; 
 
 let numOperandsArr=[]; 
-let isMinus=false;
+let isMinus=false; let twoOperands=true;
 //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2212','2215','2716'];
 const calculations=(a,b,operand)=>{
@@ -77,20 +77,29 @@ const checkMinus=()=>{
                 output.textContent=numOperandsArr.join('');
             }
 
-    } else if(numOperandsArr.length ===3){
-        const charArr = numOperandsArr.slice(numOperandsArr.length-2);
-        const bothOperands= charArr.every(testOperands);
-        isMinus=false;
+    } else if(numOperandsArr.length >=3){
+        // can't do 3+-----4 so,can be -3+, -33, 3+- , check the last three values.
+        const charArr = numOperandsArr.slice(numOperandsArr.length-3);
+        const allOperands= charArr.every(testOperands);
+        if(allOperands){
+            numOperandsArr.splice(numOperandsArr.length-1,1);
+        }
         //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
-        //of these -33, 3-3,3--, 3+-,3/-,3*- always good. ignore these case, will be default
+        isMinus=false;
         if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])!=='2212'){
+            //last value is not a minus.
             //check for 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
-           numOperandsArr.splice(numOperandsArr.length-1,1);
+            //first see if last two values are operands
+            const charArr = numOperandsArr.slice(numOperandsArr.length-2);
+            const bothOperands= charArr.every(testOperands);
+            if(bothOperands){
+               numOperandsArr.splice(numOperandsArr.length-1,1);
+            }
         }else if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])==='2212'){
-            //default
+            //of these -33, 3-3,3--, 3+-,3/-,3*- always good. ignore these case, will be default
             output.textContent=numOperandsArr.join('');
         }
-    } else if(numOperandsArr.length>3){
+    } else {
         output.textContent=numOperandsArr.join('');
     }
 };
