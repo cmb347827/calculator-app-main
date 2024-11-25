@@ -28,10 +28,13 @@ const testOperands=(operand)=>{
     return allOperands.includes(hex);      //
 };
 const convertHexOperand=(operand)=>{
-   return operand.charCodeAt(0).toString(16);
+   if(allOperands.includes(operand)){
+      return operand.charCodeAt(0).toString(16);
+   }
 };
 
 const checkMinus=()=>{
+    
     const lastChar = convertHexOperand(numOperandsArr[numOperandsArr.length-1]);
 
     if(numOperandsArr.length===1){
@@ -107,7 +110,7 @@ const checkMinus=()=>{
 
 
 const calcAnswer=()=>{
-    console.log('in calc');
+    output.textContent=math.evaluate(numOperandsArr.join(''));
 };
 const deleteNum=()=>{
    console.log('in dele');
@@ -119,9 +122,12 @@ const reset=()=>{
 const buttonListeners=()=>{
     document.querySelectorAll('.calc-button').forEach((btn)=>{
        btn.addEventListener('click',()=>{
+           
            //isMinus=false;
            //add pressed button value to numOperandsArr[]
-           numOperandsArr.push(btn.textContent);
+           if(btn.textContent!=='='){
+              numOperandsArr.push(btn.textContent);
+           }
            //check to see if an operand was entered first or a number
            checkMinus();
            output.textContent=numOperandsArr.join('');
