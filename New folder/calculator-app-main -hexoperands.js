@@ -98,9 +98,9 @@ function parse(str) {
 }
 
 const calcAnswer=()=>{
-    //output.textContent=math.evaluate(numOperandsArr.join(''));
+    output.textContent=math.evaluate(numOperandsArr.join(''));
     //console.log('calc',numOperandsArr.join(''));
-    output.textContent=parse(numOperandsArr.join(''));
+    //output.textContent=parse(numOperandsArr.join(''));
 };
 const deleteNum=()=>{
    console.log('in dele');
@@ -116,18 +116,7 @@ const buttonListeners=()=>{
            //isMinus=false;
            //add pressed button value to numOperandsArr[]
            if(btn.textContent!=='='){
-              if(btn.textContent==='2716'){
-                numOperandsArr.push('*');
-              }else if(btn.textContent==='2b'){
-                numOperandsArr.push('+');
-              }else if(btn.textContent==='2212'){
-                numOperandsArr.push('-');
-              }else if(btn.textContent==='2215'){
-                numOperandsArr.push('/');
-              }else{
-                numOperandsArr.push(btn.textContent);
-              }
-              
+              numOperandsArr.push(btn.textContent);
            }
            //check to see if an operand was entered first or a number
            checkMinus();
