@@ -3,7 +3,7 @@
 let numOperandsArr=[]; 
 let isMinus=false;let twoOperands=true;
 //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
-const allOperands=['2b','2212','2215','2716'];
+const allOperands=['2b','2d','2f','2a'];
 
 const output = document.querySelector('#output');
 
@@ -26,14 +26,14 @@ const checkMinus=()=>{
     if(numOperandsArr.length===1){
        switch(lastChar){
            //case if operand entered first. check if operand is minus
-           case '2212':
+           case '2d':
               //if it is minus, set isMinus=true so can't be --, or --number 
               isMinus=true;
               output.textContent =numOperandsArr.join('');
               break;
             case '2b':
-            case '2215':
-            case '2716':
+            case '2f':
+            case '2a':
               //case all other operand entered first, return 0 with operand (unshift 0)
               numOperandsArr.unshift('0');
               output.textContent=numOperandsArr.join('');
@@ -51,7 +51,7 @@ const checkMinus=()=>{
             if(bothOperands){ //-+, +- etc
                 //due to !isMinus , first operand is not a minus.
                 //bothOperands true, test second operand. if minus, leave operands as is , return 0 with operands
-                if(lastChar==='2212' && !isMinus){
+                if(lastChar==='2d' && !isMinus){
                     // +- are allowed in multiple operands (with a default zero or entered number)
                     // x- and /- are allowed as well
                     numOperandsArr.unshift('0');
@@ -76,7 +76,7 @@ const checkMinus=()=>{
         }
         //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
         isMinus=false;
-        if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])!=='2212'){
+        if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])!=='2d'){
             //last value is not a minus.
             //check for 3-3,3+3, 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
             //first see if last two values are operands
@@ -85,7 +85,7 @@ const checkMinus=()=>{
             if(bothOperands){
                numOperandsArr.splice(numOperandsArr.length-1,1);
             }
-        }else if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])==='2212'){
+        }else if(convertHexOperand(numOperandsArr[numOperandsArr.length-1])==='2d'){
             //of these 33-,3--, 3+-,3/-,3*- always good. ignore these case, will be default
             output.textContent=numOperandsArr.join('');
         }
@@ -98,15 +98,22 @@ function parse(str) {
 }
 
 const calcAnswer=()=>{
-    //output.textContent=math.evaluate(numOperandsArr.join(''));
-    //console.log('calc',numOperandsArr.join(''));
-    output.textContent=parse(numOperandsArr.join(''));
+    const str=numOperandsArr.join('');
+    output.textContent=parse(str);
+    numOperandsArr=[output.textContent];
 };
 const deleteNum=()=>{
-   console.log('in dele');
+    if(numOperandsArr.length>1){
+        numOperandsArr.splice(numOperandsArr.length-1,1);
+        output.textContent=numOperandsArr.join('');
+    }else if(numOperandsArr.length===1){
+        output.textContent=0;
+        numOperandsArr=[0];
+    }
 };
 const reset=()=>{
-   console.log('in reset');
+   numOperandsArr=[];
+   output.textContent=0;
 };
 
 const buttonListeners=()=>{
@@ -115,22 +122,23 @@ const buttonListeners=()=>{
            
            //isMinus=false;
            //add pressed button value to numOperandsArr[]
-           if(btn.textContent!=='='){
-              if(btn.textContent==='2716'){
+           if(btn.textContent!=='=' && btn.textContent!=='span' && btn.textContent!=='del'){
+              if(btn.textContent==='2a'){
                 numOperandsArr.push('*');
               }else if(btn.textContent==='2b'){
-                numOperandsArr.push('+');
-              }else if(btn.textContent==='2212'){
+                numOperandsArr.push('+'); 
+              }else if(btn.textContent==='2d'){
                 numOperandsArr.push('-');
-              }else if(btn.textContent==='2215'){
+              }else if(btn.textContent==='2f'){
                 numOperandsArr.push('/');
               }else{
                 numOperandsArr.push(btn.textContent);
               }
-              
+             
+              //check to see if an operand was entered first or a number
+              checkMinus();
            }
-           //check to see if an operand was entered first or a number
-           checkMinus();
+           
            output.textContent=numOperandsArr.join('');
            if(btn.textContent==='=' || btn.textContent==='reset' || btn.textContent==='del'){
                  const value= btn.textContent;
