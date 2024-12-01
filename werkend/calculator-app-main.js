@@ -23,7 +23,7 @@ const checkMinus=()=>{
 
     if(numOperandsArr.length===1){
         const lastChar = convertHexOperand(numOperandsArr[numOperandsArr.length-1]);
-        
+        console.log('lastchar',lastChar);
         switch(lastChar){
            //case if operand entered first. check if operand is minus
            case '2d':
@@ -117,21 +117,21 @@ const reset=()=>{
 };
 
 const buttonListeners=()=>{
-    document.querySelectorAll('input').forEach((btn)=>{
+    document.querySelectorAll('.calc-button').forEach((btn)=>{
        btn.addEventListener('click',()=>{
            //add pressed button value to numOperandsArr[]
           
-           if(btn.value!=='=' && btn.value!=='span' && btn.value!=='del'){
-              if(btn.value==='x'){
+           if(btn.textContent!=='=' && btn.textContent!=='span' && btn.textContent!=='del'){
+              if(btn.value==='2a'){
                 numOperandsArr.push('*');
-              }else if(btn.value==='2b'){
+              }else if(btn.textContent==='2b'){
                 numOperandsArr.push('+'); 
-              }else if(btn.value==='2d'){
+              }else if(btn.textContent==='2d'){
                 numOperandsArr.push('-');
-              }else if(btn.value==='2f'){
+              }else if(btn.textContent==='2f'){
                 numOperandsArr.push('/');
               }else{
-                numOperandsArr.push(btn.value);
+                numOperandsArr.push(btn.textContent);
               }
              
               //check to see if an operand was entered first or a number
@@ -139,8 +139,8 @@ const buttonListeners=()=>{
            }
            
            output.textContent=numOperandsArr.join('');
-           if(btn.value==='=' || btn.value==='reset' || btn.value==='del'){
-                 const value= btn.value;
+           if(btn.textContent==='=' || btn.textContent==='reset' || btn.textContent==='del'){
+                 const value= btn.textContent;
 
                  switch(value){
                       case '=':

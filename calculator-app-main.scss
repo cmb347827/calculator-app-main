@@ -71,6 +71,12 @@ html{
 .display-flex{
   display:flex;
 }
+.flex-row{
+  flex-direction:row;
+}
+.flex-wrap{
+  flex-wrap:wrap;
+}
 .flex-column{
    flex-direction:column;
 }
@@ -94,8 +100,11 @@ html{
 .display-grid{
   display:grid;
 }
-.grid-template-rows-4{
-  grid-template-rows: repeat(4,3em );
+.grid-template-columns-4{
+  grid-template-columns: repeat(4,1fr);
+}
+.grid-template-columns-2{
+  grid-template-columns: repeat(2,1fr);
 }
 .justify-items-center{
   justify-items:center;
@@ -106,8 +115,12 @@ html{
 .justify-self-center{
    justify-self:center;
 }
+.grid-gap{
+   gap:2px;
+}
 
 .calculator-container{
+        
         form{
           height: 100vh;
         }
@@ -120,13 +133,24 @@ html{
            width: 6em;
            text-align:center;
         }
-        .double-width{
-            width: 12em;
+        .input-outer{
+          width: 40em;
+          height: 30em;
+        }
+        input[type='button']{
+           width: 9em;
+           height: 6em;
+        }
+        input.double-width{
+            width: 21em;
+        }
+        #output{
+           padding: 4em;
         }
         .uppercase{
            text-transform: uppercase;
         }
-        
+
       
 }
 footer {  
