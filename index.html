@@ -21,22 +21,28 @@
                   <thead class="justify-content-stretch">
                       <tr class="display-flex justify-content-between">
                           <th  scope="row">Calc</th>
-
-                          <td class='gray-border display-flex align-items-center ' >
-                              <p class="uppercase">theme</p>
-                              <div class="display-flex flex-column">
-                                <label for="theme-1">1</label>
-                                <input type="radio" id="theme-1" name="theme">
-                              </div>
-                              <div class="display-flex flex-column">
-                                <label for="theme-2">2</label>
-                                <input type="radio" id="theme-2" name="theme">
-                              </div>
-                              <div class="display-flex flex-column">
-                                <label for="theme-3">3</label>
-                                <input type="radio" id="theme-3" name="theme">
-                              </div>  
+                          <td id="toggle-parent">
+                              <fieldset class="display-flex justify-content-between align-items-center">
+                                  <legend class="uppercase">theme</legend>
+                                  
+                                  <div class='display-flex'>
+                                      <label class='switch display-flex flex-column' for="theme-1">1
+                                        <input type="radio" id="theme-1" name="theme">
+                                        <span class="slider"></span>
+                                      </label>
+                                      <label class='switch display-flex flex-column' for="theme-2">2
+                                        <input type="radio" id="theme-2" name="theme">
+                                        <span class="slider"></span>
+                                      </label>
+                                      <label class='switch display-flex flex-column' for="theme-3">3
+                                        <input type="radio" id="theme-3" name="theme">
+                                        <span class="slider"></span>
+                                      </label>
+                                      
+                                  </div>
+                              </fieldset>
                           </td>
+                          
                       </tr>
                   </thead>
                   <tbody class="display-grid">
@@ -44,22 +50,22 @@
                           <td class="justify-content-stretch gray-border"><output id="output">0</output></td>
                       </tr>
                       <tr class="display-grid grid-template-columns-4 justify-items-center input-outer">
-                          <td><input type='button' value='7'></td>
-                          <td><input type='button' value='8'></td>
-                          <td><input type='button' value='9'></td>
-                          <td><input type='button' value='del'></td>
-                          <td><input type='button' value='4'></td>
-                          <td><input type='button' value='5'></td>
-                          <td><input type='button' value='6'></td>
-                          <td><input type='button' value='+'></td>
-                          <td><input type='button' value='1'></td>
-                          <td><input type='button' value='2'></td>
-                          <td><input type='button' value='3'></td>
-                          <td><input type='button' value='-'></td>
-                          <td><input type='button' value='.'></td>
-                          <td><input type='button' value='0'></td>
-                          <td><input type='button' value='/'></td>
-                          <td><input type='button' value='x'></td>
+                          <td><input class='calculate' type='button' value='7'></td>
+                          <td><input class='calculate' type='button' value='8'></td>
+                          <td><input class='calculate' type='button' value='9'></td>
+                          <td><input class='calculate' type='button' value='del'></td>
+                          <td><input class='calculate' type='button' value='4'></td>
+                          <td><input class='calculate' type='button' value='5'></td>
+                          <td><input class='calculate' type='button' value='6'></td>
+                          <td><input class='calculate' type='button' value='+'></td>
+                          <td><input class='calculate' type='button' value='1'></td>
+                          <td><input class='calculate' type='button' value='2'></td>
+                          <td><input class='calculate' type='button' value='3'></td>
+                          <td><input class='calculate' type='button' value='-'></td>
+                          <td><input class='calculate' type='button' value='.'></td>
+                          <td><input class='calculate' type='button' value='0'></td>
+                          <td><input class='calculate' type='button' value='/'></td>
+                          <td><input class='calculate' type='button' value='x'></td>
                           
                       </tr>
                       

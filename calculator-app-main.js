@@ -117,7 +117,7 @@ const reset=()=>{
 };
 
 const buttonListeners=()=>{
-    document.querySelectorAll('input').forEach((btn)=>{
+    document.querySelectorAll('input.calculate').forEach((btn)=>{
        btn.addEventListener('click',()=>{
            //add pressed button value to numOperandsArr[]
           

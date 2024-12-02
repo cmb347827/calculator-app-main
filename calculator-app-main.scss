@@ -92,7 +92,9 @@ html{
 .justify-content-space-around{
    justify-content: space-around;
 }
-
+.align-items-center{
+   align-items:center;
+}
 /*grid*/
 .justify-content-stretch{
   justify-content: stretch;
@@ -119,19 +121,40 @@ html{
    gap:2px;
 }
 
+fieldset {
+  margin-inline: 2px;
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 1em;
+}
+legend {
+  display: contents;
+}
+
 .calculator-container{
-        
+        #toggle-parent{
+            width: 10em;
+        }
+        .three-toggle-switch{
+              background-color: lightgray;
+              height:4em;
+              width: 10em;
+             .switch{
+                
+                
+             }
+             .slider{
+                  
+             }
+             
+        }
+      
         form{
           height: 100vh;
         }
         table{
           width: 30em;
-        }
-        span{
-           @extend .padding2em;
-           @extend .gray-border;
-           width: 6em;
-           text-align:center;
         }
         .input-outer{
           width: 40em;
@@ -150,7 +173,7 @@ html{
         .uppercase{
            text-transform: uppercase;
         }
-
+        
       
 }
 footer {  

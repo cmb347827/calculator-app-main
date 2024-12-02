@@ -22,10 +22,10 @@ html {
   white-space: nowrap !important;
   /* 3 */ }
 
-.gray-border, .calculator-container span {
+.gray-border {
   border: 2px solid gray; }
 
-.padding2em, .calculator-container span {
+.padding2em {
   padding: 2em; }
 
 #foot {
@@ -56,6 +56,9 @@ html {
 .justify-content-space-around {
   justify-content: space-around; }
 
+.align-items-center {
+  align-items: center; }
+
 /*grid*/
 .justify-content-stretch {
   justify-content: stretch; }
@@ -81,13 +84,48 @@ html {
 .grid-gap {
   gap: 2px; }
 
+fieldset {
+  margin-inline: 2px;
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 1em; }
+
+legend {
+  display: contents; }
+
+.calculator-container #toggle-parent {
+  width: 10em; }
+.calculator-container .three-toggle-switch {
+  background-color: lightgray;
+  height: 4em;
+  width: 10em; }
+  .calculator-container .three-toggle-switch .switch {
+    /*position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    & input{
+       opacity: 0;
+       width: 0;
+       height: 0;
+    }*/ }
+  .calculator-container .three-toggle-switch .slider {
+    /*position: absolute;
+    width: 10px;
+    height: 10px;
+    
+    border-radius: 50%;*/ }
+  .calculator-container .three-toggle-switch .three-toggle-switch:has(#theme1:checked) {
+    background-color: green; }
+  .calculator-container .three-toggle-switch .three-toggle-switch:has(#theme2:checked) slider::after {
+    background-color: blue; }
+  .calculator-container .three-toggle-switch .three-toggle-switch:has(#theme3:checked) slider::after {
+    left: 60%; }
 .calculator-container form {
   height: 100vh; }
 .calculator-container table {
   width: 30em; }
-.calculator-container span {
-  width: 6em;
-  text-align: center; }
 .calculator-container .input-outer {
   width: 40em;
   height: 30em; }
