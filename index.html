@@ -19,28 +19,26 @@
                      Calculator App
                   </caption>
                   <thead class="justify-content-stretch">
-                      <tr class="display-flex justify-content-between">
+                      <tr class="display-flex justify-content-between align-items-center">
                           <th  scope="row">Calc</th>
                           <td id="toggle-parent">
-                              <fieldset class="display-flex justify-content-between align-items-center">
-                                  <legend class="uppercase">theme</legend>
-                                  
-                                  <div class='display-flex'>
-                                      <label class='switch display-flex flex-column' for="theme-1">1
-                                        <input type="radio" id="theme-1" name="theme">
-                                        <span class="slider"></span>
-                                      </label>
-                                      <label class='switch display-flex flex-column' for="theme-2">2
-                                        <input type="radio" id="theme-2" name="theme">
-                                        <span class="slider"></span>
-                                      </label>
-                                      <label class='switch display-flex flex-column' for="theme-3">3
-                                        <input type="radio" id="theme-3" name="theme">
-                                        <span class="slider"></span>
-                                      </label>
-                                      
-                                  </div>
-                              </fieldset>
+                               <fieldset class='three-toggle-switch display-flex justify-content-between align-items-center' aria-label="price switcher" role="radiogroup">
+                                       <legend class="uppercase">theme</legend>
+                                       <div class="display-flex flex-column">
+                                            <div class="display-flex justify-content-space-around">
+                                                <label for="theme-1">1</label>
+                                                <label for="theme-2">2</label>
+                                                <label for="theme-3">3</label>
+                                            </div>
+                                            <span  class="toggle__wrapper display-flex justify-content-space-evenly">
+                                                <input  type="radio" name="theme" id="theme-1" checked>
+                                                <input  type="radio" name="theme" id="theme-2">
+                                                <input type="radio" name="theme" id="theme-3">
+                                                <span aria-hidden="true" class="toggle__slider"></span>
+                                            </span>
+                                            
+                                        </div>
+                               </fieldset>
                           </td>
                           
                       </tr>

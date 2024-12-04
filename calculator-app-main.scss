@@ -92,6 +92,9 @@ html{
 .justify-content-space-around{
    justify-content: space-around;
 }
+.justify-content-space-evenly{
+   justify-content: space-evenly;
+}
 .align-items-center{
    align-items:center;
 }
@@ -133,23 +136,57 @@ legend {
 }
 
 .calculator-container{
+        thead tr{
+           padding: 0 1.5em;
+        }
         #toggle-parent{
-            width: 10em;
+            //width: 10em;
+            //display:block;
         }
         .three-toggle-switch{
-              background-color: lightgray;
-              height:4em;
-              width: 10em;
-             .switch{
+            position:relative;
+            background-color: lightcyan;
+            width:fit-content;
+            height:4em;
+            border-radius: 35px;
+            .toggle__wrapper{
+               position:relative;
+            }
+            input[type="radio"]{
+              
+               width: 40px;
+               height: 40px;
+               opacity: 1 ;
+              
+               &:focus ~ .toggle__slider {
+                cursor:pointer;
+               }
+            }
+            .toggle__slider{
+                  position:absolute;
+                  width: 45px;
+                  height: 45px;
+                  left:0;
+                  border-radius: 50%;
+                  background-color: orange;
+            }
+              /*User toggles the toggle button , check if the annual option is selected..., if it is , toggle button should be left aligned with left:40px*/
+              #theme-1:checked ~ .toggle__slider {
+                 left: 0;
+                 
+              }
+              /*User toggles the toggle button (check if the monthly option is selected, if it is, toggle button should be left aligned with left:0*/
+              #theme-2:checked ~ .toggle__slider{
+                 left:3em;
+                 
+              }
+              #theme-3:checked ~ .toggle__slider{
+                 left:6em;
                 
-                
-             }
-             .slider{
-                  
-             }
-             
-        }
-      
+              }
+              
+       }
+        
         form{
           height: 100vh;
         }
