@@ -1,16 +1,54 @@
 
 @import '_globals.scss';
 
+$theme1-colors:(
+   main-background:hsl(222, 26%, 31%),
+   toggle-keypad-background:hsl(223, 31%, 20%),
+   screen-background:hsl(224, 36%, 15%),
+   key-background1: hsl(225, 21%, 49%),
+   key-shadow1: hsl(224, 28%, 35%),
+   key-background2:hsl(6, 63%, 50%),
+   key-shadow2: hsl(6, 70%, 34%),
+   key-background3:hsl(30, 25%, 89%),
+   key-shadow3:hsl(28, 16%, 65%),
+   text: hsl(221, 14%, 31%),
+   White: hsl(0, 0%, 100%),
 
-$colors: (
-  Light Grayish Cyan : hsl(180, 52%, 96%),
-  Light Grayish Cyan2 : hsl(180, 31%, 95%),
-  Dark Grayish Cyan: hsl(180, 8%, 52%),
-  Very Dark Grayish Cyan: hsl(180, 14%, 20%),
-  Desaturated Dark Cyan: hsl(180, 29%, 50%),
 );
-$fallback-color: (
-  PaleTurquoise,PaleTurquoise2, Crystal,PaleTurquoise4,DarkCyan
+$theme1-fallback-colors:(
+  MidnightBlue ,DarkBlue, Navy, Blue4, Cerulean Blue,Carnelian,Claret,Coral1,Copper Red,DodgerBlue4,Snow
+);
+$theme2-colors:(
+    main-background:hsl(0, 0%, 90%),
+    toggle-keypad-background:hsl(0, 5%, 81%),
+    screen-background:hsl(0, 0%, 93%),
+    key-background1: hsl(185, 42%, 37%),
+    key-shadow1: hsl(185, 58%, 25%),
+    key-background2:hsl(25, 98%, 40%),
+    key-shadow2: hsl(25, 99%, 27%),
+    key-background3:hsl(45, 7%, 89%),
+    key-shadow3:hsl(35, 11%, 61%),
+    text: hsl(60, 10%, 19%),
+    White (text): hsl(0, 0%, 100%),
+);
+$theme2-fallback-colors:(
+    Gray78, Gray54,Gray92, Aquamarine4,Celadon Green,Carrot Orange,Carmine Pink,Khaki,Mandarin,Mango,Snow
+);
+$theme3-colors:(
+    main-background:hsl(268, 75%, 9%),
+    toggle-screen-keypad-background:hsl(268, 71%, 12%),
+    key-background1: hsl(281, 89%, 26%),
+    key-shadow1: hsl(285, 91%, 52%),
+    key-background2:hsl(176, 100%, 44%),
+    key-shadow2: hsl(177, 92%, 70%),
+    key-background3:hsl(268, 47%, 21%),
+    key-shadow3:hsl(290, 70%, 36%),
+    text1:hsl(52, 100%, 62%),
+    text2:hsl(198, 20%, 13%),
+    White (text): hsl(0, 0%, 100%),
+);
+$theme3-fallback-colors:(
+   Purple4, Rebeccapurple, Dark Byzantium,BlueViolet,Turquoise,Turquoise Blue,Blue4,Byzantium,Goldenrod2,DarkNavy,Snow
 );
 
 @mixin font-color($color, $fallback-color) {
@@ -46,16 +84,16 @@ html{
 
 .sr-only {
 	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+	clip: rect(1px, 1px, 1px, 1px) !important; 
 	-webkit-clip-path: inset(50%) !important;
-		clip-path: inset(50%) !important;  /* 2 */
+		clip-path: inset(50%) !important;  
 	height: 1px !important;
 	margin: -1px !important;
 	overflow: hidden !important;
 	padding: 0 !important;
 	position: absolute !important;
 	width: 1px !important;
-	white-space: nowrap !important;            /* 3 */
+	white-space: nowrap !important;           
 }
 .gray-border{ 
    border: 2px solid gray;
@@ -143,9 +181,9 @@ legend {
             //width: 10em;
             //display:block;
         }
-        .three-toggle-switch{
+        .three-toggle-switch #toggle{
             position:relative;
-            background-color: lightcyan;
+            @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,1));
             width:fit-content;
             height:4em;
             border-radius: 35px;
@@ -153,19 +191,17 @@ legend {
                position:relative;
             }
             input[type="radio"]{
-              
                width: 40px;
                height: 40px;
-               opacity: 1 ;
-              
+               opacity: 0 ;
                &:focus ~ .toggle__slider {
                 cursor:pointer;
                }
             }
             .toggle__slider{
                   position:absolute;
-                  width: 45px;
-                  height: 45px;
+                  width: 40px;
+                  height: 40px;
                   left:0;
                   border-radius: 50%;
                   background-color: orange;

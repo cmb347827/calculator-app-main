@@ -9,18 +9,15 @@ html {
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
-  /* 1 */
   -webkit-clip-path: inset(50%) !important;
   clip-path: inset(50%) !important;
-  /* 2 */
   height: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-  white-space: nowrap !important;
-  /* 3 */ }
+  white-space: nowrap !important; }
 
 .gray-border {
   border: 2px solid gray; }
@@ -99,34 +96,35 @@ legend {
 
 .calculator-container thead tr {
   padding: 0 1.5em; }
-.calculator-container .three-toggle-switch {
+.calculator-container .three-toggle-switch #toggle {
   position: relative;
-  background-color: lightcyan;
+  background-color: MidnightBlue;
+  background-color: #232c43;
   width: fit-content;
   height: 4em;
   border-radius: 35px;
   /*User toggles the toggle button , check if the annual option is selected..., if it is , toggle button should be left aligned with left:40px*/
   /*User toggles the toggle button (check if the monthly option is selected, if it is, toggle button should be left aligned with left:0*/ }
-  .calculator-container .three-toggle-switch .toggle__wrapper {
+  .calculator-container .three-toggle-switch #toggle .toggle__wrapper {
     position: relative; }
-  .calculator-container .three-toggle-switch input[type="radio"] {
+  .calculator-container .three-toggle-switch #toggle input[type="radio"] {
     width: 40px;
     height: 40px;
-    opacity: 1; }
-    .calculator-container .three-toggle-switch input[type="radio"]:focus ~ .toggle__slider {
+    opacity: 0; }
+    .calculator-container .three-toggle-switch #toggle input[type="radio"]:focus ~ .toggle__slider {
       cursor: pointer; }
-  .calculator-container .three-toggle-switch .toggle__slider {
+  .calculator-container .three-toggle-switch #toggle .toggle__slider {
     position: absolute;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     left: 0;
     border-radius: 50%;
     background-color: orange; }
-  .calculator-container .three-toggle-switch #theme-1:checked ~ .toggle__slider {
+  .calculator-container .three-toggle-switch #toggle #theme-1:checked ~ .toggle__slider {
     left: 0; }
-  .calculator-container .three-toggle-switch #theme-2:checked ~ .toggle__slider {
+  .calculator-container .three-toggle-switch #toggle #theme-2:checked ~ .toggle__slider {
     left: 3em; }
-  .calculator-container .three-toggle-switch #theme-3:checked ~ .toggle__slider {
+  .calculator-container .three-toggle-switch #toggle #theme-3:checked ~ .toggle__slider {
     left: 6em; }
 .calculator-container form {
   height: 100vh; }
