@@ -47,7 +47,6 @@ const checkMinus=()=>{
             //either for instance :  number- , -number, -+, +- etc
             const charArr = outputArr.slice(outputArr.length-2);
             const bothOperands= charArr.every(testOperands);
-        
             const lastChar = convertHexOperand(outputArr[outputArr.length-1]);
 
             if(bothOperands){ //-+, +- etc
@@ -60,7 +59,7 @@ const checkMinus=()=>{
                     output.textContent=outputArr.join('');
                 }else{
                      //++ , -+ , etc not allowed , and -- not allowed if no number entered yet.
-                     //splice the second operand, so ++ is just +, and -- is just -
+                     //splice the second operand, so ++ is just +, and -- is just -                   **********************************
                     outputArr.splice(outputArr.length-1,1);
                 }
             }
@@ -104,7 +103,7 @@ const fixPlusMinus=()=>{
     const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
     
     outputArr= outputArr.join('');
-    //const affirmMinus= outputArr.match(minusMinusRegex);
+    const affirmMinus= outputArr.match(minusMinusRegex);         //0-3  , 3+-3+ wekr niet
     const affirmPlusMin= outputArr.match(plusMinusRegex);
     if(affirmMinus){
         outputArr= outputArr.replace('--','+');
@@ -113,6 +112,7 @@ const fixPlusMinus=()=>{
         outputArr= outputArr.replace('+-','-');
     }
     outputArr=[...outputArr];
+    console.log('in fix',outputArr);
 }
 
 function parse(str) {
@@ -122,6 +122,11 @@ function parse(str) {
 const calcAnswer=()=>{
     output.textContent=parse(outputArr.join(''));
     outputArr=[output.textContent];
+    const testArr= [...outputArr[0]];
+    if(testArr.length>1){
+          //takes care of the -num answer bug: instead of just one entry in outputArr ex: -3 , it's now - and 3 
+          outputArr=[...testArr];
+    }
 };
 const deleteNum=()=>{
     if(outputArr.length>1){
@@ -143,6 +148,7 @@ const buttonListeners=()=>{
            //add pressed button value to numOperandsArr[]
            
            if(btn.value!=='=' && btn.value!=='reset' && btn.value!=='del'){
+              console.log('in hier');
               if(btn.value==='x'){
                 outputArr.push('*');
               }else if(btn.value==='2b'){
@@ -153,11 +159,12 @@ const buttonListeners=()=>{
                 outputArr.push('/');
               }else{
                 outputArr.push(btn.value);
+                console.log('output',outputArr);
               }
               //check to see if an operand was entered first or a number
               checkMinus();
            }
-           
+           console.log('OUTPUT JOIN',outputArr);
            output.textContent=outputArr.join('');
            if(btn.value==='=' || btn.value==='reset' || btn.value==='del'){
                  const value= btn.value;
