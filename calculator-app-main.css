@@ -103,8 +103,9 @@ legend {
   width: fit-content;
   height: 4em;
   border-radius: 35px;
-  /*User toggles the toggle button , check if the annual option is selected..., if it is , toggle button should be left aligned with left:40px*/
-  /*User toggles the toggle button (check if the monthly option is selected, if it is, toggle button should be left aligned with left:0*/ }
+  /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+  /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+  /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
   .calculator-container .three-toggle-switch #toggle .toggle__wrapper {
     position: relative; }
   .calculator-container .three-toggle-switch #toggle input[type="radio"] {
@@ -119,7 +120,8 @@ legend {
     height: 40px;
     left: 0;
     border-radius: 50%;
-    background-color: orange; }
+    background-color: orange;
+    transition: all 0.8s ease-out; }
   .calculator-container .three-toggle-switch #toggle #theme-1:checked ~ .toggle__slider {
     left: 0; }
   .calculator-container .three-toggle-switch #toggle #theme-2:checked ~ .toggle__slider {
