@@ -100,23 +100,19 @@ const checkMinus=()=>{
 };
 
 const fixPlusMinus=()=>{
-    const plusMinusRegex=/([-+\/x]*\d*--\d*[-+\/X]*\d*)+/;
+    const minusMinusRegex=/([-+\/x]*\d*--\d*[-+\/X]*\d*)+/g;
+    const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
     
     outputArr= outputArr.join('');
-    const affirm= outputArr.match(plusMinusRegex);
-    if(affirm){
+    //const affirmMinus= outputArr.match(minusMinusRegex);
+    const affirmPlusMin= outputArr.match(plusMinusRegex);
+    if(affirmMinus){
         outputArr= outputArr.replace('--','+');
-        
-        console.log('in fix',outputArr);
+    }
+    if(affirmPlusMin){
+        outputArr= outputArr.replace('+-','-');
     }
     outputArr=[...outputArr];
-    //use replace
-    
-        /*alterdArr= [...outputArr];
-        alterdArr.splice(alterdArr.length-2,2);
-        alterdArr.push('+');*/
-        
-        //tweede array, een voor output, een voor calc..................... ook +-?
 }
 
 function parse(str) {
@@ -124,11 +120,6 @@ function parse(str) {
 }
 
 const calcAnswer=()=>{
-    //console.log('altered',alterdArr,' ouputarr',outputArr);
-    /*if(outputArr.length<1){
-        alterdArr=[...outputArr];
-    }*/
-   
     output.textContent=parse(outputArr.join(''));
     outputArr=[output.textContent];
 };
@@ -143,7 +134,6 @@ const deleteNum=()=>{
 };
 const reset=()=>{
    outputArr=[];
-   alterdArr=[];
    output.textContent=0;
 };
 
