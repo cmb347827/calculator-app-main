@@ -4,7 +4,7 @@ let outputArr=[];
 let isMinus=false;let twoOperands=true;
 //use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2d','2f','2a'];
-
+let theme = JSON.parse(localStorage.getItem("theme")) || '1';
 const output = document.querySelector('#output');
 
 
@@ -103,7 +103,7 @@ const fixPlusMinus=()=>{
     const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
     
     outputArr= outputArr.join('');
-    const affirmMinus= outputArr.match(minusMinusRegex);         //0-3  , 3+-3+ wekr niet
+    const affirmMinus= outputArr.match(minusMinusRegex);         
     const affirmPlusMin= outputArr.match(plusMinusRegex);
     if(affirmMinus){
         outputArr= outputArr.replace('--','+');
@@ -112,19 +112,34 @@ const fixPlusMinus=()=>{
         outputArr= outputArr.replace('+-','-');
     }
     outputArr=[...outputArr];
-    console.log('in fix',outputArr);
 }
 
 function parse(str) {
     return Function(`'use strict'; return (${str})`)();
 }
 
+const removeZero=()=>{
+    //remove zeros from start if there are any ,ocatal literal bug fix.
+    const firstChar= outputArr[0];
+    if(firstChar==='0'){
+        outputArr.splice(outputArr[0],1);
+    }
+    //takes care of the divide by 0 bug
+    outputArr= outputArr.join('');
+    const divideZeroRegex=/([-+\/x]*\d*(\/0))/;
+    const affirmDivideZero= outputArr.match(divideZeroRegex);
+    if(affirmDivideZero){
+        outputArr= outputArr.replace('/0','/1');
+    }
+    outputArr=[...outputArr];
+}
 const calcAnswer=()=>{
     output.textContent=parse(outputArr.join(''));
     outputArr=[output.textContent];
     const testArr= [...outputArr[0]];
     if(testArr.length>1){
-          //takes care of the -num answer bug: instead of just one entry in outputArr ex: -3 , it's now - and 3 
+          //takes care of the -num answer bug: instead of just one entry in outputArr ex: -3 , it's now - and 3 , as it should be treated
+          //also prevents a zero be added 
           outputArr=[...testArr];
     }
 };
@@ -140,6 +155,7 @@ const deleteNum=()=>{
 const reset=()=>{
    outputArr=[];
    output.textContent=0;
+   clearLocalStorage();
 };
 
 const buttonListeners=()=>{
@@ -159,12 +175,10 @@ const buttonListeners=()=>{
                 outputArr.push('/');
               }else{
                 outputArr.push(btn.value);
-                console.log('output',outputArr);
               }
               //check to see if an operand was entered first or a number
               checkMinus();
            }
-           console.log('OUTPUT JOIN',outputArr);
            output.textContent=outputArr.join('');
            if(btn.value==='=' || btn.value==='reset' || btn.value==='del'){
                  const value= btn.value;
@@ -172,6 +186,7 @@ const buttonListeners=()=>{
                  switch(value){
                       case '=':
                            fixPlusMinus();
+                           removeZero();
                            calcAnswer();
                            break;
                       case 'del':
@@ -185,12 +200,34 @@ const buttonListeners=()=>{
        });
     });
 };
-
+function saveToStorage(theme){
+    //whenever the messages are updated , will be saved in local storage.
+    localStorage.setItem('theme',JSON.stringify(theme));//to json string
+}
+function loadFromStorage(){
+	theme = JSON.parse(localStorage.getItem('theme'));  //to js object
+    document.querySelectorAll('input.theme-change').forEach((btn)=>{
+        if(btn.value===theme){
+            btn.checked=true;
+        }
+    });
+}
+function clearLocalStorage(){
+   localStorage.clear();
+}
+const themeListeners=()=>{
+    document.querySelectorAll('input.theme-change').forEach((btn)=>{
+        btn.addEventListener('click',()=>{
+             console.log('theme btn.value',btn.value);
+             saveToStorage(btn.value);
+        });
+    });
+}
 
 
 addEventListener("load", (event) => {
-    
+     loadFromStorage();
      buttonListeners();
-
+     themeListeners();
 });
 
