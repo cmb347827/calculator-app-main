@@ -118,15 +118,18 @@ function parse(str) {
     return Function(`'use strict'; return (${str})`)();
 }
 
+const removeLeadingZeros=(item)=>{
+    //remove leading zeros.
+    return parseInt(item,10);
+}
 const removeZero=()=>{
-    //remove zeros from start if there are any ,ocatal literal bug fix.
-    const firstChar= outputArr[0];
-    if(firstChar==='0'){
-        outputArr.splice(outputArr[0],1);
-    }
-    //takes care of the divide by 0 bug
     outputArr= outputArr.join('');
-    const divideZeroRegex=/([-+\/x]*\d*(\/0))/;
+    //remove zeros from start if there are any ,ocatal literal bug fix: 03*3 , 08/2 , 000004/3 , 03/0 (becomes 3/0) etc 
+    const zeroNumbers = /0+[1-9]+/g;
+    outputArr = outputArr.replaceAll(zeroNumbers,removeLeadingZeros);
+    
+    //takes care of the divide by 0 bug : 03/0  3/0  0/0
+    const divideZeroRegex=/([-+\/x]*\d*(\/0))/g;
     const affirmDivideZero= outputArr.match(divideZeroRegex);
     if(affirmDivideZero){
         outputArr= outputArr.replace('/0','/1');

@@ -48,7 +48,8 @@ Users should be able to:
 
 
 ### What I learned
-  
+  - I thought it would be a good exercise to use html entities for the operands values in the html file, instead of just the operands as is : +,- etc. And to work with the html entities in the js file. 
+  I found a stackoverflow post on how to convert html entities to characters (see link 1)
    
 
 ### Continued development
@@ -57,7 +58,7 @@ Users should be able to:
 
 ### Useful resources
 
-[]()
+[convert ascii to hex](https://stackoverflow.com/questions/20580045/javascript-character-ascii-to-hex)
 
 
 
