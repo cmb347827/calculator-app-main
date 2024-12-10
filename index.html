@@ -10,8 +10,8 @@
 
   
 </head>
-<body>
-
+<body class="default-color-scheme">
+      <h1 class="sr-only">Basic calculator</h1>
       <main class="calculator-container">
           <form class='display-grid' action="#" method="post">
             <table class="gray-border  place-self-center">
@@ -45,31 +45,31 @@
                   </thead>
                   <tbody class="display-grid">
                       <tr class="display-grid">
-                          <td class="justify-content-stretch gray-border"><output id="output">0</output></td>
+                          <td id='output-parent' class=" justify-content-stretch gray-border"><output class='vertical-align' id="output">0</output></td>
                       </tr>
-                      <tr class="display-grid grid-template-columns-4 justify-items-center input-outer">
-                          <td><input class='calculate' type='button' value='7'></td>
-                          <td><input class='calculate' type='button' value='8'></td>
-                          <td><input class='calculate' type='button' value='9'></td>
-                          <td><input class='calculate' type='button' value='del'></td>
-                          <td><input class='calculate' type='button' value='4'></td>
-                          <td><input class='calculate' type='button' value='5'></td>
-                          <td><input class='calculate' type='button' value='6'></td>
-                          <td><input title='plus' class='calculate' type='button' value='&#x2b;'></td>
-                          <td><input class='calculate' type='button' value='1'></td>
-                          <td><input class='calculate' type='button' value='2'></td>
-                          <td><input class='calculate' type='button' value='3'></td>
-                          <td><input title='minus' class='calculate' type='button' value='&#x2d;'></td>
-                          <td><input class='calculate' type='button' value='.'></td>
-                          <td><input class='calculate' type='button' value='0'></td>
-                          <td><input title='divide' class='calculate' type='button' value='/'></td>
-                          <td><input title='multiply' class='calculate' type='button' value='x'></td>
+                      <tr id='keypad' class="display-grid grid-template-columns-4 justify-items-center align-items-center input-outer">
+                          <td><input class='font-size-2-4em calculate' type='button' value='7'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='8'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='9'></td>
+                          <td><input class='font-size-2-4em calculate white-font' type='button' value='del'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='4'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='5'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='6'></td>
+                          <td><input title='plus' class='font-size-2-4em calculate' type='button' value='&#x2b;'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='1'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='2'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='3'></td>
+                          <td><input title='minus' class='font-size-2-4em calculate' type='button' value='&#x2d;'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='.'></td>
+                          <td><input class='font-size-2-4em calculate' type='button' value='0'></td>
+                          <td><input title='divide' class='font-size-2-4em calculate' type='button' value='/'></td>
+                          <td><input title='multiply' class='font-size-2-4em calculate' type='button' value='x'></td>
                           
                       </tr>
                       
-                      <tr class="display-grid grid-template-columns-2 justify-items-center">
-                         <td><input class='calculate double-width' type="button" value="reset"></td>
-                         <td><input class='calculate double-width' type='button' value='='></td>
+                      <tr id='keypad-rest' class="display-grid grid-template-columns-2 justify-items-center">
+                         <td><input class='font-size-2-4em calculate double-width white-font' type="button" value="reset"></td>
+                         <td><input class='font-size-2-4em calculate double-width white-font' type='button' value='='></td>
                       </tr>
                   </tbody>
                   <tfoot>

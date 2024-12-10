@@ -218,11 +218,14 @@ function loadFromStorage(){
 function clearLocalStorage(){
    localStorage.clear();
 }
+const updateTheme=()=>{
+    loadFromStorage();
+}
 const themeListeners=()=>{
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         btn.addEventListener('click',()=>{
-             console.log('theme btn.value',btn.value);
              saveToStorage(btn.value);
+             //updateTheme();
         });
     });
 }

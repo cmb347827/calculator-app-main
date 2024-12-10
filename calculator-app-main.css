@@ -81,6 +81,9 @@ html {
 .justify-self-center {
   justify-self: center; }
 
+.align-items-center {
+  align-items: center; }
+
 .grid-gap {
   gap: 2px; }
 
@@ -94,12 +97,41 @@ fieldset {
 legend {
   display: contents; }
 
+.default-color-scheme {
+  background-color: MidnightBlue;
+  background-color: #3a4764;
+  color: Snow;
+  color: white; }
+  .default-color-scheme .three-toggle-switch #toggle, .default-color-scheme #keypad, .default-color-scheme #keypad-rest {
+    background-color: DarkBlue;
+    background-color: #232c43; }
+  .default-color-scheme .toggle__slider {
+    background-color: Carnelian;
+    background-color: #d03f2f; }
+  .default-color-scheme input[class='calculate'] {
+    background-color: Coral1;
+    background-color: #eae3dc;
+    color: DodgerBlue4;
+    color: #444b5a; }
+  .default-color-scheme .double-width {
+    background-color: Carnelian;
+    background-color: #d03f2f; }
+  .default-color-scheme .white-font {
+    color: Snow;
+    color: white; }
+  .default-color-scheme input[value='reset'], .default-color-scheme input[value='del'] {
+    background-color: #b1e1f6; }
+  .default-color-scheme #output-parent {
+    background-color: DarkBlue;
+    background-color: #232c43; }
+
 .calculator-container thead tr {
   padding: 0 1.5em; }
+.calculator-container #output-parent {
+  height: 3em;
+  margin-bottom: 1em; }
 .calculator-container .three-toggle-switch #toggle {
   position: relative;
-  background-color: MidnightBlue;
-  background-color: #232c43;
   width: fit-content;
   height: 4em;
   border-radius: 35px;
@@ -120,7 +152,6 @@ legend {
     height: 40px;
     left: 0;
     border-radius: 50%;
-    background-color: orange;
     transition: all 0.8s ease-out; }
   .calculator-container .three-toggle-switch #toggle #theme-1:checked ~ .toggle__slider {
     left: 0; }
@@ -137,13 +168,19 @@ legend {
   height: 30em; }
 .calculator-container input[type='button'] {
   width: 9em;
-  height: 6em; }
+  height: 6em;
+  border-radius: 20px; }
 .calculator-container input.double-width {
-  width: 21em; }
+  width: 21em;
+  max-width: 7.4em; }
 .calculator-container #output {
   padding: 4em; }
 .calculator-container .uppercase {
   text-transform: uppercase; }
+.calculator-container .font-size-2-4em {
+  font-size: 2.4em;
+  max-width: 3em;
+  max-height: 2em; }
 
 footer .attribution {
   font-size: 11px;

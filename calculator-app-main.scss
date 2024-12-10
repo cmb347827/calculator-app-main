@@ -158,6 +158,9 @@ html{
 .justify-self-center{
    justify-self:center;
 }
+.align-items-center{
+   align-items: center;
+}
 .grid-gap{
    gap:2px;
 }
@@ -173,17 +176,43 @@ legend {
   display: contents;
 }
 
+.default-color-scheme{
+     @include bg-color(map-get($theme1-colors,main-background),nth($theme1-fallback-colors,1));
+     @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
+     .three-toggle-switch #toggle,#keypad,#keypad-rest{
+        @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
+     }
+     .toggle__slider{
+        @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
+     }
+     input[class='calculate']{
+        @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
+        @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
+     }
+     .double-width{
+        @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
+     }
+     .white-font{
+        @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
+     }
+     input[value='reset'],input[value='del']{
+        background-color: #b1e1f6;
+     }
+     #output-parent{
+        @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
+     }
+}
 .calculator-container{
+        
         thead tr{
            padding: 0 1.5em;
         }
-        #toggle-parent{
-            //width: 10em;
-            //display:block;
+        #output-parent{
+            height: 3em;
+            margin-bottom: 1em;
         }
         .three-toggle-switch #toggle{
             position:relative;
-            @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,1));
             width:fit-content;
             height:4em;
             border-radius: 35px;
@@ -204,7 +233,6 @@ legend {
                   height: 40px;
                   left:0;
                   border-radius: 50%;
-                  background-color: orange;
                   transition: all 0.8s ease-out;
             }
               /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
@@ -221,7 +249,6 @@ legend {
               }
               
        }
-        
         form{
           height: 100vh;
         }
@@ -235,9 +262,11 @@ legend {
         input[type='button']{
            width: 9em;
            height: 6em;
+           border-radius: 20px;
         }
         input.double-width{
             width: 21em;
+            max-width: 7.4em;
         }
         #output{
            padding: 4em;
@@ -245,7 +274,11 @@ legend {
         .uppercase{
            text-transform: uppercase;
         }
-        
+        .font-size-2-4em{
+          font-size: 2.4em;
+          max-width: 3em;
+          max-height: 2em;
+        }
       
 }
 footer {  
