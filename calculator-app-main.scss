@@ -202,13 +202,20 @@ legend {
         @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
      }
 }
+
+//prefers color scheme
+
+
 .calculator-container{
-        
+        .font-size-3-em{
+           font-size:3em;
+        }
         thead tr{
            padding: 0 1.5em;
         }
         #output-parent{
             height: 3em;
+            max-height: 1.2em;
             margin-bottom: 1em;
         }
         .three-toggle-switch #toggle{
@@ -269,7 +276,7 @@ legend {
             max-width: 7.4em;
         }
         #output{
-           padding: 4em;
+           padding: 0.5em 0.5em;
         }
         .uppercase{
            text-transform: uppercase;
@@ -282,7 +289,7 @@ legend {
       
 }
 footer {  
-   
+  
   .attribution {
     font-size: 11px; text-align: center;
     a { 

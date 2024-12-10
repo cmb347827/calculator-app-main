@@ -125,10 +125,13 @@ legend {
     background-color: DarkBlue;
     background-color: #232c43; }
 
+.calculator-container .font-size-3-em {
+  font-size: 3em; }
 .calculator-container thead tr {
   padding: 0 1.5em; }
 .calculator-container #output-parent {
   height: 3em;
+  max-height: 1.2em;
   margin-bottom: 1em; }
 .calculator-container .three-toggle-switch #toggle {
   position: relative;
@@ -174,7 +177,7 @@ legend {
   width: 21em;
   max-width: 7.4em; }
 .calculator-container #output {
-  padding: 4em; }
+  padding: 0.5em 0.5em; }
 .calculator-container .uppercase {
   text-transform: uppercase; }
 .calculator-container .font-size-2-4em {
