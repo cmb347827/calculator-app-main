@@ -97,6 +97,9 @@ fieldset {
 legend {
   display: contents; }
 
+.margin-top-2-em {
+  margin-top: 2em; }
+
 .default-color-scheme {
   background-color: MidnightBlue;
   background-color: #3a4764;
@@ -124,6 +127,57 @@ legend {
   .default-color-scheme #output-parent {
     background-color: DarkBlue;
     background-color: #232c43; }
+
+.theme2 {
+  background-color: Gray78;
+  background-color: #e6e6e6;
+  color: Snow; }
+  .theme2 .three-toggle-switch #toggle, .theme2 #keypad, .theme2 #keypad-rest {
+    background-color: Gray54;
+    background-color: #d1cccc; }
+  .theme2 .toggle__slider {
+    background-color: Carrot Orange;
+    background-color: #ca5502; }
+  .theme2 input[class='calculate'] {
+    background-color: Khaki;
+    background-color: #e5e4e1;
+    color: Mango;
+    color: #35352c; }
+  .theme2 .double-width {
+    background-color: Carrot Orange;
+    background-color: #ca5502; }
+  .theme2 .white-font {
+    color: Snow; }
+  .theme2 input[value='reset'], .theme2 input[value='del'] {
+    background-color: #b1e1f6; }
+  .theme2 #output-parent {
+    background-color: Gray54;
+    background-color: #d1cccc; }
+
+.theme3 {
+  background-color: Purple4;
+  background-color: #160628;
+  color: Snow; }
+  .theme3 .three-toggle-switch #toggle, .theme3 #keypad, .theme3 #keypad-rest {
+    background-color: Rebeccapurple;
+    background-color: #1d0934; }
+  .theme3 .toggle__slider {
+    background-color: Turquoise Blue;
+    background-color: #00e0d1; }
+  .theme3 input[class='calculate'] {
+    background-color: Byzantium;
+    background-color: #341c4f;
+    color: DarkNavy; }
+  .theme3 .double-width {
+    background-color: Turquoise Blue;
+    background-color: #00e0d1; }
+  .theme3 .white-font {
+    color: Snow; }
+  .theme3 input[value='reset'], .theme3 input[value='del'] {
+    background-color: #b1e1f6; }
+  .theme3 #output-parent {
+    background-color: Rebeccapurple;
+    background-color: #1d0934; }
 
 .calculator-container .font-size-3-em {
   font-size: 3em; }

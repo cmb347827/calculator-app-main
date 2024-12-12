@@ -125,7 +125,9 @@ const removeLeadingZeros=(item)=>{
 const removeZero=()=>{
     outputArr= outputArr.join('');
     //remove zeros from start if there are any ,ocatal literal bug fix: 03*3 , 08/2 , 000004/3 , 03/0 (becomes 3/0) etc 
-    const zeroNumbers = /0+[1-9]+/g;
+    //ignores .04 .009 .0004  8008 etc.
+    //const zeroNumbers = /(?<!\.)0+[1-9]+/g;
+    const zeroNumbers = /[^.]\b0+[1-9]\d*\b/g;
     outputArr = outputArr.replaceAll(zeroNumbers,removeLeadingZeros);
     
     //takes care of the divide by 0 bug : 03/0  3/0  0/0
@@ -212,20 +214,28 @@ function loadFromStorage(){
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         if(btn.value===theme){
             btn.checked=true;
+            loadTheme(btn.value);
         }
     });
 }
 function clearLocalStorage(){
    localStorage.clear();
 }
-const updateTheme=()=>{
-    loadFromStorage();
+const loadTheme=(theme)=>{
+    if(theme==='1'){
+        document.body.classList =["default-color-scheme"];
+    } else if(theme==='2'){
+        document.body.classList =["theme2"];
+    } else if(theme==='3'){
+        document.body.classList =["theme3"];
+    }
 }
+
 const themeListeners=()=>{
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         btn.addEventListener('click',()=>{
              saveToStorage(btn.value);
-             //updateTheme();
+             loadTheme(btn.value);
         });
     });
 }

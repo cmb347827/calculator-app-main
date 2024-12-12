@@ -175,6 +175,9 @@ fieldset {
 legend {
   display: contents;
 }
+.margin-top-2-em{
+   margin-top: 2em;
+}
 
 .default-color-scheme{
      @include bg-color(map-get($theme1-colors,main-background),nth($theme1-fallback-colors,1));
@@ -202,8 +205,58 @@ legend {
         @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
      }
 }
-
-//prefers color scheme
+.theme2 {
+      @include bg-color(map-get($theme2-colors,main-background),nth($theme2-fallback-colors,1));
+      @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,11));
+      .three-toggle-switch #toggle,#keypad,#keypad-rest{
+         @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
+      }
+      .toggle__slider{
+         @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
+      }
+      input[class='calculate']{
+         @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
+         @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
+      }
+      .double-width{
+         @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
+      }
+      .white-font{
+         @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,11));
+      }
+      input[value='reset'],input[value='del']{
+         background-color: #b1e1f6;
+      }
+      #output-parent{
+         @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
+      }
+}
+.theme3{
+   @include bg-color(map-get($theme3-colors,main-background),nth($theme3-fallback-colors,1));
+   @include font-color(map-get($theme3-colors,white),nth($theme3-fallback-colors,11));
+   .three-toggle-switch #toggle,#keypad,#keypad-rest{
+      @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
+   }
+   .toggle__slider{
+      @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
+   }
+   input[class='calculate']{
+      @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,8));
+      @include font-color(map-get($theme3-colors,text),nth($theme3-fallback-colors,10));
+   }
+   .double-width{
+      @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
+   }
+   .white-font{
+      @include font-color(map-get($theme3-colors,white),nth($theme3-fallback-colors,11));
+   }
+   input[value='reset'],input[value='del']{
+      background-color: #b1e1f6;
+   }
+   #output-parent{
+      @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
+   }
+}
 
 
 .calculator-container{
