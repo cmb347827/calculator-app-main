@@ -120,14 +120,15 @@ function parse(str) {
 
 const removeLeadingZeros=(item)=>{
     //remove leading zeros.
+    console.log('item',item);
     return parseInt(item,10);
 }
 const removeZero=()=>{
     outputArr= outputArr.join('');
     //remove zeros from start if there are any ,ocatal literal bug fix: 03*3 , 08/2 , 000004/3 , 03/0 (becomes 3/0) etc 
-    //ignores .04 .009 .0004  8008 etc.
-    //const zeroNumbers = /(?<!\.)0+[1-9]+/g;
-    const zeroNumbers = /[^.]\b0+[1-9]\d*\b/g;
+    //0002000 00450 becomes  2000 and 450
+    //ignores .04 .009 .0004  8008 9000 etc.
+    const zeroNumbers=/\b(?<!\.)(0+\d+)\b/g;
     outputArr = outputArr.replaceAll(zeroNumbers,removeLeadingZeros);
     
     //takes care of the divide by 0 bug : 03/0  3/0  0/0

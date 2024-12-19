@@ -6,6 +6,9 @@ html {
 ::after {
   box-sizing: inherit; }
 
+body {
+  overflow: auto; }
+
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
@@ -24,9 +27,6 @@ html {
 
 .padding2em {
   padding: 2em; }
-
-#foot {
-  width: 30em; }
 
 /*flexbox*/
 .display-flex {
@@ -97,8 +97,8 @@ fieldset {
 legend {
   display: contents; }
 
-.margin-top-2-em {
-  margin-top: 2em; }
+.margin-top-10-em {
+  margin-top: 10em; }
 
 .default-color-scheme {
   background-color: MidnightBlue;
@@ -116,14 +116,18 @@ legend {
     background-color: #eae3dc;
     color: DodgerBlue4;
     color: #444b5a; }
+  .default-color-scheme #keypad td {
+    box-shadow: 0 4px 2px -2px #b4a597; }
   .default-color-scheme .double-width {
     background-color: Carnelian;
-    background-color: #d03f2f; }
+    background-color: #d03f2f;
+    box-shadow: 0 4px 2px -2px #93261a; }
   .default-color-scheme .white-font {
     color: Snow;
     color: white; }
   .default-color-scheme input[value='reset'], .default-color-scheme input[value='del'] {
-    background-color: #b1e1f6; }
+    background-color: #b1e1f6;
+    box-shadow: 0 4px 2px -2px #404e72; }
   .default-color-scheme #output-parent {
     background-color: DarkBlue;
     background-color: #232c43; }
@@ -131,7 +135,7 @@ legend {
 .theme2 {
   background-color: Gray78;
   background-color: #e6e6e6;
-  color: Snow; }
+  color: Mango; }
   .theme2 .three-toggle-switch #toggle, .theme2 #keypad, .theme2 #keypad-rest {
     background-color: Gray54;
     background-color: #d1cccc; }
@@ -157,7 +161,8 @@ legend {
 .theme3 {
   background-color: Purple4;
   background-color: #160628;
-  color: Snow; }
+  color: Goldenrod2;
+  color: #ffe53d; }
   .theme3 .three-toggle-switch #toggle, .theme3 #keypad, .theme3 #keypad-rest {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
@@ -167,7 +172,8 @@ legend {
   .theme3 input[class='calculate'] {
     background-color: Byzantium;
     background-color: #341c4f;
-    color: DarkNavy; }
+    color: Goldenrod2;
+    color: #ffe53d; }
   .theme3 .double-width {
     background-color: Turquoise Blue;
     background-color: #00e0d1; }
@@ -179,70 +185,88 @@ legend {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
 
-.calculator-container .font-size-3-em {
-  font-size: 3em; }
-.calculator-container thead tr {
-  padding: 0 1.5em; }
-.calculator-container #output-parent {
-  height: 3em;
-  max-height: 1.2em;
-  margin-bottom: 1em; }
-.calculator-container .three-toggle-switch #toggle {
-  position: relative;
-  width: fit-content;
-  height: 4em;
-  border-radius: 35px;
-  /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-  /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-  /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
-  .calculator-container .three-toggle-switch #toggle .toggle__wrapper {
-    position: relative; }
-  .calculator-container .three-toggle-switch #toggle input[type="radio"] {
-    width: 40px;
-    height: 40px;
-    opacity: 0; }
-    .calculator-container .three-toggle-switch #toggle input[type="radio"]:focus ~ .toggle__slider {
-      cursor: pointer; }
-  .calculator-container .three-toggle-switch #toggle .toggle__slider {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    left: 0;
-    border-radius: 50%;
-    transition: all 0.8s ease-out; }
-  .calculator-container .three-toggle-switch #toggle #theme-1:checked ~ .toggle__slider {
-    left: 0; }
-  .calculator-container .three-toggle-switch #toggle #theme-2:checked ~ .toggle__slider {
-    left: 3em; }
-  .calculator-container .three-toggle-switch #toggle #theme-3:checked ~ .toggle__slider {
-    left: 6em; }
-.calculator-container form {
-  height: 100vh; }
-.calculator-container table {
-  width: 30em; }
-.calculator-container .input-outer {
-  width: 40em;
-  height: 30em; }
-.calculator-container input[type='button'] {
-  width: 9em;
-  height: 6em;
-  border-radius: 20px; }
-.calculator-container input.double-width {
-  width: 21em;
-  max-width: 7.4em; }
-.calculator-container #output {
-  padding: 0.5em 0.5em; }
-.calculator-container .uppercase {
-  text-transform: uppercase; }
-.calculator-container .font-size-2-4em {
-  font-size: 2.4em;
-  max-width: 3em;
-  max-height: 2em; }
+.calculator-container {
+  margin-top: 3em; }
+  .calculator-container .font-size-3-em {
+    font-size: 3em; }
+  .calculator-container thead tr {
+    padding: 0 1.5em; }
+  .calculator-container #keypad-rest {
+    padding-bottom: 3em;
+    padding-top: 3em;
+    margin-bottom: 3em; }
+  .calculator-container #output-parent {
+    height: 3em;
+    max-height: 1.2em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 15px; }
+  .calculator-container .three-toggle-switch #toggle {
+    position: relative;
+    width: fit-content;
+    height: 4em;
+    border-radius: 35px;
+    /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+    /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+    /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
+    .calculator-container .three-toggle-switch #toggle .toggle__wrapper {
+      position: relative; }
+    .calculator-container .three-toggle-switch #toggle input[type="radio"] {
+      width: 40px;
+      height: 40px;
+      opacity: 0; }
+      .calculator-container .three-toggle-switch #toggle input[type="radio"]:focus ~ .toggle__slider {
+        cursor: pointer; }
+    .calculator-container .three-toggle-switch #toggle .toggle__slider {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      left: 0;
+      border-radius: 50%;
+      transition: all 0.8s ease-out; }
+    .calculator-container .three-toggle-switch #toggle #theme-1:checked ~ .toggle__slider {
+      left: 0; }
+    .calculator-container .three-toggle-switch #toggle #theme-2:checked ~ .toggle__slider {
+      left: 3em; }
+    .calculator-container .three-toggle-switch #toggle #theme-3:checked ~ .toggle__slider {
+      left: 6em; }
+  .calculator-container form {
+    height: 100vh; }
+  .calculator-container table {
+    width: 30em; }
+  .calculator-container .input-outer {
+    width: 40em;
+    height: 30em; }
+  .calculator-container #keypad td {
+    border-radius: 20px; }
+  .calculator-container #keypad, .calculator-container #keypad-rest {
+    border-radius: 15px; }
+  .calculator-container input[type='button'] {
+    width: 9em;
+    height: 6em;
+    border-radius: 20px; }
+  .calculator-container input.double-width {
+    width: 21em;
+    max-width: 7.4em; }
+  .calculator-container #output {
+    padding: 0.5em 0.5em; }
+  .calculator-container .uppercase {
+    text-transform: uppercase; }
+  .calculator-container .font-size-2-4em {
+    font-size: 2.4em;
+    max-width: 3em;
+    max-height: 2em; }
 
-footer .attribution {
-  font-size: 11px;
-  text-align: center; }
-  footer .attribution a {
-    color: #3e52a3; }
+.attribution {
+  top: 60em;
+  position: fixed;
+  width: 100%; }
+
+.footer {
+  margin: auto;
+  width: 10em;
+  text-align: center;
+  padding: 1em;
+  color: #ffffff; }
 
 /*# sourceMappingURL=calculator-app-main.css.map */
