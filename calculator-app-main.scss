@@ -136,6 +136,7 @@ body{
 .align-items-center{
    align-items:center;
 }
+
 /*grid*/
 .justify-content-stretch{
   justify-content: stretch;
@@ -152,6 +153,9 @@ body{
 .justify-items-center{
   justify-items:center;
 }
+.justify-items-end{
+   justify-items:end;
+}
 .place-self-center{
   place-self: center;
 }
@@ -161,9 +165,13 @@ body{
 .align-items-center{
    align-items: center;
 }
+.align-items-start{
+   align-items:start;
+}
 .grid-gap{
    gap:2px;
 }
+//end grid
 
 fieldset {
   margin-inline: 2px;
@@ -188,9 +196,12 @@ legend {
      .toggle__slider{
         @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
      }
-     input[class='calculate']{
+     #keypad td input{
         @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
         @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
+        &:hover{
+          @include bg-color(lighten(map-get($theme1-colors,key-background3),9),nth($theme1-fallback-colors,8));
+        }
      }
      #keypad td{
         box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow3);
@@ -219,9 +230,15 @@ legend {
       .toggle__slider{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
       }
-      input[class='calculate']{
+      #keypad td input{
          @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
          @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
+         &:hover{
+            @include bg-color(lighten(map-get($theme2-colors,key-background3),9),nth($theme2-fallback-colors,8));
+         }
+      }
+      #keypad td{
+         box-shadow: 0 6px 4px -2px map-get($theme2-colors,key-shadow3);
       }
       .double-width{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
@@ -245,9 +262,15 @@ legend {
    .toggle__slider{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
    }
-   input[class='calculate']{
-      @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,8));
+   #keypad td input{
+      @include bg-color(map-get($theme3-colors,key-shadow3),nth($theme3-fallback-colors,8));
       @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
+      &:hover{
+         @include bg-color(lighten(map-get($theme3-colors,key-background3),9),nth($theme3-fallback-colors,8));
+      }
+   }
+   #keypad td{
+      box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow1);
    }
    .double-width{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
@@ -262,7 +285,9 @@ legend {
       @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
    }
 }
-
+.font-bold{
+    font-weight: bold;
+}
 
 .calculator-container{
          margin-top: 3em;
@@ -273,16 +298,17 @@ legend {
            padding: 0 1.5em;
         }
         #keypad-rest{
-          padding-bottom:3em;
-          padding-top: 3em;
-          margin-bottom:3em;
+               padding-bottom:3em;
+               padding-top: 3em;
+               margin-bottom:3em;
         }
         #output-parent{
-            height: 3em;
-            max-height: 1.2em;
             margin-bottom: 1em;
-            padding: 1em;
+            padding: 0.4em;
             border-radius: 15px;
+        }
+        #output{
+            padding: 0.1em;
         }
         .three-toggle-switch #toggle{
             position:relative;
@@ -326,11 +352,14 @@ legend {
           height: 100vh;
         }
         table{
-          width: 30em;
+             width: 10em;
+             max-width: 30em;
+   
         }
         .input-outer{
-          width: 40em;
-          height: 30em;
+
+              max-width: 40em;
+              max-height: 30em;
         }
         #keypad td{
            border-radius: 20px;
@@ -338,10 +367,14 @@ legend {
         #keypad,#keypad-rest{
            border-radius: 15px;
         }
+        
         input[type='button']{
-           width: 9em;
-           height: 6em;
+           width: 2.7em;
+           height: 1.8em;
+           max-width: 9em;
+           max-height: 6em;
            border-radius: 20px;
+           border:none;
         }
         input.double-width{
             width: 21em;
