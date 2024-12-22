@@ -91,7 +91,10 @@ body {
   align-items: start; }
 
 .grid-gap {
-  gap: 2px; }
+  gap: 10px; }
+
+.row-gap {
+  row-gap: 10px; }
 
 fieldset {
   margin-inline: 2px;
@@ -117,12 +120,12 @@ legend {
   .default-color-scheme .toggle__slider {
     background-color: Carnelian;
     background-color: #d03f2f; }
-  .default-color-scheme #keypad td input {
+  .default-color-scheme #keypad td input:not(#del) {
     background-color: Coral1;
     background-color: #eae3dc;
     color: DodgerBlue4;
     color: #444b5a; }
-    .default-color-scheme #keypad td input:hover {
+    .default-color-scheme #keypad td input:not(#del):hover {
       background-color: Coral1;
       background-color: #fbfaf9; }
   .default-color-scheme #keypad td {
@@ -134,9 +137,13 @@ legend {
   .default-color-scheme .white-font {
     color: Snow;
     color: white; }
-  .default-color-scheme input[value='reset'], .default-color-scheme input[value='del'] {
-    background-color: #b1e1f6;
+  .default-color-scheme #del, .default-color-scheme #reset {
+    background-color: Navy;
+    background-color: #637097; }
+  .default-color-scheme #reset {
     box-shadow: 0 4px 2px -2px #404e72; }
+  .default-color-scheme #is {
+    box-shadow: 0 6px 2px -2px #93261a; }
   .default-color-scheme #output-parent {
     background-color: DarkBlue;
     background-color: #232c43; }
@@ -151,23 +158,29 @@ legend {
   .theme2 .toggle__slider {
     background-color: Carrot Orange;
     background-color: #ca5502; }
-  .theme2 #keypad td input {
+  .theme2 #keypad td input:not(#del) {
     background-color: Khaki;
     background-color: #e5e4e1;
     color: Mango;
     color: #35352c; }
-    .theme2 #keypad td input:hover {
+    .theme2 #keypad td input:not(#del):hover {
       background-color: Khaki;
       background-color: #fafafa; }
   .theme2 #keypad td {
     box-shadow: 0 6px 4px -2px #a69d91; }
   .theme2 .double-width {
     background-color: Carrot Orange;
-    background-color: #ca5502; }
+    background-color: #ca5502;
+    box-shadow: 0 4px 2px -2px #893901; }
   .theme2 .white-font {
     color: Snow; }
-  .theme2 input[value='reset'], .theme2 input[value='del'] {
-    background-color: #b1e1f6; }
+  .theme2 #del, .theme2 #reset {
+    background-color: Gray92;
+    background-color: #377f86; }
+  .theme2 #reset {
+    box-shadow: 0 4px 2px -2px #1b5f65; }
+  .theme2 #is {
+    box-shadow: 0 6px 2px -2px #893901; }
   .theme2 #output-parent {
     background-color: Gray54;
     background-color: #d1cccc; }
@@ -183,23 +196,28 @@ legend {
   .theme3 .toggle__slider {
     background-color: Turquoise Blue;
     background-color: #00e0d1; }
-  .theme3 #keypad td input {
-    background-color: Byzantium;
-    background-color: #871c9c;
+  .theme3 #keypad td input:not(#del) {
+    background-color: Blue4;
+    background-color: #341c4f;
     color: Goldenrod2;
     color: #ffe53d; }
-    .theme3 #keypad td input:hover {
+    .theme3 #keypad td input:not(#del):hover {
       background-color: Byzantium;
-      background-color: #4a2970; }
+      background-color: #341c4f, 9; }
   .theme3 #keypad td {
-    box-shadow: 0 4px 2px -2px #bc15f4; }
+    box-shadow: 0 4px 2px -2px #871c9c; }
   .theme3 .double-width {
     background-color: Turquoise Blue;
     background-color: #00e0d1; }
   .theme3 .white-font {
     color: Snow; }
-  .theme3 input[value='reset'], .theme3 input[value='del'] {
-    background-color: #b1e1f6; }
+  .theme3 #del, .theme3 #reset {
+    background-color: Dark Byzantium;
+    background-color: #58077d; }
+  .theme3 #reset {
+    box-shadow: 0 4px 2px -2px #bc15f4; }
+  .theme3 #is {
+    box-shadow: 0 6px 2px -2px #6cf9f2; }
   .theme3 #output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
@@ -260,6 +278,8 @@ legend {
   .calculator-container .input-outer {
     max-width: 40em;
     max-height: 30em; }
+  .calculator-container #keypad {
+    padding-top: 1em; }
   .calculator-container #keypad td {
     border-radius: 20px; }
   .calculator-container #keypad, .calculator-container #keypad-rest {
@@ -272,8 +292,8 @@ legend {
     border-radius: 20px;
     border: none; }
   .calculator-container input.double-width {
-    width: 21em;
-    max-width: 7.4em; }
+    width: 6.5em;
+    max-width: 21em; }
   .calculator-container #output {
     padding: 0.5em 0.5em; }
   .calculator-container .uppercase {

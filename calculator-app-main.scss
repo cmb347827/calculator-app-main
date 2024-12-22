@@ -169,7 +169,10 @@ body{
    align-items:start;
 }
 .grid-gap{
-   gap:2px;
+   gap:10px;
+}
+.row-gap{
+   row-gap: 10px;
 }
 //end grid
 
@@ -196,7 +199,7 @@ legend {
      .toggle__slider{
         @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
      }
-     #keypad td input{
+     #keypad td input:not(#del){
         @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
         @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
         &:hover{
@@ -213,9 +216,15 @@ legend {
      .white-font{
         @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
      }
-     input[value='reset'],input[value='del']{
-        background-color: #b1e1f6;
+     #del,#reset{
+        @include bg-color(map-get($theme1-colors,key-background1),nth($theme1-fallback-colors,3));
+      
+     }
+     #reset{
         box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow1);
+     }
+     #is{
+        box-shadow: 0 6px 2px -2px map-get($theme1-colors,key-shadow2);
      }
      #output-parent{
         @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
@@ -230,7 +239,7 @@ legend {
       .toggle__slider{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
       }
-      #keypad td input{
+      #keypad td input:not(#del){
          @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
          @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
          &:hover{
@@ -242,12 +251,20 @@ legend {
       }
       .double-width{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
+         box-shadow: 0 4px 2px -2px map-get($theme2-colors,key-shadow2);
       }
       .white-font{
          @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,11));
       }
-      input[value='reset'],input[value='del']{
-         background-color: #b1e1f6;
+      #del,#reset{
+         @include bg-color(map-get($theme2-colors,key-background1),nth($theme2-fallback-colors,3));
+         
+      }
+      #reset{
+         box-shadow: 0 4px 2px -2px map-get($theme2-colors,key-shadow1);
+      }
+      #is{
+         box-shadow: 0 6px 2px -2px map-get($theme2-colors,key-shadow2);
       }
       #output-parent{
          @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
@@ -262,15 +279,15 @@ legend {
    .toggle__slider{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
    }
-   #keypad td input{
-      @include bg-color(map-get($theme3-colors,key-shadow3),nth($theme3-fallback-colors,8));
+   #keypad td input:not(#del){
+      @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,7));
       @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
       &:hover{
-         @include bg-color(lighten(map-get($theme3-colors,key-background3),9),nth($theme3-fallback-colors,8));
+         @include bg-color((map-get($theme3-colors,key-background3),9),nth($theme3-fallback-colors,8));
       }
    }
    #keypad td{
-      box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow1);
+      box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow3);
    }
    .double-width{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
@@ -278,8 +295,15 @@ legend {
    .white-font{
       @include font-color(map-get($theme3-colors,white),nth($theme3-fallback-colors,11));
    }
-   input[value='reset'],input[value='del']{
-      background-color: #b1e1f6;
+   #del,#reset{
+      @include bg-color(map-get($theme3-colors,key-background1),nth($theme3-fallback-colors,3));
+      
+   }
+   #reset{
+      box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow1);
+   }
+   #is{
+      box-shadow: 0 6px 2px -2px map-get($theme3-colors,key-shadow2);
    }
    #output-parent{
       @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
@@ -290,108 +314,111 @@ legend {
 }
 
 .calculator-container{
-         margin-top: 3em;
-        .font-size-3-em{
-           font-size:3em;
+   margin-top: 3em;
+  .font-size-3-em{
+     font-size:3em;
+  }
+  thead tr{
+     padding: 0 1.5em;
+  }
+  #keypad-rest{
+         padding-bottom:3em;
+         padding-top: 3em;
+         margin-bottom:3em;
+  }
+  #output-parent{
+      margin-bottom: 1em;
+      padding: 0.4em;
+      border-radius: 15px;
+  }
+  #output{
+      padding: 0.1em;
+  }
+  .three-toggle-switch #toggle{
+      position:relative;
+      width:fit-content;
+      height:4em;
+      border-radius: 35px;
+      .toggle__wrapper{
+         position:relative;
+      }
+      input[type="radio"]{
+         width: 40px;
+         height: 40px;
+         opacity: 0 ;
+         &:focus ~ .toggle__slider {
+          cursor:pointer;
+         }
+      }
+      .toggle__slider{
+            position:absolute;
+            width: 40px;
+            height: 40px;
+            left:0;
+            border-radius: 50%;
+            transition: all 0.8s ease-out;
+      }
+        /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+        #theme-1:checked ~ .toggle__slider {
+           left: 0;
         }
-        thead tr{
-           padding: 0 1.5em;
+        /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+        #theme-2:checked ~ .toggle__slider{
+           left:3em;
         }
-        #keypad-rest{
-               padding-bottom:3em;
-               padding-top: 3em;
-               margin-bottom:3em;
-        }
-        #output-parent{
-            margin-bottom: 1em;
-            padding: 0.4em;
-            border-radius: 15px;
-        }
-        #output{
-            padding: 0.1em;
-        }
-        .three-toggle-switch #toggle{
-            position:relative;
-            width:fit-content;
-            height:4em;
-            border-radius: 35px;
-            .toggle__wrapper{
-               position:relative;
-            }
-            input[type="radio"]{
-               width: 40px;
-               height: 40px;
-               opacity: 0 ;
-               &:focus ~ .toggle__slider {
-                cursor:pointer;
-               }
-            }
-            .toggle__slider{
-                  position:absolute;
-                  width: 40px;
-                  height: 40px;
-                  left:0;
-                  border-radius: 50%;
-                  transition: all 0.8s ease-out;
-            }
-              /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-              #theme-1:checked ~ .toggle__slider {
-                 left: 0;
-              }
-              /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-              #theme-2:checked ~ .toggle__slider{
-                 left:3em;
-              }
-              /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-              #theme-3:checked ~ .toggle__slider{
-                 left:6em;
-              }
-              
-       }
-        form{
-          height: 100vh;
-        }
-        table{
-             width: 10em;
-             max-width: 30em;
-   
-        }
-        .input-outer{
-
-              max-width: 40em;
-              max-height: 30em;
-        }
-        #keypad td{
-           border-radius: 20px;
-        }
-        #keypad,#keypad-rest{
-           border-radius: 15px;
+        /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+        #theme-3:checked ~ .toggle__slider{
+           left:6em;
         }
         
-        input[type='button']{
-           width: 2.7em;
-           height: 1.8em;
-           max-width: 9em;
-           max-height: 6em;
-           border-radius: 20px;
-           border:none;
-        }
-        input.double-width{
-            width: 21em;
-            max-width: 7.4em;
-        }
-        #output{
-           padding: 0.5em 0.5em;
-        }
-        .uppercase{
-           text-transform: uppercase;
-        }
-        .font-size-2-4em{
-          font-size: 2.4em;
-          max-width: 3em;
-          max-height: 2em;
-        }
-      
+ }
+  form{
+    height: 100vh;
+  }
+  table{
+       width: 10em;
+       max-width: 30em;
+
+  }
+  .input-outer{
+
+        max-width: 40em;
+        max-height: 30em;
+  }
+  #keypad{
+     padding-top: 1em;
+  }
+  #keypad td{
+     border-radius: 20px;
+  }
+  #keypad,#keypad-rest{
+     border-radius: 15px;
+  }
+  
+  input[type='button']{
+     width: 2.7em;
+     height: 1.8em;
+     max-width: 9em;
+     max-height: 6em;
+     border-radius: 20px;
+     border:none;
+  }
+  input.double-width{
+      width: 6.5em;
+      max-width: 21em;
+  }
+  #output{
+     padding: 0.5em 0.5em;
+  }
+  .uppercase{
+     text-transform: uppercase;
+  }
+  .font-size-2-4em{
+    font-size: 2.4em;
+    max-width: 3em;
+    max-height: 2em;
+  }
+
 }
 
 .attribution{
