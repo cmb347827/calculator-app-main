@@ -2,8 +2,8 @@
 
 let outputArr=[]; 
 let isMinus=false;let twoOperands=true;
-//use hex codes for operands: / + - x ,  ex: &#x2215; (hex for / is 2215 in the allOperands array)
-const allOperands=['2b','2d','2f','2a'];
+//use hex codes for operands: / + - x .   ex: &#x2215; (hex for / is 2215 in the allOperands array)
+const allOperands=['2b','2d','2f','2a','2e'];
 let theme = JSON.parse(localStorage.getItem("theme")) || '1';
 const output = document.querySelector('#output');
 
@@ -34,6 +34,7 @@ const checkMinus=()=>{
             case '2b':
             case '2f':
             case '2a':
+            case  '2e':
               //case all other operand entered first, return 0 with operand (unshift 0)
               outputArr.unshift('0');
               output.textContent=outputArr.join('');
@@ -59,7 +60,7 @@ const checkMinus=()=>{
                     output.textContent=outputArr.join('');
                 }else{
                      //++ , -+ , etc not allowed , and -- not allowed if no number entered yet.
-                     //splice the second operand, so ++ is just +, and -- is just -                   **********************************
+                     //splice the second operand, so ++ is just +, and -- is just -                   
                     outputArr.splice(outputArr.length-1,1);
                 }
             }
@@ -68,7 +69,7 @@ const checkMinus=()=>{
             }
 
     } else if(outputArr.length >=3){
-        // can't do 3+-----4 so,can be -3+, -33, 3+- , check the last three values.
+        // can't do 3+-----4 so,can be -3+, -33, 3+-, 3.. etc , check the last three values.
         const charArr = outputArr.slice(outputArr.length-3);
         const allOperands= charArr.every(testOperands);
         if(allOperands){

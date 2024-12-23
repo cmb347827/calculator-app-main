@@ -199,14 +199,14 @@ legend {
      .toggle__slider{
         @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
      }
-     #keypad td input:not(#del){
+     #keypad input:not(#del){
         @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
         @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
         &:hover{
           @include bg-color(lighten(map-get($theme1-colors,key-background3),9),nth($theme1-fallback-colors,8));
         }
      }
-     #keypad td{
+     #keypad {
         box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow3);
      }
      .double-width{
@@ -239,14 +239,14 @@ legend {
       .toggle__slider{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
       }
-      #keypad td input:not(#del){
+      #keypad input:not(#del){
          @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
          @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
          &:hover{
             @include bg-color(lighten(map-get($theme2-colors,key-background3),9),nth($theme2-fallback-colors,8));
          }
       }
-      #keypad td{
+      #keypad{
          box-shadow: 0 6px 4px -2px map-get($theme2-colors,key-shadow3);
       }
       .double-width{
@@ -279,14 +279,14 @@ legend {
    .toggle__slider{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
    }
-   #keypad td input:not(#del){
+   #keypad input:not(#del){
       @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,7));
       @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
       &:hover{
          @include bg-color((map-get($theme3-colors,key-background3),9),nth($theme3-fallback-colors,8));
       }
    }
-   #keypad td{
+   #keypad{
       box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow3);
    }
    .double-width{
@@ -318,7 +318,7 @@ legend {
   .font-size-3-em{
      font-size:3em;
   }
-  thead tr{
+  header{
      padding: 0 1.5em;
   }
   #keypad-rest{
@@ -388,7 +388,7 @@ legend {
   #keypad{
      padding-top: 1em;
   }
-  #keypad td{
+  #keypad input{
      border-radius: 20px;
   }
   #keypad,#keypad-rest{

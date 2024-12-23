@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <meta name="calculator" content="A simple calculator">
+  <meta name="calculator" content="A simple calculator for adding , dividing, multiplying, and subtracting. With a theme color base">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel='stylesheet' href='calculator-app-main.css' type='text/css'>
   <title>Frontend Mentor | Calculator app</title>
@@ -11,17 +11,18 @@
   
 </head>
 <body class="default-color-scheme">
-      <h1 class="sr-only">Basic calculator</h1>
+      
       <main class="calculator-container">
-          <form class='display-grid' action="#" method="post">
-            <table class=" place-self-center">
-                  <caption class="sr-only">
+          <h1 class="sr-only">Basic calculator</h1>
+          <section>
+            <div class=" place-self-center">
+                  <h2 class="sr-only">
                      Calculator App
-                  </caption>
-                  <thead class="justify-content-stretch">
-                      <tr class="display-flex justify-content-between align-items-center">
-                          <th class="font-size-3-em" scope="row">Calc</th>
-                          <td id="toggle-parent">
+                  </h2>
+                  <header class="justify-content-stretch">
+                      <div class="display-flex justify-content-between align-items-center">
+                          <h3 class="font-size-3-em">Calc</h3>
+                          <div id="toggle-parent">
                                <fieldset class='three-toggle-switch display-flex justify-content-between align-items-center' aria-label="price switcher" role="radiogroup">
                                        <legend class="uppercase font-bold">theme</legend>
                                        <div  class="display-flex flex-column">
@@ -39,50 +40,45 @@
                                             
                                         </div>
                                </fieldset>
-                          </td>
+                           </div>
                           
-                      </tr>
-                  </thead>
-                  <tbody class="display-grid">
-                      <tr>
-                          <td id='output-parent' class="display-grid font-size-3-em justify-content-stretch justify-items-end align-items-start">
-                              <output id="output">0</output>
-                          </td>
-                      </tr>
-                      <tr id='keypad' class="display-grid row-gap grid-template-columns-4 justify-items-center align-items-center input-outer">
-                          <td><input class='font-size-2-4em calculate' type='button' value='7'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='8'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='9'></td>
-                          <td ><input id='del' class='font-size-2-4em calculate white-font' type='button' value='del'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='4'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='5'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='6'></td>
-                          <td><input title='plus' class='font-size-2-4em calculate' type='button' value='&#x2b;'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='1'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='2'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='3'></td>
-                          <td><input title='minus' class='font-size-2-4em calculate' type='button' value='&#x2d;'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='.'></td>
-                          <td><input class='font-size-2-4em calculate' type='button' value='0'></td>
-                          <td><input title='divide' class='font-size-2-4em calculate' type='button' value='/'></td>
-                          <td><input title='multiply' class='font-size-2-4em calculate' type='button' value='x'></td>
-                          
-                      </tr>
+                      </div>
+                   </header>
+                  <div class="display-grid">
                       
-                      <tr id='keypad-rest' class="display-grid grid-template-columns-2 justify-items-center">
-                         <td><input id='reset' class='font-size-2-4em calculate double-width white-font' type="button" value="reset"></td>
-                         <td><input id='is' class='font-size-2-4em calculate double-width white-font' type='button' value='='></td>
-                      </tr>
-                  </tbody>
-                  <tfoot>
-                      <tr>
-                        
-                      </tr>
-                  </tfoot>
+                       <div id='output-parent' class="display-grid font-size-3-em justify-content-stretch justify-items-end align-items-start">
+                            <output id="output">0</output>
+                       </div>
+                     
+                      <div id='keypad' class="display-grid row-gap grid-template-columns-4 justify-items-center align-items-center input-outer">
+                          <input class='font-size-2-4em calculate' type='button' value='7'>
+                          <input class='font-size-2-4em calculate' type='button' value='8'>
+                          <input class='font-size-2-4em calculate' type='button' value='9'>
+                          <input id='del' class='font-size-2-4em calculate white-font' type='button' value='del'>
+                          <input class='font-size-2-4em calculate' type='button' value='4'>
+                          <input class='font-size-2-4em calculate' type='button' value='5'>
+                          <input class='font-size-2-4em calculate' type='button' value='6'>
+                          <input title='plus' class='font-size-2-4em calculate' type='button' value='&#x2b;'>
+                          <input class='font-size-2-4em calculate' type='button' value='1'>
+                          <input class='font-size-2-4em calculate' type='button' value='2'>
+                          <input class='font-size-2-4em calculate' type='button' value='3'>
+                          <input title='minus' class='font-size-2-4em calculate' type='button' value='&#x2d;'>
+                          <input class='font-size-2-4em calculate' type='button' value='.'>
+                          <input class='font-size-2-4em calculate' type='button' value='0'>
+                          <input title='divide' class='font-size-2-4em calculate' type='button' value='/'>
+                          <input title='multiply' class='font-size-2-4em calculate' type='button' value='x'>
+                          
+                      </div>
+                      
+                      <div id='keypad-rest' class="display-grid grid-template-columns-2 justify-items-center">
+                         <input id='reset' class='font-size-2-4em calculate double-width white-font' type="button" value="reset">
+                         <input id='is' class='font-size-2-4em calculate double-width white-font' type='button' value='='>
+                      </div>
+                   </div>
                   
-            </table>
+            </div>
                 
-          </form>
+         </section>
       </main>
       <footer  class=" attribution ">
             <div  class="footer ">
