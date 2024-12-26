@@ -9,94 +9,102 @@ const output = document.querySelector('#output');
 
 
 const testOperands=(operand)=>{
-    const hex =convertHexOperand(operand);
-    return allOperands.includes(hex);      //
+    if(operand){
+        const hex =convertHexOperand(operand);
+        return allOperands.includes(hex);  
+    } else{
+        reset();
+    }
 };
 const convertHexOperand=(operand)=>{
    /*if(allOperands.includes(operand)){
       return operand.charCodeAt(0).toString(16);
    }*/
-   return operand.charCodeAt(0).toString(16);
+   if(operand){
+      return operand.charCodeAt(0).toString(16);
+   }else{
+       reset();
+   }
 };
 
 const checkMinus=()=>{
-
-    if(outputArr.length===1){
-        const lastChar = convertHexOperand(outputArr[outputArr.length-1]);
-        
-        switch(lastChar){
-           //case if operand entered first. check if operand is minus
-           case '2d':
-              //if it is minus, set isMinus=true so can't be --, or --number 
-              isMinus=true;
-              output.textContent =outputArr.join('');
-              break;
-            case '2b':
-            case '2f':
-            case '2a':
-            case  '2e':
-              //case all other operand entered first, return 0 with operand (unshift 0)
-              outputArr.unshift('0');
-              output.textContent=outputArr.join('');
-              break;
-            default:
-              //entered a number
-              output.textContent=outputArr.join('');
-              break;
-       }
-    } else if(outputArr.length===2){
-            //either for instance :  number- , -number, -+, +- etc
-            const charArr = outputArr.slice(outputArr.length-2);
-            const bothOperands= charArr.every(testOperands);
-            const lastChar = convertHexOperand(outputArr[outputArr.length-1]);
-
-            if(bothOperands){ //-+, +- etc
-                //due to !isMinus , first operand is not a minus.
-                //bothOperands true, test second operand. if minus, leave operands as is , return 0 with operands
-                if(lastChar==='2d' && !isMinus){
-                    // +- are allowed in multiple operands (with a default zero or entered number)
-                    // x- and /- are allowed as well
+       
+            if(outputArr.length===1){
+                const lastChar = convertHexOperand(outputArr[outputArr.length-1]);
+                
+                switch(lastChar){
+                //case if operand entered first. check if operand is minus
+                case '2d':
+                    //if it is minus, set isMinus=true so can't be --, or --number 
+                    isMinus=true;
+                    output.textContent =outputArr.join('');
+                    break;
+                    case '2b':
+                    case '2f':
+                    case '2a':
+                    case  '2e':
+                    //case all other operand entered first, return 0 with operand (unshift 0)
                     outputArr.unshift('0');
                     output.textContent=outputArr.join('');
-                }else{
-                     //++ , -+ , etc not allowed , and -- not allowed if no number entered yet.
-                     //splice the second operand, so ++ is just +, and -- is just -                   
+                    break;
+                    default:
+                    //entered a number
+                    output.textContent=outputArr.join('');
+                    break;
+                }
+            } else if(outputArr.length===2){
+                    //either for instance :  number- , -number, -+, +- etc
+                    const charArr = outputArr.slice(outputArr.length-2);
+                    const bothOperands= charArr.every(testOperands);
+                    const lastChar = convertHexOperand(outputArr[outputArr.length-1]);
+
+                    if(bothOperands){ //++,*/, +- etc
+                        //due to !isMinus , first operand is not a minus.
+                        //bothOperands true, test second operand. if minus, leave operands as is , return 0 with operands
+                        if(lastChar==='2d' && !isMinus){
+                            // +- are allowed in multiple operands (with a default zero or entered number)
+                            // x- and /- are allowed as well
+                            outputArr.unshift('0');
+                            output.textContent=outputArr.join('');
+                        }else{
+                            //++ , /*, etc not allowed 
+                            //splice the second operand, so ++ is just +, and /* is just /                 
+                            outputArr.splice(outputArr.length-1,1);
+                        }
+                    }
+                    else { //number- , -number
+                        output.textContent=outputArr.join('');
+                    }
+
+            } else if(outputArr.length >=3){
+                // can't do 3+-----4 so,can be -3+, -33, 3+-, 3.. etc , check the last three values.
+                const charArr = outputArr.slice(outputArr.length-3);
+                const allOperands= charArr.every(testOperands);
+                if(allOperands){
+                    //is ex: -+/ ,+--, remove last operand
                     outputArr.splice(outputArr.length-1,1);
                 }
-            }
-            else { //number- , -number
+                //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
+                isMinus=false;
+                
+                if(convertHexOperand(outputArr[outputArr.length-1])!=='2d'){
+                    //last value is not a minus.
+                    //check for 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
+                    //first see if last two values are operands
+                    const charArr = outputArr.slice(outputArr.length-2);
+                    const bothOperands= charArr.every(testOperands);
+                    if(bothOperands){
+                       outputArr.splice(outputArr.length-1,1);
+                    }
+                }else if(convertHexOperand(outputArr[outputArr.length-1])==='2d'){
+                    //of these 33-,3--, 3+-,3/-,3*- always good. ignore these case, will be default
+                    output.textContent=outputArr.join('');
+                } else{
+
+                }
+            } else {
                 output.textContent=outputArr.join('');
             }
-
-    } else if(outputArr.length >=3){
-        // can't do 3+-----4 so,can be -3+, -33, 3+-, 3.. etc , check the last three values.
-        const charArr = outputArr.slice(outputArr.length-3);
-        const allOperands= charArr.every(testOperands);
-        if(allOperands){
-            //is ex: -+/ ,+--, remove last operand
-            outputArr.splice(outputArr.length-1,1);
-        }
-        //could be -33 , 3-3, 3-- , 3-+, 3+/ etc
-        isMinus=false;
-        
-        if(convertHexOperand(outputArr[outputArr.length-1])!=='2d'){
-            //last value is not a minus.
-            //check for 3-3,3+3, 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
-            //first see if last two values are operands
-            const charArr = outputArr.slice(outputArr.length-2);
-            const bothOperands= charArr.every(testOperands);
-            if(bothOperands){
-               outputArr.splice(outputArr.length-1,1);
-            }
-        }else if(convertHexOperand(outputArr[outputArr.length-1])==='2d'){
-            //of these 33-,3--, 3+-,3/-,3*- always good. ignore these case, will be default
-            output.textContent=outputArr.join('');
-        } else{
-
-        }
-    } else {
-        output.textContent=outputArr.join('');
-    }
 };
 
 const fixPlusMinus=()=>{
@@ -116,7 +124,9 @@ const fixPlusMinus=()=>{
 }
 
 function parse(str) {
-    return Function(`'use strict'; return (${str})`)();
+    if(str){
+        return Function(`'use strict'; return (${str})`)();
+    }
 }
 
 const removeLeadingZeros=(item)=>{
