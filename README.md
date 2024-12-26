@@ -49,7 +49,13 @@ Users should be able to:
 
 ### What I learned
   - I thought it would be a good exercise to use html entities for the operands values in the html file, instead of just the operands as is : +,- etc. And to work with the html entities in the js file. 
-  I found a stackoverflow post on how to convert html entities to characters (see link 1)
+  I found a stackoverflow post on how to convert html entities to characters (see link 1) 
+  - The trickiest part of this was the checkMinus() function, that checks to see if a user tried to enter multiple operands after each other, and had to come up with this solution , that I doubt is bug free, but done to the best of my abilities.
+   I have off course tested the app by trying to enter multiple operands after each other
+  - Using localStorage was doable, as I could take a look at my todo-app in which I had already used this.
+  - I have coded calculators before , with freecodecamp, but I did not take a look at my old code as I wanted to practice a fresh approach.
+  - So I did the bonus part of this challenge, the user preference for color theme is saved and there on page refresh.
+  - And I read online that the use of eval() is not a good idea, and read about a better alternative (see link 2)
    
 
 ### Continued development
@@ -60,7 +66,7 @@ Users should be able to:
 
 [convert ascii to hex](https://stackoverflow.com/questions/20580045/javascript-character-ascii-to-hex)
 
-
+[avoid eval](https://dev.to/spukas/everything-wrong-with-javascript-eval-35on)
 
 ## Author
 

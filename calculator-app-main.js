@@ -121,7 +121,6 @@ function parse(str) {
 
 const removeLeadingZeros=(item)=>{
     //remove leading zeros.
-    console.log('item',item);
     return parseInt(item,10);
 }
 const removeZero=()=>{
@@ -136,6 +135,7 @@ const removeZero=()=>{
     const divideZeroRegex=/([-+\/x]*\d*(\/0))/g;
     const affirmDivideZero= outputArr.match(divideZeroRegex);
     if(affirmDivideZero){
+        //or could have simply returned zero.
         outputArr= outputArr.replace('/0','/1');
     }
     outputArr=[...outputArr];
@@ -190,19 +190,19 @@ const buttonListeners=()=>{
            if(btn.value==='=' || btn.value==='reset' || btn.value==='del'){
                  const value= btn.value;
                  
-                 switch(value){
-                      case '=':
-                           fixPlusMinus();
-                           removeZero();
-                           calcAnswer();
-                           break;
-                      case 'del':
-                           deleteNum();
-                           break;
-                      case 'reset':
-                           reset();
-                           break;
-                 }
+                    switch(value){
+                        case '=':
+                            fixPlusMinus();
+                            removeZero();
+                            calcAnswer();
+                            break;
+                        case 'del':
+                            deleteNum();
+                            break;
+                        case 'reset':
+                            reset();
+                            break;
+                    }
            }
        });
     });
