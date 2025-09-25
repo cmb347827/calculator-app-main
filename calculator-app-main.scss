@@ -89,15 +89,15 @@ body{
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 
   clip-path: inset(50%);
-  height: 1px;
+  height: 0.0625em;
   overflow: hidden;
   position: absolute;
   white-space: nowrap; 
-  width: 1px;
+  width: 0.0625em;
 }
 
 .gray-border{ 
-   border: 2px solid gray;
+   border: 0.125em solid gray;
 }
 .padding2em{
    @include padding(2em);
@@ -168,15 +168,15 @@ body{
    align-items:start;
 }
 .grid-gap{
-   gap:10px;
+   gap:0.625em;
 }
 .row-gap{
-   row-gap: 10px;
+   row-gap: 0.625em;
 }
 //end grid
 
 fieldset {
-  margin-inline: 2px;
+  margin-inline: 0.125em;
   border: none;
   padding-block: 0;
   padding-inline: 0;
@@ -198,7 +198,7 @@ legend {
      .toggle__slider{
         @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
      }
-     .keypad input:not(#del){
+     .keypad input:not(.del){
         @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
         @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
         &:hover{
@@ -206,11 +206,11 @@ legend {
         }
      }
      .keypad {
-        box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow3);
+        box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow3);
      }
      .double-width{
         @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
-        box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow2);
+        box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
      }
      .white-font{
         @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
@@ -220,10 +220,10 @@ legend {
       
      }
      .reset{
-        box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow1);
+        box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
      }
      .is{
-        box-shadow: 0 6px 2px -2px map-get($theme1-colors,key-shadow2);
+        box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
      }
      .output-parent{
         @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
@@ -238,7 +238,7 @@ legend {
       .toggle__slider{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
       }
-      .keypad input:not(#del){
+      .keypad input:not(.del){
          @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
          @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
          &:hover{
@@ -246,11 +246,11 @@ legend {
          }
       }
       .keypad{
-         box-shadow: 0 6px 4px -2px map-get($theme2-colors,key-shadow3);
+         box-shadow: 0 0.375em 0.25em -0.125em map-get($theme2-colors,key-shadow3);
       }
       .double-width{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
-         box-shadow: 0 4px 2px -2px map-get($theme2-colors,key-shadow2);
+         box-shadow: 0 0.25em 0.125em -0.125em map-get($theme2-colors,key-shadow2);
       }
       .white-font{
          @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,11));
@@ -260,10 +260,10 @@ legend {
          
       }
       .reset{
-         box-shadow: 0 4px 2px -2px map-get($theme2-colors,key-shadow1);
+         box-shadow: 0 0.25em 0.125em -0.125em map-get($theme2-colors,key-shadow1);
       }
       .is{
-         box-shadow: 0 6px 2px -2px map-get($theme2-colors,key-shadow2);
+         box-shadow: 0 0.375em 0.125em -0.125em map-get($theme2-colors,key-shadow2);
       }
       .output-parent{
          @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
@@ -278,15 +278,15 @@ legend {
    .toggle__slider{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
    }
-   .keypad input:not(#del){
+   .keypad input:not(.del){
       @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,7));
       @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
       &:hover{
-         @include bg-color((map-get($theme3-colors,key-background3),9),nth($theme3-fallback-colors,8));
+         @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,7));
       }
    }
    .keypad{
-      box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow3);
+      box-shadow: 0 0.25em 0.125em -0.125em map-get($theme3-colors,key-shadow3);
    }
    .double-width{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
@@ -299,10 +299,10 @@ legend {
       
    }
    .reset{
-      box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow1);
+      box-shadow: 0 0.25em 0.125em -0.125em map-get($theme3-colors,key-shadow1);
    }
    .is{
-      box-shadow: 0 6px 2px -2px map-get($theme3-colors,key-shadow2);
+      box-shadow: 0 0.375em 0.125em -0.125em map-get($theme3-colors,key-shadow2);
    }
    .output-parent{
       @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
@@ -328,7 +328,7 @@ legend {
   .output-parent{
       margin-bottom: 1em;
       padding: 0.4em;
-      border-radius: 15px;
+      border-radius: 0.9375em;
   }
   .output{
       padding: 0.1em;
@@ -337,13 +337,13 @@ legend {
       position:relative;
       width:fit-content;
       height:4em;
-      border-radius: 35px;
+      border-radius: 2.1875em;
       .toggle__wrapper{
          position:relative;
       }
       input[type="radio"]{
-         width: 40px;
-         height: 40px;
+         width: 2.5em;
+         height: 2.5em;
          opacity: 0 ;
          &:focus ~ .toggle__slider {
           cursor:pointer;
@@ -351,8 +351,8 @@ legend {
       }
       .toggle__slider{
             position:absolute;
-            width: 40px;
-            height: 40px;
+            width: 2.5em;
+            height: 2.5em;
             left:0;
             border-radius: 50%;
             transition: all 0.8s ease-out;
@@ -393,10 +393,10 @@ legend {
      padding-top: 1em;
   }
   .keypad input{
-     border-radius: 20px;
+     border-radius: 1.25em;
   }
   .keypad,.keypad-rest{
-     border-radius: 15px;
+     border-radius: 0.9375em;
   }
   
   button{
@@ -404,7 +404,7 @@ legend {
      height: 1.8em;
      max-width: 9em;
      max-height: 6em;
-     border-radius: 20px;
+     border-radius: 1.25em;
      border:none;
   }
   button.double-width{

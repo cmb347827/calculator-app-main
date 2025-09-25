@@ -12,14 +12,14 @@ body {
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  height: 0.0625em;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px; }
+  width: 0.0625em; }
 
 .gray-border {
-  border: 2px solid gray; }
+  border: 0.125em solid gray; }
 
 .padding2em {
   padding: 2em; }
@@ -87,13 +87,13 @@ body {
   align-items: start; }
 
 .grid-gap {
-  gap: 10px; }
+  gap: 0.625em; }
 
 .row-gap {
-  row-gap: 10px; }
+  row-gap: 0.625em; }
 
 fieldset {
-  margin-inline: 2px;
+  margin-inline: 0.125em;
   border: none;
   padding-block: 0;
   padding-inline: 0;
@@ -116,20 +116,20 @@ legend {
   .default-color-scheme .toggle__slider {
     background-color: Maroon;
     background-color: #d03f2f; }
-  .default-color-scheme .keypad input:not(#del) {
+  .default-color-scheme .keypad input:not(.del) {
     background-color: LightGray;
     background-color: #eae3dc;
     color: Black;
     color: #444b5a; }
-    .default-color-scheme .keypad input:not(#del):hover {
+    .default-color-scheme .keypad input:not(.del):hover {
       background-color: LightGray;
       background-color: #fbfaf9; }
   .default-color-scheme .keypad {
-    box-shadow: 0 4px 2px -2px #b4a597; }
+    box-shadow: 0 0.25em 0.125em -0.125em #b4a597; }
   .default-color-scheme .double-width {
     background-color: Maroon;
     background-color: #d03f2f;
-    box-shadow: 0 4px 2px -2px #93261a; }
+    box-shadow: 0 0.25em 0.125em -0.125em #93261a; }
   .default-color-scheme .white-font {
     color: Snow;
     color: white; }
@@ -137,9 +137,9 @@ legend {
     background-color: Navy;
     background-color: #637097; }
   .default-color-scheme .reset {
-    box-shadow: 0 4px 2px -2px #404e72; }
+    box-shadow: 0 0.25em 0.125em -0.125em #404e72; }
   .default-color-scheme .is {
-    box-shadow: 0 6px 2px -2px #93261a; }
+    box-shadow: 0 0.375em 0.125em -0.125em #93261a; }
   .default-color-scheme .output-parent {
     background-color: DarkBlue;
     background-color: #232c43; }
@@ -154,29 +154,29 @@ legend {
   .theme2 .toggle__slider {
     background-color: Brown;
     background-color: #ca5502; }
-  .theme2 .keypad input:not(#del) {
+  .theme2 .keypad input:not(.del) {
     background-color: LightGray;
     background-color: #e5e4e1;
     color: Black;
     color: #35352c; }
-    .theme2 .keypad input:not(#del):hover {
+    .theme2 .keypad input:not(.del):hover {
       background-color: LightGray;
       background-color: #fafafa; }
   .theme2 .keypad {
-    box-shadow: 0 6px 4px -2px #a69d91; }
+    box-shadow: 0 0.375em 0.25em -0.125em #a69d91; }
   .theme2 .double-width {
     background-color: Brown;
     background-color: #ca5502;
-    box-shadow: 0 4px 2px -2px #893901; }
+    box-shadow: 0 0.25em 0.125em -0.125em #893901; }
   .theme2 .white-font {
     color: White; }
   .theme2 .del, .theme2 .reset {
     background-color: Snow;
     background-color: #377f86; }
   .theme2 .reset {
-    box-shadow: 0 4px 2px -2px #1b5f65; }
+    box-shadow: 0 0.25em 0.125em -0.125em #1b5f65; }
   .theme2 .is {
-    box-shadow: 0 6px 2px -2px #893901; }
+    box-shadow: 0 0.375em 0.125em -0.125em #893901; }
   .theme2 .output-parent {
     background-color: Silver;
     background-color: #d1cccc; }
@@ -192,16 +192,16 @@ legend {
   .theme3 .toggle__slider {
     background-color: Turquoise;
     background-color: #00e0d1; }
-  .theme3 .keypad input:not(#del) {
+  .theme3 .keypad input:not(.del) {
     background-color: MidnightBlue;
     background-color: #341c4f;
     color: Gold;
     color: #ffe53d; }
-    .theme3 .keypad input:not(#del):hover {
-      background-color: Purple;
-      background-color: #341c4f, 9; }
+    .theme3 .keypad input:not(.del):hover {
+      background-color: MidnightBlue;
+      background-color: #341c4f; }
   .theme3 .keypad {
-    box-shadow: 0 4px 2px -2px #871c9c; }
+    box-shadow: 0 0.25em 0.125em -0.125em #871c9c; }
   .theme3 .double-width {
     background-color: Turquoise;
     background-color: #00e0d1; }
@@ -211,9 +211,9 @@ legend {
     background-color: Indigo;
     background-color: #58077d; }
   .theme3 .reset {
-    box-shadow: 0 4px 2px -2px #bc15f4; }
+    box-shadow: 0 0.25em 0.125em -0.125em #bc15f4; }
   .theme3 .is {
-    box-shadow: 0 6px 2px -2px #6cf9f2; }
+    box-shadow: 0 0.375em 0.125em -0.125em #6cf9f2; }
   .theme3 .output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
@@ -234,29 +234,29 @@ legend {
   .calculator-container .output-parent {
     margin-bottom: 1em;
     padding: 0.4em;
-    border-radius: 15px; }
+    border-radius: 0.9375em; }
   .calculator-container .output {
     padding: 0.1em; }
   .calculator-container .three-toggle-switch .toggle {
     position: relative;
     width: fit-content;
     height: 4em;
-    border-radius: 35px;
+    border-radius: 2.1875em;
     /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
     /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
     /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
     .calculator-container .three-toggle-switch .toggle .toggle__wrapper {
       position: relative; }
     .calculator-container .three-toggle-switch .toggle input[type="radio"] {
-      width: 40px;
-      height: 40px;
+      width: 2.5em;
+      height: 2.5em;
       opacity: 0; }
       .calculator-container .three-toggle-switch .toggle input[type="radio"]:focus ~ .toggle__slider {
         cursor: pointer; }
     .calculator-container .three-toggle-switch .toggle .toggle__slider {
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: 2.5em;
+      height: 2.5em;
       left: 0;
       border-radius: 50%;
       transition: all 0.8s ease-out; }
@@ -280,15 +280,15 @@ legend {
   .calculator-container .keypad {
     padding-top: 1em; }
   .calculator-container .keypad input {
-    border-radius: 20px; }
+    border-radius: 1.25em; }
   .calculator-container .keypad, .calculator-container .keypad-rest {
-    border-radius: 15px; }
+    border-radius: 0.9375em; }
   .calculator-container button {
     width: 2.7em;
     height: 1.8em;
     max-width: 9em;
     max-height: 6em;
-    border-radius: 20px;
+    border-radius: 1.25em;
     border: none; }
   .calculator-container button.double-width {
     width: 6.5em;
