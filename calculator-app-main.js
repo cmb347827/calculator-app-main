@@ -4,10 +4,12 @@ let outputArr=[];
 let isMinus=false;let twoOperands=true;
 //use hex codes for operands: / + - x .   ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2d','2f','2a','2e'];
-let theme = JSON.parse(localStorage.getItem("theme")) || '1';
-const output = document.querySelector('#output');
+let theme = JSON.parse(localStorage.getItem("theme12345abcdef")) || '1';
+const output = document.querySelector('.output');
 
 
+
+//next three functions together convert and test the operands
 const testOperands=(operand)=>{
     if(operand){
         const hex =convertHexOperand(operand);
@@ -107,28 +109,16 @@ const checkMinus=()=>{
             }
 };
 
-const fixPlusMinus=()=>{
-    const minusMinusRegex=/([-+\/x]*\d*--\d*[-+\/X]*\d*)+/g;
-    const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
-    
-    outputArr= outputArr.join('');
-    const affirmMinus= outputArr.match(minusMinusRegex);         
-    const affirmPlusMin= outputArr.match(plusMinusRegex);
-    if(affirmMinus){
-        outputArr= outputArr.replace('--','+');
-    }
-    if(affirmPlusMin){
-        outputArr= outputArr.replace('+-','-');
-    }
-    outputArr=[...outputArr];
-}
 
+
+
+
+//actual calculations after first calling removeZero , and then calcAnswer from buttonListerns()
 function parse(str) {
     if(str){
         return Function(`'use strict'; return (${str})`)();
     }
 }
-
 const removeLeadingZeros=(item)=>{
     //remove leading zeros.
     return parseInt(item,10);
@@ -160,6 +150,11 @@ const calcAnswer=()=>{
           outputArr=[...testArr];
     }
 };
+
+
+
+
+//delete number and reset  and fixPlusMinus functions , called in buttonListeners() below
 const deleteNum=()=>{
     if(outputArr.length>1){
         outputArr.splice(outputArr.length-1,1);
@@ -167,6 +162,8 @@ const deleteNum=()=>{
     }else if(outputArr.length===1){
         output.textContent=0;
         outputArr=[0];
+    }else if(outputArr.length===0){
+        output.textContent=0;
     }
 };
 const reset=()=>{
@@ -175,8 +172,28 @@ const reset=()=>{
    clearLocalStorage();
 };
 
+const fixPlusMinus=()=>{
+    const minusMinusRegex=/([-+\/x]*\d*--\d*[-+\/X]*\d*)+/g;
+    const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
+    
+    outputArr= outputArr.join('');
+    const affirmMinus= outputArr.match(minusMinusRegex);         
+    const affirmPlusMin= outputArr.match(plusMinusRegex);
+    if(affirmMinus){
+        outputArr= outputArr.replace('--','+');
+    }
+    if(affirmPlusMin){
+        outputArr= outputArr.replace('+-','-');
+    }
+    outputArr=[...outputArr];
+}
+
+
+
+
 const buttonListeners=()=>{
-    document.querySelectorAll('input.calculate').forEach((btn)=>{
+    //the 1,2,3,del,reset etc buttons
+    document.querySelectorAll('button.calculate').forEach((btn)=>{
        btn.addEventListener('click',()=>{
            //add pressed button value to numOperandsArr[]
            
@@ -219,10 +236,10 @@ const buttonListeners=()=>{
 };
 function saveToStorage(theme){
     //whenever the messages are updated , will be saved in local storage.
-    localStorage.setItem('theme',JSON.stringify(theme));//to json string
+    localStorage.setItem('theme12345abcdef',JSON.stringify(theme));//to json string
 }
 function loadFromStorage(){
-	theme = JSON.parse(localStorage.getItem('theme'));  //to js object
+	theme = JSON.parse(localStorage.getItem('theme12345abcdef'));  //to js object
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         if(btn.value===theme){
             btn.checked=true;

@@ -1,5 +1,5 @@
 
-@import '_globals.scss';
+@import 'globals.scss';
 
 $theme1-colors:(
    main-background:hsl(222, 26%, 31%),
@@ -16,7 +16,7 @@ $theme1-colors:(
 
 );
 $theme1-fallback-colors:(
-  MidnightBlue ,DarkBlue, Navy, Blue4, Cerulean Blue,Carnelian,Claret,Coral1,Copper Red,DodgerBlue4,Snow
+  MidnightBlue ,DarkBlue, Navy, SteelBlue, SlateGray ,Maroon, Brown,LightGray,Silver,Black,Snow
 );
 $theme2-colors:(
     main-background:hsl(0, 0%, 90%),
@@ -32,7 +32,7 @@ $theme2-colors:(
     White (text): hsl(0, 0%, 100%),
 );
 $theme2-fallback-colors:(
-    Gray78, Gray54,Gray92, Aquamarine4,Celadon Green,Carrot Orange,Carmine Pink,Khaki,Mandarin,Mango,Snow
+    GainsBoro, Silver,Snow, SteelBlue, Navy, Brown, Maroon, LightGray, Gray,Black, White
 );
 $theme3-colors:(
     main-background:hsl(268, 75%, 9%),
@@ -48,7 +48,7 @@ $theme3-colors:(
     White (text): hsl(0, 0%, 100%),
 );
 $theme3-fallback-colors:(
-   Purple4, Rebeccapurple, Dark Byzantium,BlueViolet,Turquoise,Turquoise Blue,Blue4,Byzantium,Goldenrod2,DarkNavy,Snow
+   MidnightBlue, Rebeccapurple, Indigo,BlueViolet,MediumTurquoise,Turquoise, MidnightBlue,Purple,Gold,Black,Snow
 );
 
 @mixin font-color($color, $fallback-color) {
@@ -84,19 +84,18 @@ html{
 body{
    overflow: auto;
 }
-.sr-only {
-	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important; 
-	-webkit-clip-path: inset(50%) !important;
-		clip-path: inset(50%) !important;  
-	height: 1px !important;
-	margin: -1px !important;
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: absolute !important;
-	width: 1px !important;
-	white-space: nowrap !important;           
+
+//taken from https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
 }
+
 .gray-border{ 
    border: 2px solid gray;
 }
@@ -193,20 +192,20 @@ legend {
 .default-color-scheme{
      @include bg-color(map-get($theme1-colors,main-background),nth($theme1-fallback-colors,1));
      @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
-     .three-toggle-switch #toggle,#keypad,#keypad-rest{
+     .three-toggle-switch .toggle,.keypad,.keypad-rest{
        @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
      }
      .toggle__slider{
         @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
      }
-     #keypad input:not(#del){
+     .keypad input:not(#del){
         @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
         @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
         &:hover{
           @include bg-color(lighten(map-get($theme1-colors,key-background3),9),nth($theme1-fallback-colors,8));
         }
      }
-     #keypad {
+     .keypad {
         box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow3);
      }
      .double-width{
@@ -216,37 +215,37 @@ legend {
      .white-font{
         @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
      }
-     #del,#reset{
+     .del,.reset{
         @include bg-color(map-get($theme1-colors,key-background1),nth($theme1-fallback-colors,3));
       
      }
-     #reset{
+     .reset{
         box-shadow: 0 4px 2px -2px map-get($theme1-colors,key-shadow1);
      }
-     #is{
+     .is{
         box-shadow: 0 6px 2px -2px map-get($theme1-colors,key-shadow2);
      }
-     #output-parent{
+     .output-parent{
         @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
      }
 }
 .theme2 {
       @include bg-color(map-get($theme2-colors,main-background),nth($theme2-fallback-colors,1));
       @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,10));
-      .three-toggle-switch #toggle,#keypad,#keypad-rest{
+      .three-toggle-switch .toggle,.keypad,.keypad-rest{
          @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
       }
       .toggle__slider{
          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
       }
-      #keypad input:not(#del){
+      .keypad input:not(#del){
          @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
          @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
          &:hover{
             @include bg-color(lighten(map-get($theme2-colors,key-background3),9),nth($theme2-fallback-colors,8));
          }
       }
-      #keypad{
+      .keypad{
          box-shadow: 0 6px 4px -2px map-get($theme2-colors,key-shadow3);
       }
       .double-width{
@@ -256,37 +255,37 @@ legend {
       .white-font{
          @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,11));
       }
-      #del,#reset{
+      .del,.reset{
          @include bg-color(map-get($theme2-colors,key-background1),nth($theme2-fallback-colors,3));
          
       }
-      #reset{
+      .reset{
          box-shadow: 0 4px 2px -2px map-get($theme2-colors,key-shadow1);
       }
-      #is{
+      .is{
          box-shadow: 0 6px 2px -2px map-get($theme2-colors,key-shadow2);
       }
-      #output-parent{
+      .output-parent{
          @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
       }
 }
 .theme3{
    @include bg-color(map-get($theme3-colors,main-background),nth($theme3-fallback-colors,1));
    @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
-   .three-toggle-switch #toggle,#keypad,#keypad-rest{
+   .three-toggle-switch .toggle,.keypad,.keypad-rest{
       @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
    }
    .toggle__slider{
       @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
    }
-   #keypad input:not(#del){
+   .keypad input:not(#del){
       @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,7));
       @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
       &:hover{
          @include bg-color((map-get($theme3-colors,key-background3),9),nth($theme3-fallback-colors,8));
       }
    }
-   #keypad{
+   .keypad{
       box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow3);
    }
    .double-width{
@@ -295,17 +294,17 @@ legend {
    .white-font{
       @include font-color(map-get($theme3-colors,white),nth($theme3-fallback-colors,11));
    }
-   #del,#reset{
+   .del,.reset{
       @include bg-color(map-get($theme3-colors,key-background1),nth($theme3-fallback-colors,3));
       
    }
-   #reset{
+   .reset{
       box-shadow: 0 4px 2px -2px map-get($theme3-colors,key-shadow1);
    }
-   #is{
+   .is{
       box-shadow: 0 6px 2px -2px map-get($theme3-colors,key-shadow2);
    }
-   #output-parent{
+   .output-parent{
       @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
    }
 }
@@ -321,20 +320,20 @@ legend {
   header{
      padding: 0 1.5em;
   }
-  #keypad-rest{
+  .keypad-rest{
          padding-bottom:3em;
          padding-top: 3em;
          margin-bottom:3em;
   }
-  #output-parent{
+  .output-parent{
       margin-bottom: 1em;
       padding: 0.4em;
       border-radius: 15px;
   }
-  #output{
+  .output{
       padding: 0.1em;
   }
-  .three-toggle-switch #toggle{
+  .three-toggle-switch .toggle{
       position:relative;
       width:fit-content;
       height:4em;
@@ -357,6 +356,11 @@ legend {
             left:0;
             border-radius: 50%;
             transition: all 0.8s ease-out;
+      }
+      @media (prefers-reduced-motion: reduce) {
+            .toggle__slider {
+                 transition: all 1s ease-in-out;
+            }
       }
         /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
         #theme-1:checked ~ .toggle__slider {
@@ -385,17 +389,17 @@ legend {
         max-width: 40em;
         max-height: 30em;
   }
-  #keypad{
+  .keypad{
      padding-top: 1em;
   }
-  #keypad input{
+  .keypad input{
      border-radius: 20px;
   }
-  #keypad,#keypad-rest{
+  .keypad,.keypad-rest{
      border-radius: 15px;
   }
   
-  input[type='button']{
+  button{
      width: 2.7em;
      height: 1.8em;
      max-width: 9em;
@@ -403,11 +407,11 @@ legend {
      border-radius: 20px;
      border:none;
   }
-  input.double-width{
+  button.double-width{
       width: 6.5em;
-      max-width: 21em;
+      max-width: 17em;
   }
-  #output{
+  .output{
      padding: 0.5em 0.5em;
   }
   .uppercase{
@@ -422,15 +426,9 @@ legend {
 }
 
 .attribution{
-   top: 60em;
-   position: fixed;
-   width: 100%;
-}
-
-.footer {
-   margin: auto;
-   width: 10em;
+   margin: 25em auto;
    text-align:center;
    padding:1em;
    color:#ffffff;
 }
+

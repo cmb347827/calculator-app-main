@@ -9,18 +9,14 @@ html {
 body {
   overflow: auto; }
 
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; }
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px; }
 
 .gray-border {
   border: 2px solid gray; }
@@ -114,111 +110,111 @@ legend {
   background-color: #3a4764;
   color: Snow;
   color: white; }
-  .default-color-scheme .three-toggle-switch #toggle, .default-color-scheme #keypad, .default-color-scheme #keypad-rest {
+  .default-color-scheme .three-toggle-switch .toggle, .default-color-scheme .keypad, .default-color-scheme .keypad-rest {
     background-color: DarkBlue;
     background-color: #232c43; }
   .default-color-scheme .toggle__slider {
-    background-color: Carnelian;
+    background-color: Maroon;
     background-color: #d03f2f; }
-  .default-color-scheme #keypad input:not(#del) {
-    background-color: Coral1;
+  .default-color-scheme .keypad input:not(#del) {
+    background-color: LightGray;
     background-color: #eae3dc;
-    color: DodgerBlue4;
+    color: Black;
     color: #444b5a; }
-    .default-color-scheme #keypad input:not(#del):hover {
-      background-color: Coral1;
+    .default-color-scheme .keypad input:not(#del):hover {
+      background-color: LightGray;
       background-color: #fbfaf9; }
-  .default-color-scheme #keypad {
+  .default-color-scheme .keypad {
     box-shadow: 0 4px 2px -2px #b4a597; }
   .default-color-scheme .double-width {
-    background-color: Carnelian;
+    background-color: Maroon;
     background-color: #d03f2f;
     box-shadow: 0 4px 2px -2px #93261a; }
   .default-color-scheme .white-font {
     color: Snow;
     color: white; }
-  .default-color-scheme #del, .default-color-scheme #reset {
+  .default-color-scheme .del, .default-color-scheme .reset {
     background-color: Navy;
     background-color: #637097; }
-  .default-color-scheme #reset {
+  .default-color-scheme .reset {
     box-shadow: 0 4px 2px -2px #404e72; }
-  .default-color-scheme #is {
+  .default-color-scheme .is {
     box-shadow: 0 6px 2px -2px #93261a; }
-  .default-color-scheme #output-parent {
+  .default-color-scheme .output-parent {
     background-color: DarkBlue;
     background-color: #232c43; }
 
 .theme2 {
-  background-color: Gray78;
+  background-color: GainsBoro;
   background-color: #e6e6e6;
-  color: Mango; }
-  .theme2 .three-toggle-switch #toggle, .theme2 #keypad, .theme2 #keypad-rest {
-    background-color: Gray54;
+  color: Black; }
+  .theme2 .three-toggle-switch .toggle, .theme2 .keypad, .theme2 .keypad-rest {
+    background-color: Silver;
     background-color: #d1cccc; }
   .theme2 .toggle__slider {
-    background-color: Carrot Orange;
+    background-color: Brown;
     background-color: #ca5502; }
-  .theme2 #keypad input:not(#del) {
-    background-color: Khaki;
+  .theme2 .keypad input:not(#del) {
+    background-color: LightGray;
     background-color: #e5e4e1;
-    color: Mango;
+    color: Black;
     color: #35352c; }
-    .theme2 #keypad input:not(#del):hover {
-      background-color: Khaki;
+    .theme2 .keypad input:not(#del):hover {
+      background-color: LightGray;
       background-color: #fafafa; }
-  .theme2 #keypad {
+  .theme2 .keypad {
     box-shadow: 0 6px 4px -2px #a69d91; }
   .theme2 .double-width {
-    background-color: Carrot Orange;
+    background-color: Brown;
     background-color: #ca5502;
     box-shadow: 0 4px 2px -2px #893901; }
   .theme2 .white-font {
-    color: Snow; }
-  .theme2 #del, .theme2 #reset {
-    background-color: Gray92;
+    color: White; }
+  .theme2 .del, .theme2 .reset {
+    background-color: Snow;
     background-color: #377f86; }
-  .theme2 #reset {
+  .theme2 .reset {
     box-shadow: 0 4px 2px -2px #1b5f65; }
-  .theme2 #is {
+  .theme2 .is {
     box-shadow: 0 6px 2px -2px #893901; }
-  .theme2 #output-parent {
-    background-color: Gray54;
+  .theme2 .output-parent {
+    background-color: Silver;
     background-color: #d1cccc; }
 
 .theme3 {
-  background-color: Purple4;
+  background-color: MidnightBlue;
   background-color: #160628;
-  color: Goldenrod2;
+  color: Gold;
   color: #ffe53d; }
-  .theme3 .three-toggle-switch #toggle, .theme3 #keypad, .theme3 #keypad-rest {
+  .theme3 .three-toggle-switch .toggle, .theme3 .keypad, .theme3 .keypad-rest {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
   .theme3 .toggle__slider {
-    background-color: Turquoise Blue;
+    background-color: Turquoise;
     background-color: #00e0d1; }
-  .theme3 #keypad input:not(#del) {
-    background-color: Blue4;
+  .theme3 .keypad input:not(#del) {
+    background-color: MidnightBlue;
     background-color: #341c4f;
-    color: Goldenrod2;
+    color: Gold;
     color: #ffe53d; }
-    .theme3 #keypad input:not(#del):hover {
-      background-color: Byzantium;
+    .theme3 .keypad input:not(#del):hover {
+      background-color: Purple;
       background-color: #341c4f, 9; }
-  .theme3 #keypad {
+  .theme3 .keypad {
     box-shadow: 0 4px 2px -2px #871c9c; }
   .theme3 .double-width {
-    background-color: Turquoise Blue;
+    background-color: Turquoise;
     background-color: #00e0d1; }
   .theme3 .white-font {
     color: Snow; }
-  .theme3 #del, .theme3 #reset {
-    background-color: Dark Byzantium;
+  .theme3 .del, .theme3 .reset {
+    background-color: Indigo;
     background-color: #58077d; }
-  .theme3 #reset {
+  .theme3 .reset {
     box-shadow: 0 4px 2px -2px #bc15f4; }
-  .theme3 #is {
+  .theme3 .is {
     box-shadow: 0 6px 2px -2px #6cf9f2; }
-  .theme3 #output-parent {
+  .theme3 .output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
 
@@ -231,17 +227,17 @@ legend {
     font-size: 3em; }
   .calculator-container header {
     padding: 0 1.5em; }
-  .calculator-container #keypad-rest {
+  .calculator-container .keypad-rest {
     padding-bottom: 3em;
     padding-top: 3em;
     margin-bottom: 3em; }
-  .calculator-container #output-parent {
+  .calculator-container .output-parent {
     margin-bottom: 1em;
     padding: 0.4em;
     border-radius: 15px; }
-  .calculator-container #output {
+  .calculator-container .output {
     padding: 0.1em; }
-  .calculator-container .three-toggle-switch #toggle {
+  .calculator-container .three-toggle-switch .toggle {
     position: relative;
     width: fit-content;
     height: 4em;
@@ -249,26 +245,29 @@ legend {
     /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
     /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
     /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
-    .calculator-container .three-toggle-switch #toggle .toggle__wrapper {
+    .calculator-container .three-toggle-switch .toggle .toggle__wrapper {
       position: relative; }
-    .calculator-container .three-toggle-switch #toggle input[type="radio"] {
+    .calculator-container .three-toggle-switch .toggle input[type="radio"] {
       width: 40px;
       height: 40px;
       opacity: 0; }
-      .calculator-container .three-toggle-switch #toggle input[type="radio"]:focus ~ .toggle__slider {
+      .calculator-container .three-toggle-switch .toggle input[type="radio"]:focus ~ .toggle__slider {
         cursor: pointer; }
-    .calculator-container .three-toggle-switch #toggle .toggle__slider {
+    .calculator-container .three-toggle-switch .toggle .toggle__slider {
       position: absolute;
       width: 40px;
       height: 40px;
       left: 0;
       border-radius: 50%;
       transition: all 0.8s ease-out; }
-    .calculator-container .three-toggle-switch #toggle #theme-1:checked ~ .toggle__slider {
+    @media (prefers-reduced-motion: reduce) {
+      .calculator-container .three-toggle-switch .toggle .toggle__slider {
+        transition: all 1s ease-in-out; } }
+    .calculator-container .three-toggle-switch .toggle #theme-1:checked ~ .toggle__slider {
       left: 0; }
-    .calculator-container .three-toggle-switch #toggle #theme-2:checked ~ .toggle__slider {
+    .calculator-container .three-toggle-switch .toggle #theme-2:checked ~ .toggle__slider {
       left: 3em; }
-    .calculator-container .three-toggle-switch #toggle #theme-3:checked ~ .toggle__slider {
+    .calculator-container .three-toggle-switch .toggle #theme-3:checked ~ .toggle__slider {
       left: 6em; }
   .calculator-container form {
     height: 100vh; }
@@ -278,23 +277,23 @@ legend {
   .calculator-container .input-outer {
     max-width: 40em;
     max-height: 30em; }
-  .calculator-container #keypad {
+  .calculator-container .keypad {
     padding-top: 1em; }
-  .calculator-container #keypad input {
+  .calculator-container .keypad input {
     border-radius: 20px; }
-  .calculator-container #keypad, .calculator-container #keypad-rest {
+  .calculator-container .keypad, .calculator-container .keypad-rest {
     border-radius: 15px; }
-  .calculator-container input[type='button'] {
+  .calculator-container button {
     width: 2.7em;
     height: 1.8em;
     max-width: 9em;
     max-height: 6em;
     border-radius: 20px;
     border: none; }
-  .calculator-container input.double-width {
+  .calculator-container button.double-width {
     width: 6.5em;
-    max-width: 21em; }
-  .calculator-container #output {
+    max-width: 17em; }
+  .calculator-container .output {
     padding: 0.5em 0.5em; }
   .calculator-container .uppercase {
     text-transform: uppercase; }
@@ -304,13 +303,7 @@ legend {
     max-height: 2em; }
 
 .attribution {
-  top: 60em;
-  position: fixed;
-  width: 100%; }
-
-.footer {
-  margin: auto;
-  width: 10em;
+  margin: 25em auto;
   text-align: center;
   padding: 1em;
   color: #ffffff; }
