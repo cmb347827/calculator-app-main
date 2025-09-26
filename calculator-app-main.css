@@ -232,8 +232,6 @@ legend {
     margin-bottom: 1em;
     padding: 0.4em;
     border-radius: 0.9375em; }
-  .calculator-container .output {
-    padding: 0.1em; }
   .calculator-container .three-toggle-switch .toggle {
     position: relative;
     width: fit-content;
