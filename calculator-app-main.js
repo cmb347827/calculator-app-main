@@ -1,7 +1,7 @@
 'use strict'; 
 
 let outputArr=[]; 
-let isMinus=false;let twoOperands=true;
+let isMinus=false; //let twoOperands=true;
 //use hex codes for operands: / + - x .   ex: &#x2215; (hex for / is 2215 in the allOperands array)
 const allOperands=['2b','2d','2f','2a','2e'];
 let theme = JSON.parse(localStorage.getItem("theme12345abcdef")) || '1';
@@ -101,9 +101,7 @@ const checkMinus=()=>{
                 }else if(convertHexOperand(outputArr[outputArr.length-1])==='2d'){
                     //of these 33-,3--, 3+-,3/-,3*- always good. ignore these case, will be default
                     output.textContent=outputArr.join('');
-                } else{
-
-                }
+                } 
             } else {
                 output.textContent=outputArr.join('');
             }
@@ -121,6 +119,7 @@ function parse(str) {
 }
 const removeLeadingZeros=(item)=>{
     //remove leading zeros.
+    // for instance 20/001 becomes 20/1 
     return parseInt(item,10);
 }
 const removeZero=()=>{
@@ -132,7 +131,7 @@ const removeZero=()=>{
     outputArr = outputArr.replaceAll(zeroNumbers,removeLeadingZeros);
     
     //takes care of the divide by 0 bug : 03/0  3/0  0/0
-    const divideZeroRegex=/([-+\/x]*\d*(\/0))/g;
+    const divideZeroRegex=/([-+\/x]*\d*(\/0(?!.)))/g;
     const affirmDivideZero= outputArr.match(divideZeroRegex);
     if(affirmDivideZero){
         //or could have simply returned zero.
@@ -177,8 +176,9 @@ const fixPlusMinus=()=>{
     const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
     
     outputArr= outputArr.join('');
-    const affirmMinus= outputArr.match(minusMinusRegex);         
+    const affirmMinus= outputArr.match(minusMinusRegex);     
     const affirmPlusMin= outputArr.match(plusMinusRegex);
+
     if(affirmMinus){
         outputArr= outputArr.replace('--','+');
     }
@@ -198,7 +198,6 @@ const buttonListeners=()=>{
            //add pressed button value to numOperandsArr[]
            
            if(btn.value!=='=' && btn.value!=='reset' && btn.value!=='del'){
-              console.log('in hier');
               if(btn.value==='x'){
                 outputArr.push('*');
               }else if(btn.value==='2b'){

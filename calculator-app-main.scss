@@ -117,9 +117,6 @@ body{
 .flex-column{
    flex-direction:column;
 }
-.align-items-center{
-   align-items: center;
-}
 .justify-content-between{
    justify-content: space-between;
 }
@@ -161,9 +158,7 @@ body{
 .justify-self-center{
    justify-self:center;
 }
-.align-items-center{
-   align-items: center;
-}
+
 .align-items-start{
    align-items:start;
 }
@@ -338,6 +333,7 @@ legend {
       width:fit-content;
       height:4em;
       border-radius: 2.1875em;
+  }
       .toggle__wrapper{
          position:relative;
       }
@@ -363,19 +359,19 @@ legend {
             }
       }
         /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-        #theme-1:checked ~ .toggle__slider {
+        .theme-1:checked ~ .toggle__slider {
            left: 0;
         }
         /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-        #theme-2:checked ~ .toggle__slider{
+        .theme-2:checked ~ .toggle__slider{
            left:3em;
         }
         /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-        #theme-3:checked ~ .toggle__slider{
+        .theme-3:checked ~ .toggle__slider{
            left:6em;
         }
         
- }
+ 
   form{
     height: 100vh;
   }
