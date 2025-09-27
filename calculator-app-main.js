@@ -172,8 +172,8 @@ const reset=()=>{
 };
 
 const fixPlusMinus=()=>{
-    const minusMinusRegex=/([-+\/x]*\d*--\d*[-+\/X]*\d*)+/g;
-    const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+\/X]*\d*)+/g;
+    const minusMinusRegex=/([-+\/x]*\d*--\d*[-+/X]*\d*)+/g;
+    const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+/X]*\d*)+/g;
     
     outputArr= outputArr.join('');
     const affirmMinus= outputArr.match(minusMinusRegex);     
@@ -233,11 +233,11 @@ const buttonListeners=()=>{
        });
     });
 };
-function saveToStorage(theme){
+function saveToStorages(theme){
     //whenever the messages are updated , will be saved in local storage.
     localStorage.setItem('theme12345abcdef',JSON.stringify(theme));//to json string
 }
-function loadFromStorage(){
+function loadFromStorages(){
 	theme = JSON.parse(localStorage.getItem('theme12345abcdef'));  //to js object
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         if(btn.value===theme){
@@ -262,15 +262,15 @@ const loadTheme=(theme)=>{
 const themeListeners=()=>{
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         btn.addEventListener('click',()=>{
-             saveToStorage(btn.value);
+             saveToStorages(btn.value);
              loadTheme(btn.value);
         });
     });
 }
 
 
-addEventListener("load", (event) => {
-     loadFromStorage();
+addEventListener("load", () => {
+     loadFromStorages();
      buttonListeners();
      themeListeners();
 });
