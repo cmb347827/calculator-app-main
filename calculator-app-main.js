@@ -81,8 +81,8 @@ const checkMinus=()=>{
             } else if(outputArr.length >=3){
                 // can't do 3+-----4 so,can be -3+, -33, 3+-, 3.. etc , check the last three values.
                 const charArr = outputArr.slice(outputArr.length-3);
-                const allOperands= charArr.every(testOperands);
-                if(allOperands){
+                const allOperand= charArr.every(testOperands);
+                if(allOperand){
                     //is ex: -+/ ,+--, remove last operand
                     outputArr.splice(outputArr.length-1,1);
                 }
@@ -131,7 +131,7 @@ const removeZero=()=>{
     outputArr = outputArr.replaceAll(zeroNumbers,removeLeadingZeros);
     
     //takes care of the divide by 0 bug : 03/0  3/0  0/0
-    const divideZeroRegex=/([-+\/x]*\d*(\/0(?!.)))/g;
+    const divideZeroRegex=/([-+\/x]*\d*(0(?!.)))/g;
     const affirmDivideZero= outputArr.match(divideZeroRegex);
     if(affirmDivideZero){
         //or could have simply returned zero.
