@@ -172,8 +172,8 @@ const reset=()=>{
 };
 
 const fixPlusMinus=()=>{
-    const minusMinusRegex=/([-+\/x]*\d*--\d*[-+/X]*\d*)+/g;
-    const plusMinusRegex=/([-+\/x]*\d*(\+-)\d*[-+/X]*\d*)+/g;
+    const minusMinusRegex=/([-+/x]*\d*--\d*[-+/X]*\d*)+/g;
+    const plusMinusRegex=/([-+/x]*\d*(\+-)\d*[-+/X]*\d*)+/g;
     
     outputArr= outputArr.join('');
     const affirmMinus= outputArr.match(minusMinusRegex);     
@@ -233,9 +233,9 @@ const buttonListeners=()=>{
        });
     });
 };
-function saveToStorages(theme){
+function saveToStorages(whichtheme){
     //whenever the messages are updated , will be saved in local storage.
-    localStorage.setItem('theme12345abcdef',JSON.stringify(theme));//to json string
+    localStorage.setItem('theme12345abcdef',JSON.stringify(whichtheme));//to json string
 }
 function loadFromStorages(){
 	theme = JSON.parse(localStorage.getItem('theme12345abcdef'));  //to js object
