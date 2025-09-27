@@ -56,8 +56,8 @@ const checkMinus=()=>{
                 }
             } else if(outputArr.length===2){
                     //either for instance :  number- , -number, -+, +- etc
-                    const charArr = outputArr.slice(outputArr.length-2);
-                    const bothOperands= charArr.every(testOperands);
+                    const charArr1 = outputArr.slice(outputArr.length-2);
+                    const bothOperands= charArr1.every(testOperands);
                     const lastChar = convertHexOperand(outputArr[outputArr.length-1]);
 
                     if(bothOperands){ //++,*/, +- etc
@@ -80,8 +80,8 @@ const checkMinus=()=>{
 
             } else if(outputArr.length >=3){
                 // can't do 3+-----4 so,can be -3+, -33, 3+-, 3.. etc , check the last three values.
-                const charArr = outputArr.slice(outputArr.length-3);
-                const allOperand= charArr.every(testOperands);
+                const charArr2 = outputArr.slice(outputArr.length-3);
+                const allOperand= charArr2.every(testOperands);
                 if(allOperand){
                     //is ex: -+/ ,+--, remove last operand
                     outputArr.splice(outputArr.length-1,1);
@@ -93,8 +93,8 @@ const checkMinus=()=>{
                     //last value is not a minus.
                     //check for 3+/, 3x+,3-+,3-/,3-* etc then remove second operand
                     //first see if last two values are operands
-                    const charArr = outputArr.slice(outputArr.length-2);
-                    const bothOperands= charArr.every(testOperands);
+                    const charArr3 = outputArr.slice(outputArr.length-2);
+                    const bothOperands= charArr3.every(testOperands);
                     if(bothOperands){
                        outputArr.splice(outputArr.length-1,1);
                     }
@@ -131,7 +131,7 @@ const removeZero=()=>{
     outputArr = outputArr.replaceAll(zeroNumbers,removeLeadingZeros);
     
     //takes care of the divide by 0 bug : 03/0  3/0  0/0
-    const divideZeroRegex=/([-+\/x]*\d*(0(?!.)))/g;
+    const divideZeroRegex=/([-+/x]*\d*(0(?!.)))/g;
     const affirmDivideZero= outputArr.match(divideZeroRegex);
     if(affirmDivideZero){
         //or could have simply returned zero.
