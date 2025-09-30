@@ -251,7 +251,7 @@ function clearLocalStorage(){
 }
 const loadTheme=(whichtheme)=>{
     if(whichtheme==='1'){
-        document.body.classList =["default-color-scheme"];
+        document.body.classList =[""];
     } else if(whichtheme==='2'){
         document.body.classList =["theme2"];
     } else if(whichtheme==='3'){

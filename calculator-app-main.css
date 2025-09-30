@@ -7,7 +7,9 @@ html {
   box-sizing: inherit; }
 
 body {
-  overflow: auto; }
+  overflow: auto;
+  background-color: #3a4764;
+  color: white; }
 
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
@@ -99,44 +101,135 @@ legend {
 .margin-top-10-em {
   margin-top: 10em; }
 
-.default-color-scheme {
-  background-color: MidnightBlue;
-  background-color: #3a4764;
+.three-toggle-switch .toggle, .keypad, .keypad-rest {
+  background-color: DarkBlue;
+  background-color: #232c43; }
+
+.toggle__slider {
+  background-color: Maroon;
+  background-color: #d03f2f;
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  left: 0;
+  border-radius: 50%;
+  transition: all 0.8s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle__slider {
+    transition: all 1s ease-in-out; } }
+.keypad input:not(.del) {
+  background-color: LightGray;
+  background-color: #eae3dc;
+  color: Black;
+  color: #444b5a; }
+  .keypad input:not(.del):hover {
+    background-color: LightGray;
+    background-color: #fbfaf9; }
+
+.keypad {
+  box-shadow: 0 0.25em 0.125em -0.125em #b4a597; }
+
+.double-width {
+  background-color: Maroon;
+  background-color: #d03f2f;
+  box-shadow: 0 0.25em 0.125em -0.125em #93261a; }
+
+.white-font {
   color: Snow;
   color: white; }
-  .default-color-scheme .three-toggle-switch .toggle, .default-color-scheme .keypad, .default-color-scheme .keypad-rest {
-    background-color: DarkBlue;
-    background-color: #232c43; }
-  .default-color-scheme .toggle__slider {
-    background-color: Maroon;
-    background-color: #d03f2f; }
-  .default-color-scheme .keypad input:not(.del) {
-    background-color: LightGray;
-    background-color: #eae3dc;
-    color: Black;
-    color: #444b5a; }
-    .default-color-scheme .keypad input:not(.del):hover {
-      background-color: LightGray;
-      background-color: #fbfaf9; }
-  .default-color-scheme .keypad {
-    box-shadow: 0 0.25em 0.125em -0.125em #b4a597; }
-  .default-color-scheme .double-width {
-    background-color: Maroon;
-    background-color: #d03f2f;
-    box-shadow: 0 0.25em 0.125em -0.125em #93261a; }
-  .default-color-scheme .white-font {
-    color: Snow;
-    color: white; }
-  .default-color-scheme .del, .default-color-scheme .reset {
-    background-color: Navy;
-    background-color: #637097; }
-  .default-color-scheme .reset {
-    box-shadow: 0 0.25em 0.125em -0.125em #404e72; }
-  .default-color-scheme .is {
-    box-shadow: 0 0.375em 0.125em -0.125em #93261a; }
-  .default-color-scheme .output-parent {
-    background-color: DarkBlue;
-    background-color: #232c43; }
+
+.del, .reset {
+  background-color: Navy;
+  background-color: #637097; }
+
+.reset {
+  box-shadow: 0 0.25em 0.125em -0.125em #404e72; }
+
+.is {
+  box-shadow: 0 0.375em 0.125em -0.125em #93261a; }
+
+.output-parent {
+  background-color: DarkBlue;
+  background-color: #232c43; }
+
+.font-bold {
+  font-weight: bold; }
+
+.calculator-container {
+  margin-top: 3em;
+  /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+  /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+  /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
+  .calculator-container .font-size-3-em {
+    font-size: 3em; }
+  .calculator-container header {
+    padding: 0 1.5em; }
+  .calculator-container .keypad-rest {
+    padding-bottom: 3em;
+    padding-top: 3em;
+    margin-bottom: 3em; }
+  .calculator-container .output-parent {
+    margin-bottom: 1em;
+    padding: 0.4em;
+    border-radius: 0.9375em; }
+  .calculator-container .three-toggle-switch .toggle {
+    position: relative;
+    width: fit-content;
+    height: 4em;
+    border-radius: 2.1875em; }
+  .calculator-container .toggle__wrapper {
+    position: relative; }
+  .calculator-container input[type="radio"] {
+    width: 2.5em;
+    height: 2.5em;
+    opacity: 0; }
+    .calculator-container input[type="radio"]:focus ~ .toggle__slider {
+      cursor: pointer; }
+  .calculator-container .theme-1:checked ~ .toggle__slider {
+    left: 0; }
+  .calculator-container .theme-2:checked ~ .toggle__slider {
+    left: 3em; }
+  .calculator-container .theme-3:checked ~ .toggle__slider {
+    left: 6em; }
+  .calculator-container form {
+    height: 100vh; }
+  .calculator-container table {
+    width: 10em;
+    max-width: 30em; }
+  .calculator-container .input-outer {
+    max-width: 40em;
+    max-height: 30em; }
+  .calculator-container .keypad {
+    padding-top: 1em; }
+  .calculator-container .keypad input {
+    border-radius: 1.25em; }
+  .calculator-container .keypad, .calculator-container .keypad-rest {
+    border-radius: 0.9375em; }
+  .calculator-container button {
+    width: 2.7em;
+    height: 1.8em;
+    max-width: 9em;
+    max-height: 6em;
+    border-radius: 1.25em;
+    border: none; }
+  .calculator-container button.double-width {
+    width: 6.5em;
+    max-width: 17em; }
+  .calculator-container .output {
+    padding: 0.5em 0.5em; }
+  .calculator-container .uppercase {
+    text-transform: uppercase; }
+  .calculator-container .font-size-2-4em {
+    font-size: 2.4em;
+    max-width: 3em;
+    max-height: 2em; }
+
+.attribution {
+  margin: 25em auto;
+  text-align: center;
+  padding: 1em;
+  color: #ffffff; }
 
 .theme2 {
   background-color: GainsBoro;
@@ -211,93 +304,5 @@ legend {
   .theme3 .output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
-
-.font-bold {
-  font-weight: bold; }
-
-.calculator-container {
-  margin-top: 3em;
-  /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-  /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-  /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
-  .calculator-container .font-size-3-em {
-    font-size: 3em; }
-  .calculator-container header {
-    padding: 0 1.5em; }
-  .calculator-container .keypad-rest {
-    padding-bottom: 3em;
-    padding-top: 3em;
-    margin-bottom: 3em; }
-  .calculator-container .output-parent {
-    margin-bottom: 1em;
-    padding: 0.4em;
-    border-radius: 0.9375em; }
-  .calculator-container .three-toggle-switch .toggle {
-    position: relative;
-    width: fit-content;
-    height: 4em;
-    border-radius: 2.1875em; }
-  .calculator-container .toggle__wrapper {
-    position: relative; }
-  .calculator-container input[type="radio"] {
-    width: 2.5em;
-    height: 2.5em;
-    opacity: 0; }
-    .calculator-container input[type="radio"]:focus ~ .toggle__slider {
-      cursor: pointer; }
-  .calculator-container .toggle__slider {
-    position: absolute;
-    width: 2.5em;
-    height: 2.5em;
-    left: 0;
-    border-radius: 50%;
-    transition: all 0.8s ease-out; }
-  @media (prefers-reduced-motion: reduce) {
-    .calculator-container .toggle__slider {
-      transition: all 1s ease-in-out; } }
-  .calculator-container .theme-1:checked ~ .toggle__slider {
-    left: 0; }
-  .calculator-container .theme-2:checked ~ .toggle__slider {
-    left: 3em; }
-  .calculator-container .theme-3:checked ~ .toggle__slider {
-    left: 6em; }
-  .calculator-container form {
-    height: 100vh; }
-  .calculator-container table {
-    width: 10em;
-    max-width: 30em; }
-  .calculator-container .input-outer {
-    max-width: 40em;
-    max-height: 30em; }
-  .calculator-container .keypad {
-    padding-top: 1em; }
-  .calculator-container .keypad input {
-    border-radius: 1.25em; }
-  .calculator-container .keypad, .calculator-container .keypad-rest {
-    border-radius: 0.9375em; }
-  .calculator-container button {
-    width: 2.7em;
-    height: 1.8em;
-    max-width: 9em;
-    max-height: 6em;
-    border-radius: 1.25em;
-    border: none; }
-  .calculator-container button.double-width {
-    width: 6.5em;
-    max-width: 17em; }
-  .calculator-container .output {
-    padding: 0.5em 0.5em; }
-  .calculator-container .uppercase {
-    text-transform: uppercase; }
-  .calculator-container .font-size-2-4em {
-    font-size: 2.4em;
-    max-width: 3em;
-    max-height: 2em; }
-
-.attribution {
-  margin: 25em auto;
-  text-align: center;
-  padding: 1em;
-  color: #ffffff; }
 
 /*# sourceMappingURL=calculator-app-main.css.map */

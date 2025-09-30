@@ -83,6 +83,8 @@ html{
 }
 body{
    overflow: auto;
+   background-color:  hsl(222, 26%, 31%);
+   color: white;
 }
 
 //taken from https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
@@ -184,46 +186,170 @@ legend {
    margin-top: 10em;
 }
 
-.default-color-scheme{
-     @include bg-color(map-get($theme1-colors,main-background),nth($theme1-fallback-colors,1));
-     @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
-     .three-toggle-switch .toggle,.keypad,.keypad-rest{
-       @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
-     }
-     .toggle__slider{
-        @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
-     }
-     .keypad input:not(.del){
-        @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
-        @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
-        &:hover{
-          @include bg-color(lighten(map-get($theme1-colors,key-background3),9),nth($theme1-fallback-colors,8));
-        }
-     }
-     .keypad {
-        box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow3);
-     }
-     .double-width{
-        @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
-        box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
-     }
-     .white-font{
-        @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
-     }
-     .del,.reset{
-        @include bg-color(map-get($theme1-colors,key-background1),nth($theme1-fallback-colors,3));
-      
-     }
-     .reset{
-        box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
-     }
-     .is{
-        box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
-     }
-     .output-parent{
-        @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
-     }
+
+.three-toggle-switch .toggle,.keypad,.keypad-rest{
+   @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
 }
+.toggle__slider{
+   @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
+    position:absolute;
+    width: 2.5em;
+   height: 2.5em;
+   left:0;
+   border-radius: 50%;
+   transition: all 0.8s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+   .toggle__slider {
+         transition: all 1s ease-in-out;
+   }
+ }
+.keypad input:not(.del){
+   @include bg-color(map-get($theme1-colors,key-background3),nth($theme1-fallback-colors,8));
+   @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
+   &:hover{
+      @include bg-color(lighten(map-get($theme1-colors,key-background3),9),nth($theme1-fallback-colors,8));
+   }
+}
+.keypad {
+   box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow3);
+}
+.double-width{
+   @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
+   box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
+}
+.white-font{
+   @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
+}
+.del,.reset{
+   @include bg-color(map-get($theme1-colors,key-background1),nth($theme1-fallback-colors,3));
+
+}
+.reset{
+   box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
+}
+.is{
+   box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
+}
+.output-parent{
+   @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.calculator-container{
+   margin-top: 3em;
+  .font-size-3-em{
+     font-size:3em;
+}
+  header{
+     padding: 0 1.5em;
+  }
+  .keypad-rest{
+         padding-bottom:3em;
+         padding-top: 3em;
+         margin-bottom:3em;
+  }
+  .output-parent{
+      margin-bottom: 1em;
+      padding: 0.4em;
+      border-radius: 0.9375em;
+  }
+  
+  .three-toggle-switch .toggle{
+      position:relative;
+      width:fit-content;
+      height:4em;
+      border-radius: 2.1875em;
+  }
+   .toggle__wrapper{
+      position:relative;
+   }
+   input[type="radio"]{
+      width: 2.5em;
+      height: 2.5em;
+      opacity: 0 ;
+      &:focus ~ .toggle__slider {
+         cursor:pointer;
+      }
+   }
+  
+   
+   /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+   .theme-1:checked ~ .toggle__slider {
+      left: 0;
+   }
+      /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+      .theme-2:checked ~ .toggle__slider{
+         left:3em;
+      }
+      /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+      .theme-3:checked ~ .toggle__slider{
+         left:6em;
+      }
+        
+ 
+  form{
+    height: 100vh;
+  }
+  table{
+       width: 10em;
+       max-width: 30em;
+
+  }
+  .input-outer{
+
+        max-width: 40em;
+        max-height: 30em;
+  }
+  .keypad{
+     padding-top: 1em;
+  }
+  .keypad input{
+     border-radius: 1.25em;
+  }
+  .keypad,.keypad-rest{
+     border-radius: 0.9375em;
+  }
+  
+  button{
+     width: 2.7em;
+     height: 1.8em;
+     max-width: 9em;
+     max-height: 6em;
+     border-radius: 1.25em;
+     border:none;
+  }
+  button.double-width{
+      width: 6.5em;
+      max-width: 17em;
+  }
+  .output{
+     padding: 0.5em 0.5em;
+  }
+  .uppercase{
+     text-transform: uppercase;
+  }
+  .font-size-2-4em{
+    font-size: 2.4em;
+    max-width: 3em;
+    max-height: 2em;
+  }
+
+}
+
+.attribution{
+   margin: 25em auto;
+   text-align:center;
+   padding:1em;
+   color:#ffffff;
+}
+
+
+
+
 .theme2 {
       @include bg-color(map-get($theme2-colors,main-background),nth($theme2-fallback-colors,1));
       @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,10));
@@ -304,127 +430,4 @@ legend {
    }
 }
 
-
-.font-bold{
-    font-weight: bold;
-}
-
-.calculator-container{
-   margin-top: 3em;
-  .font-size-3-em{
-     font-size:3em;
-  }
-  header{
-     padding: 0 1.5em;
-  }
-  .keypad-rest{
-         padding-bottom:3em;
-         padding-top: 3em;
-         margin-bottom:3em;
-  }
-  .output-parent{
-      margin-bottom: 1em;
-      padding: 0.4em;
-      border-radius: 0.9375em;
-  }
-  
-  .three-toggle-switch .toggle{
-      position:relative;
-      width:fit-content;
-      height:4em;
-      border-radius: 2.1875em;
-  }
-   .toggle__wrapper{
-      position:relative;
-   }
-   input[type="radio"]{
-      width: 2.5em;
-      height: 2.5em;
-      opacity: 0 ;
-      &:focus ~ .toggle__slider {
-         cursor:pointer;
-      }
-   }
-   .toggle__slider{
-         position:absolute;
-         width: 2.5em;
-         height: 2.5em;
-         left:0;
-         border-radius: 50%;
-         transition: all 0.8s ease-out;
-   }
-   @media (prefers-reduced-motion: reduce) {
-         .toggle__slider {
-               transition: all 1s ease-in-out;
-         }
-   }
-   /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-   .theme-1:checked ~ .toggle__slider {
-      left: 0;
-   }
-      /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-      .theme-2:checked ~ .toggle__slider{
-         left:3em;
-      }
-      /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-      .theme-3:checked ~ .toggle__slider{
-         left:6em;
-      }
-        
- 
-  form{
-    height: 100vh;
-  }
-  table{
-       width: 10em;
-       max-width: 30em;
-
-  }
-  .input-outer{
-
-        max-width: 40em;
-        max-height: 30em;
-  }
-  .keypad{
-     padding-top: 1em;
-  }
-  .keypad input{
-     border-radius: 1.25em;
-  }
-  .keypad,.keypad-rest{
-     border-radius: 0.9375em;
-  }
-  
-  button{
-     width: 2.7em;
-     height: 1.8em;
-     max-width: 9em;
-     max-height: 6em;
-     border-radius: 1.25em;
-     border:none;
-  }
-  button.double-width{
-      width: 6.5em;
-      max-width: 17em;
-  }
-  .output{
-     padding: 0.5em 0.5em;
-  }
-  .uppercase{
-     text-transform: uppercase;
-  }
-  .font-size-2-4em{
-    font-size: 2.4em;
-    max-width: 3em;
-    max-height: 2em;
-  }
-
-}
-
-.attribution{
-   margin: 25em auto;
-   text-align:center;
-   padding:1em;
-   color:#ffffff;
-}
 
