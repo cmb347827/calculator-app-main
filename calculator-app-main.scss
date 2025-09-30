@@ -303,6 +303,8 @@ legend {
       @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
    }
 }
+
+
 .font-bold{
     font-weight: bold;
 }
@@ -332,42 +334,42 @@ legend {
       height:4em;
       border-radius: 2.1875em;
   }
-      .toggle__wrapper{
-         position:relative;
+   .toggle__wrapper{
+      position:relative;
+   }
+   input[type="radio"]{
+      width: 2.5em;
+      height: 2.5em;
+      opacity: 0 ;
+      &:focus ~ .toggle__slider {
+         cursor:pointer;
       }
-      input[type="radio"]{
+   }
+   .toggle__slider{
+         position:absolute;
          width: 2.5em;
          height: 2.5em;
-         opacity: 0 ;
-         &:focus ~ .toggle__slider {
-          cursor:pointer;
+         left:0;
+         border-radius: 50%;
+         transition: all 0.8s ease-out;
+   }
+   @media (prefers-reduced-motion: reduce) {
+         .toggle__slider {
+               transition: all 1s ease-in-out;
          }
+   }
+   /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+   .theme-1:checked ~ .toggle__slider {
+      left: 0;
+   }
+      /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+      .theme-2:checked ~ .toggle__slider{
+         left:3em;
       }
-      .toggle__slider{
-            position:absolute;
-            width: 2.5em;
-            height: 2.5em;
-            left:0;
-            border-radius: 50%;
-            transition: all 0.8s ease-out;
+      /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+      .theme-3:checked ~ .toggle__slider{
+         left:6em;
       }
-      @media (prefers-reduced-motion: reduce) {
-            .toggle__slider {
-                 transition: all 1s ease-in-out;
-            }
-      }
-        /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-        .theme-1:checked ~ .toggle__slider {
-           left: 0;
-        }
-        /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-        .theme-2:checked ~ .toggle__slider{
-           left:3em;
-        }
-        /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-        .theme-3:checked ~ .toggle__slider{
-           left:6em;
-        }
         
  
   form{

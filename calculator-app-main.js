@@ -233,7 +233,7 @@ const buttonListeners=()=>{
        });
     });
 };
-function saveToStorages(whichtheme){
+function saveToStorage(whichtheme){
     //whenever the messages are updated , will be saved in local storage.
     localStorage.setItem('theme12345abcdef',JSON.stringify(whichtheme));//to json string
 }
@@ -249,12 +249,12 @@ function loadFromStorages(){
 function clearLocalStorage(){
    localStorage.clear();
 }
-const loadTheme=(theme)=>{
-    if(theme==='1'){
+const loadTheme=(whichtheme)=>{
+    if(whichtheme==='1'){
         document.body.classList =["default-color-scheme"];
-    } else if(theme==='2'){
+    } else if(whichtheme==='2'){
         document.body.classList =["theme2"];
-    } else if(theme==='3'){
+    } else if(whichtheme==='3'){
         document.body.classList =["theme3"];
     }
 }
@@ -262,7 +262,7 @@ const loadTheme=(theme)=>{
 const themeListeners=()=>{
     document.querySelectorAll('input.theme-change').forEach((btn)=>{
         btn.addEventListener('click',()=>{
-             saveToStorages(btn.value);
+             saveToStorage(btn.value);
              loadTheme(btn.value);
         });
     });
