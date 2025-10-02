@@ -186,18 +186,6 @@ input[type="radio"] {
   input[type="radio"]:focus ~ .toggle__slider {
     cursor: pointer; }
 
-/*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-input:checked ~ .toggle__slider {
-  left: 0; }
-
-/*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-.theme-2:checked ~ .toggle__slider {
-  left: 3em; }
-
-/*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-.theme-3:checked ~ .toggle__slider {
-  left: 6em; }
-
 form {
   height: 100vh; }
 
@@ -306,5 +294,17 @@ button.double-width {
   .theme3 .output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
+
+/*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+input:checked ~ .toggle__slider {
+  left: 0; }
+
+/*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+.theme-2:checked ~ .toggle__slider {
+  left: 3em; }
+
+/*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+.theme-3:checked ~ .toggle__slider {
+  left: 6em; }
 
 /*# sourceMappingURL=calculator-app-main.css.map */

@@ -276,60 +276,46 @@ input[type="radio"]{
       cursor:pointer;
    }
 }
-  
-   
-   /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-   input:checked ~ .toggle__slider {
-      left: 0;
-   }
-      /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-   .theme-2:checked ~ .toggle__slider{
-         left:3em;
-    }
-      /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-   .theme-3:checked ~ .toggle__slider{
-         left:6em;
-   }
         
  
-  form{
-    height: 100vh;
-  }
-  table{
-       width: 10em;
-       max-width: 30em;
+form{
+   height: 100vh;
+}
+table{
+      width: 10em;
+      max-width: 30em;
 
-  }
-  .input-outer{
-      max-width: 40em;
-      max-height: 30em;
-  }
-  
-  button{
-     width: 2.7em;
-     height: 1.8em;
-     max-width: 9em;
-     max-height: 6em;
-     border-radius: 1.25em;
-     border:none;
-     box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
-  }
-  
-  button.double-width{
-      width: 6.5em;
-      max-width: 17em;
-  }
-  .output{
-     padding: 0.5em 0.5em;
-  }
-  .uppercase{
-     text-transform: uppercase;
-  }
-  .font-size-2-4em{
-    font-size: 2.4em;
-    max-width: 3em;
-    max-height: 2em;
-  }
+}
+.input-outer{
+   max-width: 40em;
+   max-height: 30em;
+}
+
+button{
+   width: 2.7em;
+   height: 1.8em;
+   max-width: 9em;
+   max-height: 6em;
+   border-radius: 1.25em;
+   border:none;
+   box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
+}
+
+button.double-width{
+   width: 6.5em;
+   max-width: 17em;
+}
+.output{
+   padding: 0.5em 0.5em;
+}
+.uppercase{
+   text-transform: uppercase;
+}
+.font-size-2-4em{
+   font-size: 2.4em;
+   max-width: 3em;
+   max-height: 2em;
+}
 
 
 
@@ -339,6 +325,8 @@ input[type="radio"]{
    padding:1em;
    color:#ffffff;
 }
+
+
 
 
 .theme2 {
@@ -412,4 +400,15 @@ input[type="radio"]{
    }
 }
 
-
+ /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+   input:checked ~ .toggle__slider {
+      left: 0;
+   }
+      /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+   .theme-2:checked ~ .toggle__slider{
+         left:3em;
+    }
+      /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+   .theme-3:checked ~ .toggle__slider{
+         left:6em;
+   }
