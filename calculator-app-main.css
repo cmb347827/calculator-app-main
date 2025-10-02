@@ -8,8 +8,8 @@ html {
 
 body {
   overflow: auto;
-  background-color: #3a4764;
-  color: white; }
+  color: white;
+  background-color: #3a4764; }
 
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
@@ -118,28 +118,28 @@ legend {
 @media (prefers-reduced-motion: reduce) {
   .toggle__slider {
     transition: all 1s ease-in-out; } }
-.keypad input:not(.del) {
-  background-color: LightGray;
-  background-color: #eae3dc;
+.keypad {
+  padding-top: 1em;
+  border-radius: 0.9375em;
+  box-shadow: 0 0.25em 0.125em -0.125em #b4a597;
+  background-color: #232c43;
   color: Black;
   color: #444b5a; }
-  .keypad input:not(.del):hover {
+  .keypad:hover {
     background-color: LightGray;
     background-color: #fbfaf9; }
 
-.keypad {
-  box-shadow: 0 0.25em 0.125em -0.125em #b4a597; }
-
-.double-width {
-  background-color: Maroon;
-  background-color: #d03f2f;
-  box-shadow: 0 0.25em 0.125em -0.125em #93261a; }
+.keypad-rest {
+  padding-bottom: 3em;
+  padding-top: 3em;
+  margin-bottom: 3em;
+  border-radius: 0.9375em; }
 
 .white-font {
   color: Snow;
   color: white; }
 
-.del, .reset {
+.reset, .del {
   background-color: Navy;
   background-color: #637097; }
 
@@ -147,83 +147,91 @@ legend {
   box-shadow: 0 0.25em 0.125em -0.125em #404e72; }
 
 .is {
-  box-shadow: 0 0.375em 0.125em -0.125em #93261a; }
+  box-shadow: 0 0.375em 0.125em -0.125em #93261a;
+  background-color: SteelBlue;
+  background-color: #d03f2f; }
 
 .output-parent {
   background-color: DarkBlue;
-  background-color: #232c43; }
+  background-color: #232c43;
+  margin-bottom: 1em;
+  padding: 0.4em;
+  border-radius: 0.9375em; }
 
 .font-bold {
   font-weight: bold; }
 
 .calculator-container {
-  margin-top: 3em;
-  /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-  /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-  /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/ }
-  .calculator-container .font-size-3-em {
-    font-size: 3em; }
-  .calculator-container header {
-    padding: 0 1.5em; }
-  .calculator-container .keypad-rest {
-    padding-bottom: 3em;
-    padding-top: 3em;
-    margin-bottom: 3em; }
-  .calculator-container .output-parent {
-    margin-bottom: 1em;
-    padding: 0.4em;
-    border-radius: 0.9375em; }
-  .calculator-container .three-toggle-switch .toggle {
-    position: relative;
-    width: fit-content;
-    height: 4em;
-    border-radius: 2.1875em; }
-  .calculator-container .toggle__wrapper {
-    position: relative; }
-  .calculator-container input[type="radio"] {
-    width: 2.5em;
-    height: 2.5em;
-    opacity: 0; }
-    .calculator-container input[type="radio"]:focus ~ .toggle__slider {
-      cursor: pointer; }
-  .calculator-container .theme-1:checked ~ .toggle__slider {
-    left: 0; }
-  .calculator-container .theme-2:checked ~ .toggle__slider {
-    left: 3em; }
-  .calculator-container .theme-3:checked ~ .toggle__slider {
-    left: 6em; }
-  .calculator-container form {
-    height: 100vh; }
-  .calculator-container table {
-    width: 10em;
-    max-width: 30em; }
-  .calculator-container .input-outer {
-    max-width: 40em;
-    max-height: 30em; }
-  .calculator-container .keypad {
-    padding-top: 1em; }
-  .calculator-container .keypad input {
-    border-radius: 1.25em; }
-  .calculator-container .keypad, .calculator-container .keypad-rest {
-    border-radius: 0.9375em; }
-  .calculator-container button {
-    width: 2.7em;
-    height: 1.8em;
-    max-width: 9em;
-    max-height: 6em;
-    border-radius: 1.25em;
-    border: none; }
-  .calculator-container button.double-width {
-    width: 6.5em;
-    max-width: 17em; }
-  .calculator-container .output {
-    padding: 0.5em 0.5em; }
-  .calculator-container .uppercase {
-    text-transform: uppercase; }
-  .calculator-container .font-size-2-4em {
-    font-size: 2.4em;
-    max-width: 3em;
-    max-height: 2em; }
+  margin-top: 3em; }
+
+.font-size-3-em {
+  font-size: 3em; }
+
+header {
+  padding: 0 1.5em; }
+
+.three-toggle-switch .toggle {
+  position: relative;
+  width: fit-content;
+  height: 4em;
+  border-radius: 2.1875em; }
+
+.toggle__wrapper {
+  position: relative; }
+
+input[type="radio"] {
+  width: 2.5em;
+  height: 2.5em;
+  opacity: 0; }
+  input[type="radio"]:focus ~ .toggle__slider {
+    cursor: pointer; }
+
+/*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+input:checked ~ .toggle__slider {
+  left: 0; }
+
+/*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+.theme-2:checked ~ .toggle__slider {
+  left: 3em; }
+
+/*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+.theme-3:checked ~ .toggle__slider {
+  left: 6em; }
+
+form {
+  height: 100vh; }
+
+table {
+  width: 10em;
+  max-width: 30em; }
+
+.input-outer {
+  max-width: 40em;
+  max-height: 30em; }
+
+button {
+  width: 2.7em;
+  height: 1.8em;
+  max-width: 9em;
+  max-height: 6em;
+  border-radius: 1.25em;
+  border: none;
+  box-shadow: 0 0.375em 0.125em -0.125em #404e72; }
+
+button.double-width {
+  width: 6.5em;
+  max-width: 17em; }
+
+.output {
+  padding: 0.5em 0.5em; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.font-size-2-4em {
+  font-size: 2.4em;
+  max-width: 3em;
+  max-height: 2em; }
 
 .attribution {
   margin: 25em auto;
@@ -241,22 +249,19 @@ legend {
   .theme2 .toggle__slider {
     background-color: Brown;
     background-color: #ca5502; }
-  .theme2 .keypad input:not(.del) {
+  .theme2 .keypad {
+    box-shadow: 0 0.375em 0.25em -0.125em #a69d91;
     background-color: LightGray;
     background-color: #e5e4e1;
     color: Black;
     color: #35352c; }
-    .theme2 .keypad input:not(.del):hover {
+    .theme2 .keypad:hover {
       background-color: LightGray;
       background-color: #fafafa; }
-  .theme2 .keypad {
-    box-shadow: 0 0.375em 0.25em -0.125em #a69d91; }
+  .theme2 button {
+    box-shadow: 0 0.375em 0.125em -0.125em; }
   .theme2 .double-width {
-    background-color: Brown;
-    background-color: #ca5502;
     box-shadow: 0 0.25em 0.125em -0.125em #893901; }
-  .theme2 .white-font {
-    color: White; }
   .theme2 .del, .theme2 .reset {
     background-color: Snow;
     background-color: #377f86; }
@@ -279,28 +284,25 @@ legend {
   .theme3 .toggle__slider {
     background-color: Turquoise;
     background-color: #00e0d1; }
-  .theme3 .keypad input:not(.del) {
+  .theme3 .keypad {
+    box-shadow: 0 0.25em 0.125em -0.125em #871c9c;
     background-color: MidnightBlue;
-    background-color: #341c4f;
+    background-color: #160628;
     color: Gold;
     color: #ffe53d; }
-    .theme3 .keypad input:not(.del):hover {
+    .theme3 .keypad:hover {
       background-color: MidnightBlue;
       background-color: #341c4f; }
-  .theme3 .keypad {
-    box-shadow: 0 0.25em 0.125em -0.125em #871c9c; }
-  .theme3 .double-width {
-    background-color: Turquoise;
-    background-color: #00e0d1; }
-  .theme3 .white-font {
-    color: Snow; }
+  .theme3 button {
+    background-color: Indigo;
+    background-color: #341c4f;
+    box-shadow: 0 0.375em 0.125em -0.125em #bc15f4; }
   .theme3 .del, .theme3 .reset {
     background-color: Indigo;
     background-color: #58077d; }
-  .theme3 .reset {
-    box-shadow: 0 0.25em 0.125em -0.125em #bc15f4; }
   .theme3 .is {
-    box-shadow: 0 0.375em 0.125em -0.125em #6cf9f2; }
+    background-color: SteelBlue;
+    background-color: #00e0d1; }
   .theme3 .output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
