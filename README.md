@@ -56,7 +56,7 @@ Users should be able to:
   - I have coded calculators before , with freecodecamp, but I did not take a look at my old code as I wanted to practice a fresh approach.
   - So I did the bonus part of this challenge, the user preference for color theme is saved and there on page refresh.
   - And I read online that the use of eval() is not a good idea, and read about a better alternative (see link 2)
-   
+  - Finally used the MDN site's link to each element specifity total calulated value. This made it easier to move all selectors with higher specifity to the bottom of the scss page , in the order highest very bottom.
 
 ### Continued development
 

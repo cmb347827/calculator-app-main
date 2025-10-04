@@ -11,15 +11,6 @@ body {
   color: white;
   background-color: #3a4764; }
 
-.visually-hidden:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 0.0625em;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 0.0625em; }
-
 .gray-border {
   border: 0.125em solid gray; }
 
@@ -101,10 +92,6 @@ legend {
 .margin-top-10-em {
   margin-top: 10em; }
 
-.three-toggle-switch .toggle, .keypad, .keypad-rest {
-  background-color: DarkBlue;
-  background-color: #232c43; }
-
 .toggle__slider {
   background-color: Maroon;
   background-color: #d03f2f;
@@ -119,21 +106,18 @@ legend {
   .toggle__slider {
     transition: all 1s ease-in-out; } }
 .keypad {
-  padding-top: 1em;
+  box-shadow: 0 0.25em 0.125em -0.125em #b4a597; }
+
+.keypad, .keypad-rest {
   border-radius: 0.9375em;
-  box-shadow: 0 0.25em 0.125em -0.125em #b4a597;
   background-color: #232c43;
   color: Black;
   color: #444b5a; }
-  .keypad:hover {
-    background-color: LightGray;
-    background-color: #fbfaf9; }
 
 .keypad-rest {
   padding-bottom: 3em;
   padding-top: 3em;
-  margin-bottom: 3em;
-  border-radius: 0.9375em; }
+  margin-bottom: 3em; }
 
 .white-font {
   color: Snow;
@@ -141,7 +125,9 @@ legend {
 
 .reset, .del {
   background-color: Navy;
-  background-color: #637097; }
+  background-color: #7582a9; }
+  .reset:hover, .del:hover {
+    background-color: #758fa9; }
 
 .reset {
   box-shadow: 0 0.25em 0.125em -0.125em #404e72; }
@@ -150,6 +136,8 @@ legend {
   box-shadow: 0 0.375em 0.125em -0.125em #93261a;
   background-color: SteelBlue;
   background-color: #d03f2f; }
+  .is:hover {
+    background-color: #d0672f; }
 
 .output-parent {
   background-color: DarkBlue;
@@ -170,21 +158,8 @@ legend {
 header {
   padding: 0 1.5em; }
 
-.three-toggle-switch .toggle {
-  position: relative;
-  width: fit-content;
-  height: 4em;
-  border-radius: 2.1875em; }
-
 .toggle__wrapper {
   position: relative; }
-
-input[type="radio"] {
-  width: 2.5em;
-  height: 2.5em;
-  opacity: 0; }
-  input[type="radio"]:focus ~ .toggle__slider {
-    cursor: pointer; }
 
 form {
   height: 100vh; }
@@ -204,11 +179,12 @@ button {
   max-height: 6em;
   border-radius: 1.25em;
   border: none;
+  background-color: Silver;
+  background-color: #bfb2a6;
   box-shadow: 0 0.375em 0.125em -0.125em #404e72; }
-
-button.double-width {
-  width: 6.5em;
-  max-width: 17em; }
+  button:hover {
+    background-color: Snow;
+    background-color: white; }
 
 .output {
   padding: 0.5em 0.5em; }
@@ -237,26 +213,33 @@ button.double-width {
   .theme2 .toggle__slider {
     background-color: Brown;
     background-color: #ca5502; }
-  .theme2 .keypad {
-    box-shadow: 0 0.375em 0.25em -0.125em #a69d91;
+  .theme2 .keypad, .theme2 .keypad-rest {
     background-color: LightGray;
     background-color: #e5e4e1;
     color: Black;
     color: #35352c; }
-    .theme2 .keypad:hover {
-      background-color: LightGray;
-      background-color: #fafafa; }
+  .theme2 .keypad {
+    box-shadow: 0 0.375em 0.25em -0.125em #a69d91; }
   .theme2 button {
     box-shadow: 0 0.375em 0.125em -0.125em; }
+    .theme2 button:hover {
+      background-color: LightGray;
+      background-color: #fafafa; }
   .theme2 .double-width {
     box-shadow: 0 0.25em 0.125em -0.125em #893901; }
   .theme2 .del, .theme2 .reset {
     background-color: Snow;
     background-color: #377f86; }
+    .theme2 .del:hover, .theme2 .reset:hover {
+      background-color: #378679; }
   .theme2 .reset {
     box-shadow: 0 0.25em 0.125em -0.125em #1b5f65; }
   .theme2 .is {
+    background-color: Brown;
+    background-color: #ca5502;
     box-shadow: 0 0.375em 0.125em -0.125em #893901; }
+    .theme2 .is:hover {
+      background-color: #d0672f; }
   .theme2 .output-parent {
     background-color: Silver;
     background-color: #d1cccc; }
@@ -272,28 +255,54 @@ button.double-width {
   .theme3 .toggle__slider {
     background-color: Turquoise;
     background-color: #00e0d1; }
-  .theme3 .keypad {
-    box-shadow: 0 0.25em 0.125em -0.125em #871c9c;
+  .theme3 .keypad, .theme3 .keypad-rest {
     background-color: MidnightBlue;
     background-color: #160628;
     color: Gold;
     color: #ffe53d; }
-    .theme3 .keypad:hover {
-      background-color: MidnightBlue;
-      background-color: #341c4f; }
+  .theme3 .keypad {
+    box-shadow: 0 0.25em 0.125em -0.125em #871c9c; }
   .theme3 button {
     background-color: Indigo;
     background-color: #341c4f;
     box-shadow: 0 0.375em 0.125em -0.125em #bc15f4; }
+    .theme3 button:hover {
+      background-color: BlueViolet;
+      background-color: #bc15f4; }
   .theme3 .del, .theme3 .reset {
-    background-color: Indigo;
-    background-color: #58077d; }
+    background-color: BlueViolet;
+    background-color: #bc15f4; }
+    .theme3 .del:hover, .theme3 .reset:hover {
+      background-color: #8515f4; }
   .theme3 .is {
     background-color: SteelBlue;
     background-color: #00e0d1; }
+    .theme3 .is:hover {
+      background-color: #00b7e0; }
   .theme3 .output-parent {
     background-color: Rebeccapurple;
     background-color: #1d0934; }
+
+button.double-width {
+  width: 6.5em;
+  max-width: 17em; }
+
+input[type="radio"] {
+  width: 2.5em;
+  height: 2.5em;
+  opacity: 0; }
+  input[type="radio"]:focus ~ .toggle__slider {
+    cursor: pointer; }
+
+.three-toggle-switch .toggle {
+  position: relative;
+  width: fit-content;
+  height: 4em;
+  border-radius: 2.1875em; }
+
+.three-toggle-switch .toggle, .keypad, .keypad-rest {
+  background-color: DarkBlue;
+  background-color: #232c43; }
 
 /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
 input:checked ~ .toggle__slider {
@@ -306,5 +315,14 @@ input:checked ~ .toggle__slider {
 /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
 .theme-3:checked ~ .toggle__slider {
   left: 6em; }
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.0625em;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625em; }
 
 /*# sourceMappingURL=calculator-app-main.css.map */
