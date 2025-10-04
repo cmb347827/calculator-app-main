@@ -101,6 +101,39 @@ body{
    color: white;
    background-color:  hsl(222, 26%, 31%);
 }
+fieldset {
+  margin-inline: 0.125em;
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 1em;
+}
+legend {
+  display: contents;
+}
+form{
+   height: 100vh;
+}
+table{
+      width: 10em;
+      max-width: 30em;
+
+}
+
+button{
+   width: 2.7em;
+   height: 1.8em;
+   max-width: 9em;
+   max-height: 6em;
+   border-radius: 1.25em;
+   border:none;
+   @include bg-color(lighten(map-get($theme1-colors,key-shadow3),5),nth($theme1-fallback-colors,9));
+   box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
+   &:hover{
+      @include bg-color(lighten(map-get($theme1-colors,White),5),nth($theme1-fallback-colors,11));
+   }
+}
+
 
 .gray-border{ 
    border: 0.125em solid gray;
@@ -176,16 +209,6 @@ body{
 }
 //end grid
 
-fieldset {
-  margin-inline: 0.125em;
-  border: none;
-  padding-block: 0;
-  padding-inline: 0;
-  min-inline-size: 1em;
-}
-legend {
-  display: contents;
-}
 .margin-top-10-em{
    margin-top: 10em;
 }
@@ -262,31 +285,9 @@ header{
 }
         
  
-form{
-   height: 100vh;
-}
-table{
-      width: 10em;
-      max-width: 30em;
-
-}
 .input-outer{
    max-width: 40em;
    max-height: 30em;
-}
-
-button{
-   width: 2.7em;
-   height: 1.8em;
-   max-width: 9em;
-   max-height: 6em;
-   border-radius: 1.25em;
-   border:none;
-   @include bg-color(lighten(map-get($theme1-colors,key-shadow3),5),nth($theme1-fallback-colors,9));
-   box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
-   &:hover{
-      @include bg-color(lighten(map-get($theme1-colors,White),5),nth($theme1-fallback-colors,11));
-   }
 }
 
 .output{
@@ -328,7 +329,7 @@ button{
       .keypad{
          box-shadow: 0 0.375em 0.25em -0.125em map-get($theme2-colors,key-shadow3);
       }
-      button{
+       button{
          box-shadow: 0 0.375em 0.125em -0.125em map-get($theme2-colors,key-shadow);
           &:hover{
             @include bg-color(lighten(map-get($theme2-colors,key-background3),9),nth($theme2-fallback-colors,8));

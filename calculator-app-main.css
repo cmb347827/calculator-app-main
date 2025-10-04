@@ -11,6 +11,37 @@ body {
   color: white;
   background-color: #3a4764; }
 
+fieldset {
+  margin-inline: 0.125em;
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 1em; }
+
+legend {
+  display: contents; }
+
+form {
+  height: 100vh; }
+
+table {
+  width: 10em;
+  max-width: 30em; }
+
+button {
+  width: 2.7em;
+  height: 1.8em;
+  max-width: 9em;
+  max-height: 6em;
+  border-radius: 1.25em;
+  border: none;
+  background-color: Silver;
+  background-color: #bfb2a6;
+  box-shadow: 0 0.375em 0.125em -0.125em #404e72; }
+  button:hover {
+    background-color: Snow;
+    background-color: white; }
+
 .gray-border {
   border: 0.125em solid gray; }
 
@@ -78,16 +109,6 @@ body {
 
 .row-gap {
   row-gap: 0.625em; }
-
-fieldset {
-  margin-inline: 0.125em;
-  border: none;
-  padding-block: 0;
-  padding-inline: 0;
-  min-inline-size: 1em; }
-
-legend {
-  display: contents; }
 
 .margin-top-10-em {
   margin-top: 10em; }
@@ -161,30 +182,9 @@ header {
 .toggle__wrapper {
   position: relative; }
 
-form {
-  height: 100vh; }
-
-table {
-  width: 10em;
-  max-width: 30em; }
-
 .input-outer {
   max-width: 40em;
   max-height: 30em; }
-
-button {
-  width: 2.7em;
-  height: 1.8em;
-  max-width: 9em;
-  max-height: 6em;
-  border-radius: 1.25em;
-  border: none;
-  background-color: Silver;
-  background-color: #bfb2a6;
-  box-shadow: 0 0.375em 0.125em -0.125em #404e72; }
-  button:hover {
-    background-color: Snow;
-    background-color: white; }
 
 .output {
   padding: 0.5em 0.5em; }
