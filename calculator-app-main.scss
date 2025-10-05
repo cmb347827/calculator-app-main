@@ -1,5 +1,5 @@
 
-@import 'globals.scss';
+@use 'global/fontweightsizes' as fs;
 
 $reset-del-theme-1-button: hsl(225, 23%, 56%);
 $hover-reset-del-theme-1-color: adjust-hue($reset-del-theme-1-button, -15deg);
@@ -267,7 +267,7 @@ button{
 }
 
 .font-bold{
-    font-weight: bold;
+    font-weight:fs.$font_weight-bold;
 }
 
 .calculator-container{
