@@ -1,70 +1,9 @@
 
-@use 'global/fontweightsizes' as fs;
+@use './global/fontweightsizes' as fs;
+@use './global/colors' as clr;
+@use './global/flexgrid';
 
-$reset-del-theme-1-button: hsl(225, 23%, 56%);
-$hover-reset-del-theme-1-color: adjust-hue($reset-del-theme-1-button, -15deg);
-$is-theme-1-button: hsl(6, 63%, 50%);
-$hover-is-theme-1color: adjust-hue($is-theme-1-button, 15deg);
 
-$reset-del-theme-2-button: hsl(185, 42%, 37%);
-$hover-reset-del-theme-2-color: adjust-hue($reset-del-theme-2-button, -15deg);
-$is-theme-2-button: hsl(6, 63%, 50%);
-$hover-is-theme-2color: adjust-hue($is-theme-2-button, 15deg);
-
-$reset-del-theme-3-button: hsl(285, 91%, 52%);
-$hover-reset-del-theme-3-color: adjust-hue($reset-del-theme-3-button, -15deg);
-$is-theme-3-button: hsl(176, 100%, 44%);
-$hover-is-theme-3color: adjust-hue($is-theme-3-button, 15deg);
-
-$theme1-colors:(
-   main-background:hsl(222, 26%, 31%),
-   toggle-keypad-background:hsl(223, 31%, 20%),
-   screen-background:hsl(224, 36%, 15%),
-   key-background1: hsl(225, 23%, 56%),
-   key-shadow1: hsl(224, 28%, 35%),
-   key-background2:hsl(6, 63%, 50%),
-   key-shadow2: hsl(6, 70%, 34%),
-   key-background3:hsl(30, 25%, 89%),
-   key-shadow3:hsl(28, 16%, 65%),
-   text: hsl(221, 14%, 31%),
-   White: hsl(0, 0%, 100%),
-
-);
-$theme1-fallback-colors:(
-  MidnightBlue ,DarkBlue, Navy, SteelBlue, SlateGray ,Maroon, Brown,LightGray,Silver,Black,Snow
-);
-$theme2-colors:(
-    main-background:hsl(0, 0%, 90%),
-    toggle-keypad-background:hsl(0, 5%, 81%),
-    screen-background:hsl(0, 0%, 93%),
-    key-background1: hsl(185, 42%, 37%),
-    key-shadow1: hsl(185, 58%, 25%),
-    key-background2:hsl(25, 98%, 40%),
-    key-shadow2: hsl(25, 99%, 27%),
-    key-background3:hsl(45, 7%, 89%),
-    key-shadow3:hsl(35, 11%, 61%),
-    text: hsl(60, 10%, 19%),
-    White (text): hsl(0, 0%, 100%),
-);
-$theme2-fallback-colors:(
-    GainsBoro, Silver,Snow, SteelBlue, Navy, Brown, Maroon, LightGray, Gray,Black, White
-);
-$theme3-colors:(
-    main-background:hsl(268, 75%, 9%),
-    toggle-screen-keypad-background:hsl(268, 71%, 12%),
-    key-background1: hsl(281, 89%, 26%),
-    key-shadow1: hsl(285, 91%, 52%),
-    key-background2:hsl(176, 100%, 44%),
-    key-shadow2: hsl(177, 92%, 70%),
-    key-background3:hsl(268, 47%, 21%),
-    key-shadow3:hsl(290, 70%, 36%),
-    text1:hsl(52, 100%, 62%),
-    text2:hsl(198, 20%, 13%),
-    White (text): hsl(0, 0%, 100%),
-);
-$theme3-fallback-colors:(
-   MidnightBlue, Rebeccapurple, Indigo,BlueViolet,MediumTurquoise,Turquoise, MidnightBlue,Purple,Gold,Black,Snow
-);
 
 @mixin font-color($color, $fallback-color) {
   color: $fallback-color;
@@ -127,10 +66,10 @@ button{
    max-height: 6em;
    border-radius: 1.25em;
    border:none;
-   @include bg-color(lighten(map-get($theme1-colors,key-shadow3),5),nth($theme1-fallback-colors,9));
-   box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
+   @include bg-color(lighten(map-get(clr.$theme1-colors,key-shadow3),5),nth(clr.$theme1-fallback-colors,9));
+   box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow1);
    &:hover{
-      @include bg-color(lighten(map-get($theme1-colors,White),5),nth($theme1-fallback-colors,11));
+      @include bg-color(lighten(map-get(clr.$theme1-colors,White),5),nth(clr.$theme1-fallback-colors,11));
    }
 }
 
@@ -142,79 +81,12 @@ button{
    @include padding(2em);
 }
 
-
-/*flexbox*/
-.display-flex{
-  display:flex;
-}
-.flex-row{
-  flex-direction:row;
-}
-.flex-wrap{
-  flex-wrap:wrap;
-}
-.flex-column{
-   flex-direction:column;
-}
-.justify-content-between{
-   justify-content: space-between;
-}
-.justify-content-center{
-   justify-content: center;
-}
-.justify-content-space-around{
-   justify-content: space-around;
-}
-.justify-content-space-evenly{
-   justify-content: space-evenly;
-}
-.align-items-center{
-   align-items:center;
-}
-
-/*grid*/
-.justify-content-stretch{
-  justify-content: stretch;
-}
-.display-grid{
-  display:grid;
-}
-.grid-template-columns-4{
-  grid-template-columns: repeat(4,1fr);
-}
-.grid-template-columns-2{
-  grid-template-columns: repeat(2,1fr);
-}
-.justify-items-center{
-  justify-items:center;
-}
-.justify-items-end{
-   justify-items:end;
-}
-.place-self-center{
-  place-self: center;
-}
-.justify-self-center{
-   justify-self:center;
-}
-
-.align-items-start{
-   align-items:start;
-}
-.grid-gap{
-   gap:0.625em;
-}
-.row-gap{
-   row-gap: 0.625em;
-}
-//end grid
-
 .margin-top-10-em{
    margin-top: 10em;
 }
 
 .toggle__slider{
-   @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,6));
+   @include bg-color(map-get(clr.$theme1-colors,key-background2),nth(clr.$theme1-fallback-colors,6));
     position:absolute;
     width: 2.5em;
    height: 2.5em;
@@ -228,12 +100,12 @@ button{
    }
  }
 .keypad{
-   box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow3);
+   box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow3);
 }
 .keypad,.keypad-rest {
    border-radius: 0.9375em;
    background-color:  hsl(223, 31%, 20%);
-   @include font-color(map-get($theme1-colors,text),nth($theme1-fallback-colors,10));
+   @include font-color(map-get(clr.$theme1-colors,text),nth(clr.$theme1-fallback-colors,10));
 }
 .keypad-rest{
       padding-bottom:3em;
@@ -241,33 +113,33 @@ button{
       margin-bottom:3em;
  }
 .white-font{
-   @include font-color(map-get($theme1-colors,white),nth($theme1-fallback-colors,11));
+   @include font-color(map-get(clr.$theme1-colors,white),nth(clr.$theme1-fallback-colors,11));
 }
 .reset,.del{
-   @include bg-color(map-get($theme1-colors,key-background1),nth($theme1-fallback-colors,3));
+   @include bg-color(map-get(clr.$theme1-colors,key-background1),nth(clr.$theme1-fallback-colors,3));
    &:hover{
-      background-color: $hover-reset-del-theme-1-color;
+      background-color: clr.$hover-reset-del-theme-1-color;
    }
 }
 .reset{
-   box-shadow: 0 0.25em 0.125em -0.125em map-get($theme1-colors,key-shadow1);
+   box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow1);
 }
 .is{
-   box-shadow: 0 0.375em 0.125em -0.125em map-get($theme1-colors,key-shadow2);
-   @include bg-color(map-get($theme1-colors,key-background2),nth($theme1-fallback-colors,4));
+   box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow2);
+   @include bg-color(map-get(clr.$theme1-colors,key-background2),nth(clr.$theme1-fallback-colors,4));
    &:hover{
-      background-color: $hover-is-theme-1color;
+      background-color: clr.$hover-is-theme-1color;
    }
 }
 .output-parent{
-   @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
+   @include bg-color(map-get(clr.$theme1-colors,toggle-keypad-background),nth(clr.$theme1-fallback-colors,2));
    margin-bottom: 1em;
    padding: 0.4em;
    border-radius: 0.9375em;
 }
 
 .font-bold{
-    font-weight:fs.$font_weight-bold;
+   font-weight:fs.$font_weight-bold;
 }
 
 .calculator-container{
@@ -313,89 +185,89 @@ header{
 
 
 .theme2 {
-      @include bg-color(map-get($theme2-colors,main-background),nth($theme2-fallback-colors,1));
-      @include font-color(map-get($theme2-colors,white),nth($theme2-fallback-colors,10));
+      @include bg-color(map-get(clr.$theme2-colors,main-background),nth(clr.$theme2-fallback-colors,1));
+      @include font-color(map-get(clr.$theme2-colors,white),nth(clr.$theme2-fallback-colors,10));
       .three-toggle-switch .toggle,.keypad,.keypad-rest{
-         @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
+         @include bg-color(map-get(clr.$theme2-colors,toggle-keypad-background),nth(clr.$theme2-fallback-colors,2));
       }
       .toggle__slider{
-         @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
+         @include bg-color(map-get(clr.$theme2-colors,key-background2),nth(clr.$theme2-fallback-colors,6));
       }
       
       .keypad,.keypad-rest{
-         @include bg-color(map-get($theme2-colors,key-background3),nth($theme2-fallback-colors,8));
-         @include font-color(map-get($theme2-colors,text),nth($theme2-fallback-colors,10));
+         @include bg-color(map-get(clr.$theme2-colors,key-background3),nth(clr.$theme2-fallback-colors,8));
+         @include font-color(map-get(clr.$theme2-colors,text),nth(clr.$theme2-fallback-colors,10));
       }
       .keypad{
-         box-shadow: 0 0.375em 0.25em -0.125em map-get($theme2-colors,key-shadow3);
+         box-shadow: 0 0.375em 0.25em -0.125em map-get(clr.$theme2-colors,key-shadow3);
       }
        button{
-         box-shadow: 0 0.375em 0.125em -0.125em map-get($theme2-colors,key-shadow);
+         box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow);
           &:hover{
-            @include bg-color(lighten(map-get($theme2-colors,key-background3),9),nth($theme2-fallback-colors,8));
+            @include bg-color(lighten(map-get(clr.$theme2-colors,key-background3),9),nth(clr.$theme2-fallback-colors,8));
          }
       }
       .double-width{
-         box-shadow: 0 0.25em 0.125em -0.125em map-get($theme2-colors,key-shadow2);
+         box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow2);
       }
       .del,.reset{
-         @include bg-color(map-get($theme2-colors,key-background1),nth($theme2-fallback-colors,3));
+         @include bg-color(map-get(clr.$theme2-colors,key-background1),nth(clr.$theme2-fallback-colors,3));
          &:hover{
-            background-color: $hover-reset-del-theme-2-color;
+            background-color: clr.$hover-reset-del-theme-2-color;
          }
       }
       .reset{
-         box-shadow: 0 0.25em 0.125em -0.125em map-get($theme2-colors,key-shadow1);
+         box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow1);
       }
       .is{
-          @include bg-color(map-get($theme2-colors,key-background2),nth($theme2-fallback-colors,6));
-         box-shadow: 0 0.375em 0.125em -0.125em map-get($theme2-colors,key-shadow2);
+          @include bg-color(map-get(clr.$theme2-colors,key-background2),nth(clr.$theme2-fallback-colors,6));
+         box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow2);
           &:hover{
-              background-color: $hover-is-theme-2color;
+              background-color: clr.$hover-is-theme-2color;
           }
       }
       .output-parent{
-         @include bg-color(map-get($theme2-colors,toggle-keypad-background),nth($theme2-fallback-colors,2));
+         @include bg-color(map-get(clr.$theme2-colors,toggle-keypad-background),nth(clr.$theme2-fallback-colors,2));
       }
 }
 .theme3{
-   @include bg-color(map-get($theme3-colors,main-background),nth($theme3-fallback-colors,1));
-   @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
+   @include bg-color(map-get(clr.$theme3-colors,main-background),nth(clr.$theme3-fallback-colors,1));
+   @include font-color(map-get(clr.$theme3-colors,text1),nth(clr.$theme3-fallback-colors,9));
    .three-toggle-switch .toggle,.keypad,.keypad-rest{
-      @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
+      @include bg-color(map-get(clr.$theme3-colors,toggle-screen-keypad-background),nth(clr.$theme3-fallback-colors,2));
    }
    .toggle__slider{
-      @include bg-color(map-get($theme3-colors,key-background2),nth($theme3-fallback-colors,6));
+      @include bg-color(map-get(clr.$theme3-colors,key-background2),nth(clr.$theme3-fallback-colors,6));
    }
    .keypad,.keypad-rest{
-       @include bg-color(map-get($theme3-colors,main-background),nth($theme3-fallback-colors,1));
-      @include font-color(map-get($theme3-colors,text1),nth($theme3-fallback-colors,9));
+       @include bg-color(map-get(clr.$theme3-colors,main-background),nth(clr.$theme3-fallback-colors,1));
+      @include font-color(map-get(clr.$theme3-colors,text1),nth(clr.$theme3-fallback-colors,9));
    }
    .keypad{
-      box-shadow: 0 0.25em 0.125em -0.125em map-get($theme3-colors,key-shadow3);
+      box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme3-colors,key-shadow3);
    }
    button{
-      @include bg-color(map-get($theme3-colors,key-background3),nth($theme3-fallback-colors,3));
-      box-shadow: 0 0.375em 0.125em -0.125em map-get($theme3-colors,key-shadow1);
+      @include bg-color(map-get(clr.$theme3-colors,key-background3),nth(clr.$theme3-fallback-colors,3));
+      box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme3-colors,key-shadow1);
       &:hover{
-         @include bg-color(map-get($theme3-colors,key-shadow1),nth($theme3-fallback-colors,4));
+         @include bg-color(map-get(clr.$theme3-colors,key-shadow1),nth(clr.$theme3-fallback-colors,4));
       }
    }
    
    .del,.reset{
-      @include bg-color(map-get($theme3-colors,key-shadow1),nth($theme3-fallback-colors,4));
+      @include bg-color(map-get(clr.$theme3-colors,key-shadow1),nth(clr.$theme3-fallback-colors,4));
       &:hover{
-            background-color: $hover-reset-del-theme-3-color;
+            background-color: clr.$hover-reset-del-theme-3-color;
       }
    }
    .is{
-      @include bg-color(map-get($theme3-colors,key-background2),nth($theme1-fallback-colors,4));
+      @include bg-color(map-get(clr.$theme3-colors,key-background2),nth(clr.$theme1-fallback-colors,4));
       &:hover{
-         background-color: $hover-is-theme-3color;
+         background-color: clr.$hover-is-theme-3color;
       }
    }
    .output-parent{
-      @include bg-color(map-get($theme3-colors,toggle-screen-keypad-background),nth($theme3-fallback-colors,2));
+      @include bg-color(map-get(clr.$theme3-colors,toggle-screen-keypad-background),nth(clr.$theme3-fallback-colors,2));
    }
 }
 
@@ -421,7 +293,7 @@ input[type="radio"]{
    border-radius: 2.1875em;
 }
 .three-toggle-switch .toggle,.keypad,.keypad-rest{
-   @include bg-color(map-get($theme1-colors,toggle-keypad-background),nth($theme1-fallback-colors,2));
+   @include bg-color(map-get(clr.$theme1-colors,toggle-keypad-background),nth(clr.$theme1-fallback-colors,2));
 }
 
  /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/

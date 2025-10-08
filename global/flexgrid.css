@@ -1,0 +1,82 @@
+/*flexbox*/
+.display-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/*grid*/
+.justify-content-stretch {
+  justify-content: stretch;
+}
+
+.display-grid {
+  display: grid;
+}
+
+.grid-template-columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-template-columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.justify-items-end {
+  justify-items: end;
+}
+
+.place-self-center {
+  place-self: center;
+}
+
+.justify-self-center {
+  justify-self: center;
+}
+
+.align-items-start {
+  align-items: start;
+}
+
+.grid-gap {
+  gap: 0.625em;
+}
+
+.row-gap {
+  row-gap: 0.625em;
+}
+/*# sourceMappingURL=flexgrid.css.map */

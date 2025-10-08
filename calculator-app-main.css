@@ -1,55 +1,420 @@
-/*
-Error: Invalid CSS after "    font-weight:fs": expected ";", was ".$font_weight-b..."
-        on line 270 of calculator-app-main.scss
+/*flexbox*/
+.display-flex {
+  display: flex;
+}
 
-265:    padding: 0.4em;
-266:    border-radius: 0.9375em;
-267: }
-268: 
-269: .font-bold{
-270:     font-weight:fs.$font_weight-bold;
-271: }
-272: 
-273: .calculator-container{
-274:    margin-top: 3em;
-275: }
+.flex-row {
+  flex-direction: row;
+}
 
-Backtrace:
-calculator-app-main.scss:270
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:825:in `try_declaration'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:697:in `block_contents'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:320:in `block in watch'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
-C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"    font-weight:fs\": expected \";\", was \".$font_weight-b...\"\A         on line 270 of calculator-app-main.scss\A \A 265:    padding: 0.4em;\A 266:    border-radius: 0.9375em;\A 267: }\A 268: \A 269: .font-bold{\A 270:     font-weight:fs.$font_weight-bold;\A 271: }\A 272: \A 273: .calculator-container{\A 274:    margin-top: 3em;\A 275: }"; }
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+/*grid*/
+.justify-content-stretch {
+  justify-content: stretch;
+}
+
+.display-grid {
+  display: grid;
+}
+
+.grid-template-columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-template-columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.justify-items-end {
+  justify-items: end;
+}
+
+.place-self-center {
+  place-self: center;
+}
+
+.justify-self-center {
+  justify-self: center;
+}
+
+.align-items-start {
+  align-items: start;
+}
+
+.grid-gap {
+  gap: 0.625em;
+}
+
+.row-gap {
+  row-gap: 0.625em;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  overflow: auto;
+  color: white;
+  background-color: hsl(222deg, 26%, 31%);
+}
+
+fieldset {
+  margin-inline: 0.125em;
+  border: none;
+  padding-block: 0;
+  padding-inline: 0;
+  min-inline-size: 1em;
+}
+
+legend {
+  display: contents;
+}
+
+form {
+  height: 100vh;
+}
+
+table {
+  width: 10em;
+  max-width: 30em;
+}
+
+button {
+  width: 2.7em;
+  height: 1.8em;
+  max-width: 9em;
+  max-height: 6em;
+  border-radius: 1.25em;
+  border: none;
+  background-color: Silver;
+  background-color: #bfb2a6;
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(224deg, 28%, 35%);
+}
+button:hover {
+  background-color: Snow;
+  background-color: white;
+}
+
+.gray-border {
+  border: 0.125em solid gray;
+}
+
+.padding2em {
+  padding: 2em;
+}
+
+.margin-top-10-em {
+  margin-top: 10em;
+}
+
+.toggle__slider {
+  background-color: Maroon;
+  background-color: hsl(6deg, 63%, 50%);
+  position: absolute;
+  width: 2.5em;
+  height: 2.5em;
+  left: 0;
+  border-radius: 50%;
+  transition: all 0.8s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle__slider {
+    transition: all 1s ease-in-out;
+  }
+}
+.keypad {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(28deg, 16%, 65%);
+}
+
+.keypad, .keypad-rest {
+  border-radius: 0.9375em;
+  background-color: hsl(223deg, 31%, 20%);
+  color: Black;
+  color: hsl(221deg, 14%, 31%);
+}
+
+.keypad-rest {
+  padding-bottom: 3em;
+  padding-top: 3em;
+  margin-bottom: 3em;
+}
+
+.white-font {
+  color: Snow;
+  color: hsl(0deg, 0%, 100%);
+}
+
+.reset, .del {
+  background-color: Navy;
+  background-color: hsl(225deg, 23%, 56%);
+}
+.reset:hover, .del:hover {
+  background-color: #758fa9;
+}
+
+.reset {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(224deg, 28%, 35%);
+}
+
+.is {
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(6deg, 70%, 34%);
+  background-color: SteelBlue;
+  background-color: hsl(6deg, 63%, 50%);
+}
+.is:hover {
+  background-color: #d0672f;
+}
+
+.output-parent {
+  background-color: DarkBlue;
+  background-color: hsl(223deg, 31%, 20%);
+  margin-bottom: 1em;
+  padding: 0.4em;
+  border-radius: 0.9375em;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.calculator-container {
+  margin-top: 3em;
+}
+
+.font-size-3-em {
+  font-size: 3em;
+}
+
+header {
+  padding: 0 1.5em;
+}
+
+.toggle__wrapper {
+  position: relative;
+}
+
+.input-outer {
+  max-width: 40em;
+  max-height: 30em;
+}
+
+.output {
+  padding: 0.5em 0.5em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.font-size-2-4em {
+  font-size: 2.4em;
+  max-width: 3em;
+  max-height: 2em;
+}
+
+.attribution {
+  margin: 25em auto;
+  text-align: center;
+  padding: 1em;
+  color: #ffffff;
+}
+
+.theme2 {
+  background-color: GainsBoro;
+  background-color: hsl(0deg, 0%, 90%);
+  color: Black;
+}
+.theme2 .three-toggle-switch .toggle, .theme2 .keypad, .theme2 .keypad-rest {
+  background-color: Silver;
+  background-color: hsl(0deg, 5%, 81%);
+}
+.theme2 .toggle__slider {
+  background-color: Brown;
+  background-color: hsl(25deg, 98%, 40%);
+}
+.theme2 .keypad, .theme2 .keypad-rest {
+  background-color: LightGray;
+  background-color: hsl(45deg, 7%, 89%);
+  color: Black;
+  color: hsl(60deg, 10%, 19%);
+}
+.theme2 .keypad {
+  box-shadow: 0 0.375em 0.25em -0.125em hsl(35deg, 11%, 61%);
+}
+.theme2 button {
+  box-shadow: 0 0.375em 0.125em -0.125em;
+}
+.theme2 button:hover {
+  background-color: LightGray;
+  background-color: #fafafa;
+}
+.theme2 .double-width {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(25deg, 99%, 27%);
+}
+.theme2 .del, .theme2 .reset {
+  background-color: Snow;
+  background-color: hsl(185deg, 42%, 37%);
+}
+.theme2 .del:hover, .theme2 .reset:hover {
+  background-color: #378679;
+}
+.theme2 .reset {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(185deg, 58%, 25%);
+}
+.theme2 .is {
+  background-color: Brown;
+  background-color: hsl(25deg, 98%, 40%);
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(25deg, 99%, 27%);
+}
+.theme2 .is:hover {
+  background-color: #d0672f;
+}
+.theme2 .output-parent {
+  background-color: Silver;
+  background-color: hsl(0deg, 5%, 81%);
+}
+
+.theme3 {
+  background-color: MidnightBlue;
+  background-color: hsl(268deg, 75%, 9%);
+  color: Gold;
+  color: hsl(52deg, 100%, 62%);
+}
+.theme3 .three-toggle-switch .toggle, .theme3 .keypad, .theme3 .keypad-rest {
+  background-color: Rebeccapurple;
+  background-color: hsl(268deg, 71%, 12%);
+}
+.theme3 .toggle__slider {
+  background-color: Turquoise;
+  background-color: hsl(176deg, 100%, 44%);
+}
+.theme3 .keypad, .theme3 .keypad-rest {
+  background-color: MidnightBlue;
+  background-color: hsl(268deg, 75%, 9%);
+  color: Gold;
+  color: hsl(52deg, 100%, 62%);
+}
+.theme3 .keypad {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(290deg, 70%, 36%);
+}
+.theme3 button {
+  background-color: Indigo;
+  background-color: hsl(268deg, 47%, 21%);
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(285deg, 91%, 52%);
+}
+.theme3 button:hover {
+  background-color: BlueViolet;
+  background-color: hsl(285deg, 91%, 52%);
+}
+.theme3 .del, .theme3 .reset {
+  background-color: BlueViolet;
+  background-color: hsl(285deg, 91%, 52%);
+}
+.theme3 .del:hover, .theme3 .reset:hover {
+  background-color: #8515f4;
+}
+.theme3 .is {
+  background-color: SteelBlue;
+  background-color: hsl(176deg, 100%, 44%);
+}
+.theme3 .is:hover {
+  background-color: #00b7e0;
+}
+.theme3 .output-parent {
+  background-color: Rebeccapurple;
+  background-color: hsl(268deg, 71%, 12%);
+}
+
+button.double-width {
+  width: 6.5em;
+  max-width: 17em;
+}
+
+input[type=radio] {
+  width: 2.5em;
+  height: 2.5em;
+  opacity: 0;
+}
+input[type=radio]:focus ~ .toggle__slider {
+  cursor: pointer;
+}
+
+.three-toggle-switch .toggle {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 4em;
+  border-radius: 2.1875em;
+}
+
+.three-toggle-switch .toggle, .keypad, .keypad-rest {
+  background-color: DarkBlue;
+  background-color: hsl(223deg, 31%, 20%);
+}
+
+/*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+input:checked ~ .toggle__slider {
+  left: 0;
+}
+
+/*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
+.theme-2:checked ~ .toggle__slider {
+  left: 3em;
+}
+
+/*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+.theme-3:checked ~ .toggle__slider {
+  left: 6em;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 0.0625em;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625em;
+}
+/*# sourceMappingURL=calculator-app-main.css.map */

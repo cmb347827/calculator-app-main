@@ -1,0 +1,65 @@
+$reset-del-theme-1-button: hsl(225, 23%, 56%);
+$hover-reset-del-theme-1-color: adjust-hue($reset-del-theme-1-button, -15deg);
+$is-theme-1-button: hsl(6, 63%, 50%);
+$hover-is-theme-1color: adjust-hue($is-theme-1-button, 15deg);
+
+$reset-del-theme-2-button: hsl(185, 42%, 37%);
+$hover-reset-del-theme-2-color: adjust-hue($reset-del-theme-2-button, -15deg);
+$is-theme-2-button: hsl(6, 63%, 50%);
+$hover-is-theme-2color: adjust-hue($is-theme-2-button, 15deg);
+
+$reset-del-theme-3-button: hsl(285, 91%, 52%);
+$hover-reset-del-theme-3-color: adjust-hue($reset-del-theme-3-button, -15deg);
+$is-theme-3-button: hsl(176, 100%, 44%);
+$hover-is-theme-3color: adjust-hue($is-theme-3-button, 15deg);
+
+
+$theme1-colors:(
+   main-background:hsl(222, 26%, 31%),
+   toggle-keypad-background:hsl(223, 31%, 20%),
+   screen-background:hsl(224, 36%, 15%),
+   key-background1: hsl(225, 23%, 56%),
+   key-shadow1: hsl(224, 28%, 35%),
+   key-background2:hsl(6, 63%, 50%),
+   key-shadow2: hsl(6, 70%, 34%),
+   key-background3:hsl(30, 25%, 89%),
+   key-shadow3:hsl(28, 16%, 65%),
+   text: hsl(221, 14%, 31%),
+   White: hsl(0, 0%, 100%),
+
+);
+$theme1-fallback-colors:(
+  MidnightBlue ,DarkBlue, Navy, SteelBlue, SlateGray ,Maroon, Brown,LightGray,Silver,Black,Snow
+);
+$theme2-colors:(
+    main-background:hsl(0, 0%, 90%),
+    toggle-keypad-background:hsl(0, 5%, 81%),
+    screen-background:hsl(0, 0%, 93%),
+    key-background1: hsl(185, 42%, 37%),
+    key-shadow1: hsl(185, 58%, 25%),
+    key-background2:hsl(25, 98%, 40%),
+    key-shadow2: hsl(25, 99%, 27%),
+    key-background3:hsl(45, 7%, 89%),
+    key-shadow3:hsl(35, 11%, 61%),
+    text: hsl(60, 10%, 19%),
+    White (text): hsl(0, 0%, 100%),
+);
+$theme2-fallback-colors:(
+    GainsBoro, Silver,Snow, SteelBlue, Navy, Brown, Maroon, LightGray, Gray,Black, White
+);
+$theme3-colors:(
+    main-background:hsl(268, 75%, 9%),
+    toggle-screen-keypad-background:hsl(268, 71%, 12%),
+    key-background1: hsl(281, 89%, 26%),
+    key-shadow1: hsl(285, 91%, 52%),
+    key-background2:hsl(176, 100%, 44%),
+    key-shadow2: hsl(177, 92%, 70%),
+    key-background3:hsl(268, 47%, 21%),
+    key-shadow3:hsl(290, 70%, 36%),
+    text1:hsl(52, 100%, 62%),
+    text2:hsl(198, 20%, 13%),
+    White (text): hsl(0, 0%, 100%),
+);
+$theme3-fallback-colors:(
+   MidnightBlue, Rebeccapurple, Indigo,BlueViolet,MediumTurquoise,Turquoise, MidnightBlue,Purple,Gold,Black,Snow
+);
