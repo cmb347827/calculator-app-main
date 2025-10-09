@@ -80,11 +80,14 @@
   row-gap: 0.625em;
 }
 
+* {
+  box-sizing: inherit;
+}
+
 html {
   box-sizing: border-box;
 }
 
-*,
 ::before,
 ::after {
   box-sizing: inherit;
@@ -258,9 +261,25 @@ button.double-width {
   max-width: 17em;
 }
 
+input[type=radio] {
+  width: 2.5em;
+  height: 2.5em;
+  opacity: 0;
+}
+
 button:hover {
   background-color: Snow;
   background-color: white;
+}
+
+.theme2 button {
+  box-shadow: 0 0.375em 0.125em -0.125em;
+}
+
+.theme3 button {
+  background-color: Indigo;
+  background-color: hsl(268deg, 47%, 21%);
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(285deg, 91%, 52%);
 }
 
 .reset:hover, .del:hover {
@@ -292,9 +311,6 @@ button:hover {
 }
 .theme2 .keypad {
   box-shadow: 0 0.375em 0.25em -0.125em hsl(35deg, 11%, 61%);
-}
-.theme2 button {
-  box-shadow: 0 0.375em 0.125em -0.125em;
 }
 .theme2 .double-width {
   box-shadow: 0 0.25em 0.125em -0.125em hsl(25deg, 99%, 27%);
@@ -339,11 +355,6 @@ button:hover {
 .theme3 .keypad {
   box-shadow: 0 0.25em 0.125em -0.125em hsl(290deg, 70%, 36%);
 }
-.theme3 button {
-  background-color: Indigo;
-  background-color: hsl(268deg, 47%, 21%);
-  box-shadow: 0 0.375em 0.125em -0.125em hsl(285deg, 91%, 52%);
-}
 .theme3 .del, .theme3 .reset {
   background-color: BlueViolet;
   background-color: hsl(285deg, 91%, 52%);
@@ -355,12 +366,6 @@ button:hover {
 .theme3 .output-parent {
   background-color: Rebeccapurple;
   background-color: hsl(268deg, 71%, 12%);
-}
-
-input[type=radio] {
-  width: 2.5em;
-  height: 2.5em;
-  opacity: 0;
 }
 
 .three-toggle-switch .toggle {
@@ -377,6 +382,15 @@ input[type=radio] {
   background-color: hsl(223deg, 31%, 20%);
 }
 
+input:checked ~ .toggle__slider {
+  left: 0;
+}
+
+.theme3 button:hover {
+  background-color: BlueViolet;
+  background-color: hsl(285deg, 91%, 52%);
+}
+
 .theme2 button:hover {
   background-color: LightGray;
   background-color: #fafafa;
@@ -388,10 +402,6 @@ input[type=radio] {
   background-color: #d0672f;
 }
 
-.theme3 button:hover {
-  background-color: BlueViolet;
-  background-color: hsl(285deg, 91%, 52%);
-}
 .theme3 .del:hover, .theme3 .reset:hover {
   background-color: #8515f4;
 }
@@ -400,10 +410,6 @@ input[type=radio] {
 }
 
 /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-input:checked ~ .toggle__slider {
-  left: 0;
-}
-
 /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
 .theme-2:checked ~ .toggle__slider {
   left: 3em;
