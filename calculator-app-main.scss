@@ -27,6 +27,7 @@
 }
 
 
+//complexity 1
 html{
   box-sizing: border-box; 
 }
@@ -68,9 +69,6 @@ button{
    border:none;
    @include bg-color(lighten(map-get(clr.$theme1-colors,key-shadow3),5),nth(clr.$theme1-fallback-colors,9));
    box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow1);
-   &:hover{
-      @include bg-color(lighten(map-get(clr.$theme1-colors,White),5),nth(clr.$theme1-fallback-colors,11));
-   }
 }
 
 
@@ -117,9 +115,6 @@ button{
 }
 .reset,.del{
    @include bg-color(map-get(clr.$theme1-colors,key-background1),nth(clr.$theme1-fallback-colors,3));
-   &:hover{
-      background-color: clr.$hover-reset-del-theme-1-color;
-   }
 }
 .reset{
    box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow1);
@@ -127,9 +122,6 @@ button{
 .is{
    box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme1-colors,key-shadow2);
    @include bg-color(map-get(clr.$theme1-colors,key-background2),nth(clr.$theme1-fallback-colors,4));
-   &:hover{
-      background-color: clr.$hover-is-theme-1color;
-   }
 }
 .output-parent{
    @include bg-color(map-get(clr.$theme1-colors,toggle-keypad-background),nth(clr.$theme1-fallback-colors,2));
@@ -156,7 +148,6 @@ header{
    position:relative;
 }
         
- 
 .input-outer{
    max-width: 40em;
    max-height: 30em;
@@ -181,13 +172,39 @@ header{
    color:#ffffff;
 }
 
+.keypad,.keypad-rest{
+   @include bg-color(map-get(clr.$theme1-colors,toggle-keypad-background),nth(clr.$theme1-fallback-colors,2));
+}
 
 
 
+//complexity 2
+button.double-width{
+   width: 6.5em;
+   max-width: 17em;
+}
+button{
+    &:hover{
+      @include bg-color(lighten(map-get(clr.$theme1-colors,White),5),nth(clr.$theme1-fallback-colors,11));
+   }
+}
+.reset,.del{
+   &:hover{
+      background-color: clr.$hover-reset-del-theme-1-color;
+   }
+}
+.is{
+   &:hover{
+      background-color: clr.$hover-is-theme-1color;
+   }
+}
+
+
+//complextiy 3 
 .theme2 {
       @include bg-color(map-get(clr.$theme2-colors,main-background),nth(clr.$theme2-fallback-colors,1));
       @include font-color(map-get(clr.$theme2-colors,white),nth(clr.$theme2-fallback-colors,10));
-      .three-toggle-switch .toggle,.keypad,.keypad-rest{
+      .keypad,.keypad-rest{
          @include bg-color(map-get(clr.$theme2-colors,toggle-keypad-background),nth(clr.$theme2-fallback-colors,2));
       }
       .toggle__slider{
@@ -203,28 +220,19 @@ header{
       }
        button{
          box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow);
-          &:hover{
-            @include bg-color(lighten(map-get(clr.$theme2-colors,key-background3),9),nth(clr.$theme2-fallback-colors,8));
-         }
       }
       .double-width{
          box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow2);
       }
       .del,.reset{
          @include bg-color(map-get(clr.$theme2-colors,key-background1),nth(clr.$theme2-fallback-colors,3));
-         &:hover{
-            background-color: clr.$hover-reset-del-theme-2-color;
-         }
       }
       .reset{
          box-shadow: 0 0.25em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow1);
       }
       .is{
           @include bg-color(map-get(clr.$theme2-colors,key-background2),nth(clr.$theme2-fallback-colors,6));
-         box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow2);
-          &:hover{
-              background-color: clr.$hover-is-theme-2color;
-          }
+          box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme2-colors,key-shadow2);
       }
       .output-parent{
          @include bg-color(map-get(clr.$theme2-colors,toggle-keypad-background),nth(clr.$theme2-fallback-colors,2));
@@ -233,7 +241,7 @@ header{
 .theme3{
    @include bg-color(map-get(clr.$theme3-colors,main-background),nth(clr.$theme3-fallback-colors,1));
    @include font-color(map-get(clr.$theme3-colors,text1),nth(clr.$theme3-fallback-colors,9));
-   .three-toggle-switch .toggle,.keypad,.keypad-rest{
+   .keypad,.keypad-rest{
       @include bg-color(map-get(clr.$theme3-colors,toggle-screen-keypad-background),nth(clr.$theme3-fallback-colors,2));
    }
    .toggle__slider{
@@ -249,41 +257,22 @@ header{
    button{
       @include bg-color(map-get(clr.$theme3-colors,key-background3),nth(clr.$theme3-fallback-colors,3));
       box-shadow: 0 0.375em 0.125em -0.125em map-get(clr.$theme3-colors,key-shadow1);
-      &:hover{
-         @include bg-color(map-get(clr.$theme3-colors,key-shadow1),nth(clr.$theme3-fallback-colors,4));
-      }
    }
-   
    .del,.reset{
       @include bg-color(map-get(clr.$theme3-colors,key-shadow1),nth(clr.$theme3-fallback-colors,4));
-      &:hover{
-            background-color: clr.$hover-reset-del-theme-3-color;
-      }
    }
    .is{
       @include bg-color(map-get(clr.$theme3-colors,key-background2),nth(clr.$theme1-fallback-colors,4));
-      &:hover{
-         background-color: clr.$hover-is-theme-3color;
-      }
    }
    .output-parent{
       @include bg-color(map-get(clr.$theme3-colors,toggle-screen-keypad-background),nth(clr.$theme3-fallback-colors,2));
    }
 }
 
-
-button.double-width{
-   width: 6.5em;
-   max-width: 17em;
-}
-
 input[type="radio"]{
    width: 2.5em;
    height: 2.5em;
    opacity: 0 ;
-   &:focus ~ .toggle__slider {
-      cursor:pointer;
-   }
 }
 
 .three-toggle-switch .toggle{
@@ -292,11 +281,48 @@ input[type="radio"]{
    height:4em;
    border-radius: 2.1875em;
 }
-.three-toggle-switch .toggle,.keypad,.keypad-rest{
+.three-toggle-switch .toggle{
    @include bg-color(map-get(clr.$theme1-colors,toggle-keypad-background),nth(clr.$theme1-fallback-colors,2));
 }
 
- /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
+
+
+//complexity 4
+.theme2{
+   button{
+       &:hover{
+         @include bg-color(lighten(map-get(clr.$theme2-colors,key-background3),9),nth(clr.$theme2-fallback-colors,8));
+       }
+   }
+   .del,.reset{
+         &:hover{
+            background-color: clr.$hover-reset-del-theme-2-color;
+         }
+   }
+   .is{
+         &:hover{
+            background-color: clr.$hover-is-theme-2color;
+         }
+      }
+}
+.theme3{
+     button{
+         &:hover{
+            @include bg-color(map-get(clr.$theme3-colors,key-shadow1),nth(clr.$theme3-fallback-colors,4));
+         }
+     }
+   .del,.reset{
+      &:hover{
+            background-color: clr.$hover-reset-del-theme-3-color;
+      }
+   }
+   .is{
+      &:hover{
+         background-color: clr.$hover-is-theme-3color;
+      }
+   }
+}
+/*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
    input:checked ~ .toggle__slider {
       left: 0;
    }
@@ -309,6 +335,19 @@ input[type="radio"]{
          left:6em;
    }
 
+
+//complexity 5  
+.theme2{
+   .three-toggle-switch .toggle{
+       @include bg-color(map-get(clr.$theme2-colors,toggle-keypad-background),nth(clr.$theme2-fallback-colors,2));
+   }
+}
+.theme3{
+   .three-toggle-switch .toggle{
+       @include bg-color(map-get(clr.$theme3-colors,toggle-screen-keypad-background),nth(clr.$theme3-fallback-colors,2));
+   }
+}
+
    //taken from https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0); 
@@ -318,4 +357,11 @@ input[type="radio"]{
   position: absolute;
   white-space: nowrap; 
   width: 0.0625em;
+}
+
+//complexity 6
+input[type="radio"]{
+   &:focus ~ .toggle__slider {
+      cursor:pointer;
+   }
 }

@@ -128,10 +128,6 @@ button {
   background-color: #bfb2a6;
   box-shadow: 0 0.375em 0.125em -0.125em hsl(224deg, 28%, 35%);
 }
-button:hover {
-  background-color: Snow;
-  background-color: white;
-}
 
 .gray-border {
   border: 0.125em solid gray;
@@ -187,9 +183,6 @@ button:hover {
   background-color: Navy;
   background-color: hsl(225deg, 23%, 56%);
 }
-.reset:hover, .del:hover {
-  background-color: #758fa9;
-}
 
 .reset {
   box-shadow: 0 0.25em 0.125em -0.125em hsl(224deg, 28%, 35%);
@@ -199,9 +192,6 @@ button:hover {
   box-shadow: 0 0.375em 0.125em -0.125em hsl(6deg, 70%, 34%);
   background-color: SteelBlue;
   background-color: hsl(6deg, 63%, 50%);
-}
-.is:hover {
-  background-color: #d0672f;
 }
 
 .output-parent {
@@ -258,12 +248,35 @@ header {
   color: #ffffff;
 }
 
+.keypad, .keypad-rest {
+  background-color: DarkBlue;
+  background-color: hsl(223deg, 31%, 20%);
+}
+
+button.double-width {
+  width: 6.5em;
+  max-width: 17em;
+}
+
+button:hover {
+  background-color: Snow;
+  background-color: white;
+}
+
+.reset:hover, .del:hover {
+  background-color: #758fa9;
+}
+
+.is:hover {
+  background-color: #d0672f;
+}
+
 .theme2 {
   background-color: GainsBoro;
   background-color: hsl(0deg, 0%, 90%);
   color: Black;
 }
-.theme2 .three-toggle-switch .toggle, .theme2 .keypad, .theme2 .keypad-rest {
+.theme2 .keypad, .theme2 .keypad-rest {
   background-color: Silver;
   background-color: hsl(0deg, 5%, 81%);
 }
@@ -283,19 +296,12 @@ header {
 .theme2 button {
   box-shadow: 0 0.375em 0.125em -0.125em;
 }
-.theme2 button:hover {
-  background-color: LightGray;
-  background-color: #fafafa;
-}
 .theme2 .double-width {
   box-shadow: 0 0.25em 0.125em -0.125em hsl(25deg, 99%, 27%);
 }
 .theme2 .del, .theme2 .reset {
   background-color: Snow;
   background-color: hsl(185deg, 42%, 37%);
-}
-.theme2 .del:hover, .theme2 .reset:hover {
-  background-color: #378679;
 }
 .theme2 .reset {
   box-shadow: 0 0.25em 0.125em -0.125em hsl(185deg, 58%, 25%);
@@ -304,9 +310,6 @@ header {
   background-color: Brown;
   background-color: hsl(25deg, 98%, 40%);
   box-shadow: 0 0.375em 0.125em -0.125em hsl(25deg, 99%, 27%);
-}
-.theme2 .is:hover {
-  background-color: #d0672f;
 }
 .theme2 .output-parent {
   background-color: Silver;
@@ -319,7 +322,7 @@ header {
   color: Gold;
   color: hsl(52deg, 100%, 62%);
 }
-.theme3 .three-toggle-switch .toggle, .theme3 .keypad, .theme3 .keypad-rest {
+.theme3 .keypad, .theme3 .keypad-rest {
   background-color: Rebeccapurple;
   background-color: hsl(268deg, 71%, 12%);
 }
@@ -341,41 +344,23 @@ header {
   background-color: hsl(268deg, 47%, 21%);
   box-shadow: 0 0.375em 0.125em -0.125em hsl(285deg, 91%, 52%);
 }
-.theme3 button:hover {
-  background-color: BlueViolet;
-  background-color: hsl(285deg, 91%, 52%);
-}
 .theme3 .del, .theme3 .reset {
   background-color: BlueViolet;
   background-color: hsl(285deg, 91%, 52%);
 }
-.theme3 .del:hover, .theme3 .reset:hover {
-  background-color: #8515f4;
-}
 .theme3 .is {
   background-color: SteelBlue;
   background-color: hsl(176deg, 100%, 44%);
-}
-.theme3 .is:hover {
-  background-color: #00b7e0;
 }
 .theme3 .output-parent {
   background-color: Rebeccapurple;
   background-color: hsl(268deg, 71%, 12%);
 }
 
-button.double-width {
-  width: 6.5em;
-  max-width: 17em;
-}
-
 input[type=radio] {
   width: 2.5em;
   height: 2.5em;
   opacity: 0;
-}
-input[type=radio]:focus ~ .toggle__slider {
-  cursor: pointer;
 }
 
 .three-toggle-switch .toggle {
@@ -387,9 +372,31 @@ input[type=radio]:focus ~ .toggle__slider {
   border-radius: 2.1875em;
 }
 
-.three-toggle-switch .toggle, .keypad, .keypad-rest {
+.three-toggle-switch .toggle {
   background-color: DarkBlue;
   background-color: hsl(223deg, 31%, 20%);
+}
+
+.theme2 button:hover {
+  background-color: LightGray;
+  background-color: #fafafa;
+}
+.theme2 .del:hover, .theme2 .reset:hover {
+  background-color: #378679;
+}
+.theme2 .is:hover {
+  background-color: #d0672f;
+}
+
+.theme3 button:hover {
+  background-color: BlueViolet;
+  background-color: hsl(285deg, 91%, 52%);
+}
+.theme3 .del:hover, .theme3 .reset:hover {
+  background-color: #8515f4;
+}
+.theme3 .is:hover {
+  background-color: #00b7e0;
 }
 
 /*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
@@ -407,6 +414,16 @@ input:checked ~ .toggle__slider {
   left: 6em;
 }
 
+.theme2 .three-toggle-switch .toggle {
+  background-color: Silver;
+  background-color: hsl(0deg, 5%, 81%);
+}
+
+.theme3 .three-toggle-switch .toggle {
+  background-color: Rebeccapurple;
+  background-color: hsl(268deg, 71%, 12%);
+}
+
 .visually-hidden:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -416,5 +433,9 @@ input:checked ~ .toggle__slider {
   position: absolute;
   white-space: nowrap;
   width: 0.0625em;
+}
+
+input[type=radio]:focus ~ .toggle__slider {
+  cursor: pointer;
 }
 /*# sourceMappingURL=calculator-app-main.css.map */
