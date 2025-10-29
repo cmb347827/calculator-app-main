@@ -107,6 +107,10 @@ fieldset {
   min-inline-size: 1em;
 }
 
+header {
+  padding: 0 1.5em;
+}
+
 legend {
   display: contents;
 }
@@ -217,10 +221,6 @@ button {
   font-size: 3em;
 }
 
-header {
-  padding: 0 1.5em;
-}
-
 .toggle__wrapper {
   position: relative;
 }
@@ -272,100 +272,12 @@ button:hover {
   background-color: white;
 }
 
-.theme2 button {
-  box-shadow: 0 0.375em 0.125em -0.125em;
-}
-
-.theme3 button {
-  background-color: Indigo;
-  background-color: hsl(268deg, 47%, 21%);
-  box-shadow: 0 0.375em 0.125em -0.125em hsl(285deg, 91%, 52%);
-}
-
 .reset:hover, .del:hover {
   background-color: #758fa9;
 }
 
 .is:hover {
   background-color: #d0672f;
-}
-
-.theme2 {
-  background-color: GainsBoro;
-  background-color: hsl(0deg, 0%, 90%);
-  color: Black;
-}
-.theme2 .keypad, .theme2 .keypad-rest {
-  background-color: Silver;
-  background-color: hsl(0deg, 5%, 81%);
-}
-.theme2 .toggle__slider {
-  background-color: Brown;
-  background-color: hsl(25deg, 98%, 40%);
-}
-.theme2 .keypad, .theme2 .keypad-rest {
-  background-color: LightGray;
-  background-color: hsl(45deg, 7%, 89%);
-  color: Black;
-  color: hsl(60deg, 10%, 19%);
-}
-.theme2 .keypad {
-  box-shadow: 0 0.375em 0.25em -0.125em hsl(35deg, 11%, 61%);
-}
-.theme2 .double-width {
-  box-shadow: 0 0.25em 0.125em -0.125em hsl(25deg, 99%, 27%);
-}
-.theme2 .del, .theme2 .reset {
-  background-color: Snow;
-  background-color: hsl(185deg, 42%, 37%);
-}
-.theme2 .reset {
-  box-shadow: 0 0.25em 0.125em -0.125em hsl(185deg, 58%, 25%);
-}
-.theme2 .is {
-  background-color: Brown;
-  background-color: hsl(25deg, 98%, 40%);
-  box-shadow: 0 0.375em 0.125em -0.125em hsl(25deg, 99%, 27%);
-}
-.theme2 .output-parent {
-  background-color: Silver;
-  background-color: hsl(0deg, 5%, 81%);
-}
-
-.theme3 {
-  background-color: MidnightBlue;
-  background-color: hsl(268deg, 75%, 9%);
-  color: Gold;
-  color: hsl(52deg, 100%, 62%);
-}
-.theme3 .keypad, .theme3 .keypad-rest {
-  background-color: Rebeccapurple;
-  background-color: hsl(268deg, 71%, 12%);
-}
-.theme3 .toggle__slider {
-  background-color: Turquoise;
-  background-color: hsl(176deg, 100%, 44%);
-}
-.theme3 .keypad, .theme3 .keypad-rest {
-  background-color: MidnightBlue;
-  background-color: hsl(268deg, 75%, 9%);
-  color: Gold;
-  color: hsl(52deg, 100%, 62%);
-}
-.theme3 .keypad {
-  box-shadow: 0 0.25em 0.125em -0.125em hsl(290deg, 70%, 36%);
-}
-.theme3 .del, .theme3 .reset {
-  background-color: BlueViolet;
-  background-color: hsl(285deg, 91%, 52%);
-}
-.theme3 .is {
-  background-color: SteelBlue;
-  background-color: hsl(176deg, 100%, 44%);
-}
-.theme3 .output-parent {
-  background-color: Rebeccapurple;
-  background-color: hsl(268deg, 71%, 12%);
 }
 
 .three-toggle-switch .toggle {
@@ -382,52 +294,126 @@ button:hover {
   background-color: hsl(223deg, 31%, 20%);
 }
 
-input:checked ~ .toggle__slider {
-  left: 0;
+.theme2 {
+  background-color: GainsBoro;
+  background-color: hsl(0deg, 0%, 90%);
+  color: Black;
+  /*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
 }
-
-.theme3 button:hover {
-  background-color: BlueViolet;
-  background-color: hsl(285deg, 91%, 52%);
+.theme2 .toggle__slider {
+  background-color: Brown;
+  background-color: hsl(25deg, 98%, 40%);
 }
-
+.theme2 .keypad, .theme2 .keypad-rest {
+  background-color: Silver;
+  background-color: hsl(0deg, 5%, 81%);
+  background-color: LightGray;
+  background-color: hsl(45deg, 7%, 89%);
+  color: Black;
+  color: hsl(60deg, 10%, 19%);
+}
+.theme2 .keypad {
+  box-shadow: 0 0.375em 0.25em -0.125em hsl(35deg, 11%, 61%);
+}
+.theme2 .double-width {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(25deg, 99%, 27%);
+}
+.theme2 .reset {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(185deg, 58%, 25%);
+}
+.theme2 .output-parent {
+  background-color: Silver;
+  background-color: hsl(0deg, 5%, 81%);
+}
+.theme2 button {
+  box-shadow: 0 0.375em 0.125em -0.125em;
+}
 .theme2 button:hover {
   background-color: LightGray;
   background-color: #fafafa;
 }
+.theme2 .del, .theme2 .reset {
+  background-color: Snow;
+  background-color: hsl(185deg, 42%, 37%);
+}
 .theme2 .del:hover, .theme2 .reset:hover {
   background-color: #378679;
+}
+.theme2 .is {
+  background-color: Brown;
+  background-color: hsl(25deg, 98%, 40%);
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(25deg, 99%, 27%);
 }
 .theme2 .is:hover {
   background-color: #d0672f;
 }
-
-.theme3 .del:hover, .theme3 .reset:hover {
-  background-color: #8515f4;
-}
-.theme3 .is:hover {
-  background-color: #00b7e0;
-}
-
-/*User toggles the toggle button , check if theme1 is selected..., if it is , toggle button should be left aligned with left:0*/
-/*User toggles the toggle button (check if theme2 is selected, if it is, toggle button should be left aligned with left:3em*/
-.theme-2:checked ~ .toggle__slider {
-  left: 3em;
-}
-
-/*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
-.theme-3:checked ~ .toggle__slider {
-  left: 6em;
-}
-
 .theme2 .three-toggle-switch .toggle {
   background-color: Silver;
   background-color: hsl(0deg, 5%, 81%);
 }
+.theme2 :checked ~ .toggle__slider {
+  left: 3em;
+}
 
+.theme3 {
+  background-color: MidnightBlue;
+  background-color: hsl(268deg, 75%, 9%);
+  color: Gold;
+  color: hsl(52deg, 100%, 62%);
+  /*User toggles the toggle button (check if theme3 is selected, if it is, toggle button should be left aligned with left:6em*/
+}
+.theme3 .toggle__slider {
+  background-color: Turquoise;
+  background-color: hsl(176deg, 100%, 44%);
+}
+.theme3 .keypad, .theme3 .keypad-rest {
+  background-color: Rebeccapurple;
+  background-color: hsl(268deg, 71%, 12%);
+  background-color: MidnightBlue;
+  background-color: hsl(268deg, 75%, 9%);
+  color: Gold;
+  color: hsl(52deg, 100%, 62%);
+}
+.theme3 .keypad {
+  box-shadow: 0 0.25em 0.125em -0.125em hsl(290deg, 70%, 36%);
+}
+.theme3 .output-parent {
+  background-color: Rebeccapurple;
+  background-color: hsl(268deg, 71%, 12%);
+}
 .theme3 .three-toggle-switch .toggle {
   background-color: Rebeccapurple;
   background-color: hsl(268deg, 71%, 12%);
+}
+.theme3 button {
+  background-color: Indigo;
+  background-color: hsl(268deg, 47%, 21%);
+  box-shadow: 0 0.375em 0.125em -0.125em hsl(285deg, 91%, 52%);
+}
+.theme3 button:hover {
+  background-color: BlueViolet;
+  background-color: hsl(285deg, 91%, 52%);
+}
+.theme3 .del, .theme3 .reset {
+  background-color: BlueViolet;
+  background-color: hsl(285deg, 91%, 52%);
+}
+.theme3 .del:hover, .theme3 .reset:hover {
+  background-color: #8515f4;
+}
+.theme3 .is {
+  background-color: SteelBlue;
+  background-color: hsl(176deg, 100%, 44%);
+}
+.theme3 .is:hover {
+  background-color: #00b7e0;
+}
+.theme3 :checked ~ .toggle__slider {
+  left: 6em;
+}
+
+input:checked ~ .toggle__slider {
+  left: 0;
 }
 
 .visually-hidden:not(:focus):not(:active) {

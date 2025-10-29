@@ -60,6 +60,10 @@ Users should be able to:
   - I also finally figured out how to be able to run the newer Sass @use instead of the old deprecated @import. I tried to make this change before but couldn't figure it out then how to do it, and decided to leave it then, for the moment.
   I was getting errors, even though the code to use was easy to follow and for sure correct. I was still using the Ruby Sass compiler, not knowing this was the issue. This stackoverflow post made a difference (link 3). Now I've added the DartSass compiler to my VS and it works.
   - I would also often get a 'Render blocking resources' warning through lighthouse, so in my last project I had moved all the scss code into one file , as this seemed to make a difference with resource blocking(as I was using @import still at the time). Now I know why (link 4). @import increases compilation time and produces bloated output, so by cutting it out (moving all scss to one file) I had reduced this. But now off course is better by using @use and different files for neater , easier to maintain code.
+  - I validated the HTML file on 10/28/25 at 'https://validator.w3.org/nu/#file' and got 'Document checking completed. No errors or warnings to show.'
+    I validated the css file on 10/28/25 at 'https://jigsaw.w3.org/css-validator/validator' and got 'Congratulations! No Error Found This document validates as CSS level 3 + SVG !'.
+    Finally, I went to Lighthouse on 10/28/25 and got a project report , for desktop and mobile the results were:
+    100 in performance, accessiblity, best practices and seo.
 
 ### Continued development
 
